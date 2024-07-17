@@ -6,7 +6,7 @@ export default function ScrollToTop() {
 
   // Show button when page is scrolled up to given distance
   const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
+    if (window.pageYOffset > 200) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -24,7 +24,7 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      if (window.pageYOffset > 200) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -71,8 +71,8 @@ export default function ScrollToTop() {
           position: fixed;
           bottom: 20px;
           right: 20px;
-          width: 50px;
-          height: 50px;
+          width: 60px;
+          height: 60px;
           background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #1e3a8a 100%);
           color: #ffffff;
           border-radius: 50%;
@@ -101,8 +101,11 @@ export default function ScrollToTop() {
           .scroll-to-top {
             bottom: 15px;
             right: 15px;
-            width: 45px;
-            height: 45px;
+            width: 55px;
+            height: 55px;
+            /* Make it more visible on mobile */
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            border: 3px solid #1e3a8a;
           }
         }
       `}</style>
