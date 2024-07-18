@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 
+/**
+ * MobileTouchArea - Provides invisible touch area at top of screen for scroll-to-top functionality
+ * Only active on mobile devices (≤768px width)
+ */
 export default function MobileTouchArea() {
   const [isVisible, setIsVisible] = useState(false);
 
