@@ -19,3 +19,7 @@ My personal website built with Next.js and React.
 ## Development
 
 Built with modern web technologies for optimal performance and user experience.
+
+## Performance
+
+Optimized for fast loading and smooth user interactions across all devices.
