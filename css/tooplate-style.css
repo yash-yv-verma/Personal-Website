@@ -669,6 +669,7 @@ footer p {
 @media (max-width: 980px) {
   #home {
     height: 55vh;
+    background-attachment: scroll !important;
   }
 
   .service-thumb {
@@ -679,12 +680,38 @@ footer p {
   .contact-info {
     margin-top: 22px;
   }
+  
+  .home-thumb h1 {
+    font-size: 35px;
+  }
+  
+  .home-thumb p {
+    font-size: 18px;
+  }
 }
 
 
 @media (max-width: 768px) {
   #home {
     height: 85vh;
+    background-attachment: scroll !important;
+  }
+  
+  .parallax-section {
+    background-attachment: scroll !important;
+  }
+  
+  .home-thumb h1 {
+    font-size: 30px;
+  }
+  
+  .home-thumb p {
+    font-size: 16px;
+  }
+  
+  .section-btn {
+    padding: 15px 25px;
+    font-size: 11px;
   }
 }
 
@@ -701,10 +728,24 @@ footer p {
 
   #home {
     height: 95vh;
+    background-attachment: scroll !important;
   }
 
   .contact-info {
     margin-top: 42px;
+  }
+  
+  .home-thumb h1 {
+    font-size: 26px;
+  }
+  
+  .home-thumb p {
+    font-size: 14px;
+  }
+  
+  .section-btn {
+    padding: 12px 20px;
+    font-size: 10px;
   }
 }
 
@@ -712,6 +753,15 @@ footer p {
 @media (max-width: 320px) {
   #home {
     height: 125vh;
+    background-attachment: scroll !important;
+  }
+  
+  .home-thumb h1 {
+    font-size: 24px;
+  }
+  
+  .home-thumb p {
+    font-size: 13px;
   }
 }
 
@@ -782,4 +832,289 @@ footer p {
 		padding:40px;
 		padding-top:0;
 	}
+}
+
+/*---------------------------------------
+  Enhanced Visual Effects              
+-----------------------------------------*/
+
+/* Smooth hover effects for social icons */
+.social-icon li a {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icon li a:hover {
+  transform: translateY(-8px) scale(1.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* Enhanced button hover effects */
+.section-btn {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.section-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.section-btn:hover::before {
+  left: 100%;
+}
+
+/* Enhanced timeline animations */
+.timeline > li > .timeline-content {
+  transition: all 0.4s ease;
+}
+
+.timeline > li > .timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced preloader animation */
+.spinner-rotate {
+  animation: spin 1.5s linear infinite;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #303F9F;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Text typing animation for home section */
+.home-thumb h1 {
+  overflow: hidden;
+  border-right: 2px solid #ffffff;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #ffffff; }
+}
+
+/* Enhanced fade-in animations */
+.wow.fadeInUp {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+/* Responsive image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Enhanced focus states for accessibility */
+a:focus, button:focus {
+  outline: 2px solid #303F9F;
+  outline-offset: 2px;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #303F9F, #7682cc);
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
+
+/* Enhanced button click effects */
+.btn-clicked {
+  transform: scale(0.95) !important;
+  transition: transform 0.1s ease !important;
+}
+
+/* Enhanced timeline hover effects */
+.timeline-hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+}
+
+/* Enhanced social icon hover effects */
+.social-hover {
+  transform: translateY(-10px) scale(1.15) !important;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3) !important;
+}
+
+/* Mobile device specific styles */
+.mobile-device .parallax-section {
+  background-attachment: scroll !important;
+}
+
+.mobile-device .home-thumb h1 {
+  animation: none !important;
+  border-right: none !important;
+  white-space: normal !important;
+}
+
+/* Touch active states for mobile */
+.touch-active {
+  transform: scale(0.98) !important;
+  transition: transform 0.1s ease !important;
+}
+
+/* Enhanced focused states */
+.focused {
+  outline: 3px solid #303F9F !important;
+  outline-offset: 3px !important;
+  border-radius: 4px !important;
+}
+
+/* Print styles */
+@media print {
+  .preloader,
+  .scroll-progress,
+  .social-icon,
+  .section-btn {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  .parallax-section {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Enhanced loading animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wow.fadeInUp.animated {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Enhanced success states */
+.success {
+  background: #4CAF50 !important;
+  color: white !important;
+}
+
+/* Enhanced mobile menu styles (for future use) */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  height: 100vh;
+  background: rgba(43, 43, 43, 0.95);
+  backdrop-filter: blur(10px);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.mobile-menu.active {
+  left: 0;
+}
+
+/* Enhanced performance optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enhanced image loading */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Enhanced accessibility for screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Enhanced dark mode support (for future use) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  .bg-grey {
+    background: #2b2b2b !important;
+  }
+  
+  .about-text > p {
+    color: rgba(255,255,255,0.8);
+  }
+}
+
+/* Enhanced reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .home-thumb h1 {
+    animation: none !important;
+    border-right: none !important;
+  }
+  
+  .spinner-rotate {
+    animation: none !important;
+  }
 }
