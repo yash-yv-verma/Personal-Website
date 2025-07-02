@@ -7,7 +7,7 @@
     }
     
     #home .home-thumb {
-        text-align: center;
+        text-align: right;
         padding: 20px;
     }
     
@@ -32,10 +32,12 @@
     /* Fix info list on mobile */
     .info-list {
         margin-bottom: 30px;
+        padding: 0 10px !important;
     }
     
     .info-list > li {
         margin-bottom: 15px;
+        padding: 14px 0 !important;
     }
     
     /* Improve timeline layout on mobile */
@@ -52,6 +54,36 @@
     
     .social-icon li {
         margin: 0 10px;
+    }
+    
+    /* Fix about text spacing */
+    .about-text {
+        padding: 0 10px !important;
+        margin-bottom: 25px !important;
+    }
+    
+    .about-text > p {
+        margin-bottom: 15px !important;
+        padding: 0 !important;
+    }
+    
+    /* Fix button container */
+    .about-btns {
+        padding: 0 10px !important;
+        text-align: center !important;
+    }
+    
+    /* Fix section padding */
+    #service, #about, #work, #contact {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    
+    /* Fix timeline content */
+    .timeline > li > .timeline-content {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding: 20px 10px !important;
     }
 }
 
