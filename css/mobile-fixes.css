@@ -1,5 +1,22 @@
 /* Mobile-specific fixes for better responsiveness */
 
+/* Force disable parallax on all mobile devices */
+@media (max-width: 768px) {
+    #home {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+    }
+    
+    .parallax-section {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+    }
+}
+
 @media (max-width: 768px) {
     /* Fix home section layout on mobile */
     #home .col-md-offset-5 {
@@ -117,6 +134,42 @@
 /* Fix parallax issues on mobile */
 @media (max-width: 768px) {
     .parallax-section {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+    }
+    
+    #home {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        background: url('../images/homebg.jpeg') center center !important;
+        background-size: cover !important;
+    }
+}
+
+/* Additional fixes for iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    #home {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+    }
+    
+    .parallax-section {
+        background-attachment: scroll !important;
+        background-position: center center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+    }
+}
+
+/* Force disable all parallax effects on mobile */
+@media (max-width: 768px) {
+    * {
         background-attachment: scroll !important;
     }
 } 
