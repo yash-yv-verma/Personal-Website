@@ -1,5 +1,20 @@
 /* Mobile-specific fixes for better responsiveness */
 
+/* Prevent horizontal scrolling on all devices */
+html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Container fixes to prevent overflow */
+.container {
+    max-width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    overflow-x: hidden !important;
+}
+
 /* Force disable parallax on all mobile devices */
 @media (max-width: 768px) {
     #home {
@@ -101,6 +116,25 @@
         margin-left: 0 !important;
         margin-right: 0 !important;
         padding: 20px 10px !important;
+    }
+    
+    /* Prevent row and column overflow */
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        max-width: 100% !important;
+    }
+    
+    .col-md-4, .col-md-8, .col-sm-12, .col-xs-12 {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        max-width: 100% !important;
+    }
+    
+    /* Ensure all content stays within viewport */
+    * {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
 
