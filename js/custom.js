@@ -3,8 +3,14 @@
     "use strict";
 
         // PRE LOADER
-        $(window).load(function(){
+        $(window).on('load', function(){
           $('.preloader').fadeOut(1000); // set duration in brackets    
+        });
+        // Fallback: hide preloader after 2 seconds if still visible
+        $(function() {
+          setTimeout(function() {
+            $('.preloader').fadeOut(1000);
+          }, 2000);
         });
 
 
