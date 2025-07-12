@@ -6,16 +6,12 @@
         overflow-x: hidden !important;
         width: 100% !important;
         max-width: 100% !important;
+        /* Removed safe-area-inset padding for seamless background */
+        background: #ffffff !important;
         margin: 0 !important;
         padding: 0 !important;
         border: 0 !important;
         min-height: 100vh !important;
-    }
-    body {
-        background: url('../images/homebg.jpeg') center center / cover no-repeat !important;
-    }
-    #home {
-        background: none !important;
     }
 
     /* Container fixes to prevent overflow */
