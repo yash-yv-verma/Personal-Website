@@ -6,11 +6,8 @@
         overflow-x: hidden !important;
         width: 100% !important;
         max-width: 100% !important;
-        /* Add support for iOS safe area insets */
-        padding-top: env(safe-area-inset-top);
-        padding-left: env(safe-area-inset-left);
-        padding-right: env(safe-area-inset-right);
-        background: #101217 !important;
+        /* Removed safe-area-inset padding for seamless background */
+        background: #ffffff !important;
     }
 
     /* Container fixes to prevent overflow */
