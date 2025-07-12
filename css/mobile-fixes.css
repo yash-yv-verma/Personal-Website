@@ -14,22 +14,6 @@
         min-height: 100vh !important;
     }
 
-    html {
-        position: relative;
-    }
-    html::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: env(safe-area-inset-top);
-        background: #111;
-        z-index: 9999;
-        pointer-events: none;
-        display: block;
-    }
-
     /* Container fixes to prevent overflow */
     .container {
         max-width: 100% !important;

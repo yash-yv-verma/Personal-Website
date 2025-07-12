@@ -26,7 +26,7 @@
 		
 		
 		//Place your Email Here
-		$recipient = "mayigrin@mit.edu";
+		$recipient = "yash@yash-verma.com";
 		
 		$mailheader = "From: $email \r\n";
 		
