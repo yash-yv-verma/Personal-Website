@@ -8,6 +8,10 @@
         max-width: 100% !important;
         /* Removed safe-area-inset padding for seamless background */
         background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        min-height: 100vh !important;
     }
 
     /* Container fixes to prevent overflow */
