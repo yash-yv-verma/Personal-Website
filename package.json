@@ -22,8 +22,11 @@
   },
   "homepage": "https://github.com/yash-yv-verma/Personal-Website#readme",
   "dependencies": {
+    "framer-motion": "^12.23.6",
     "next": "^15.4.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-scroll": "^1.9.3",
+    "react-scroll-parallax": "^3.4.5"
   }
 }
