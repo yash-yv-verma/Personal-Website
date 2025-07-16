@@ -43,8 +43,6 @@ export default function Aadra() {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Aadra</title>
-        <link rel="stylesheet" href="/css/tooplate-style.css" />
-        <link rel="stylesheet" href="/css/mobile-fixes.css" />
         <style>{`
           .blog-container {
             max-width: 700px;
