@@ -7,7 +7,7 @@ const sectionStyles = [
   { background: '#fff' }, // Service
   { background: '#f0f6ff' }, // About
   { background: '#fff' }, // Work
-  { background: '#fff' }, // Research - Fixed blue background
+  { background: '#f0f6ff' }, // Research
   { background: '#fff' }, // Projects
   { background: '#f0f6ff' }, // Extracurricular
   { background: '#fff' }, // Contact
@@ -16,8 +16,13 @@ const sectionPadding = { padding: '60px 0' };
 const footerStyle = {
   background: '#222',
   color: '#fff',
-  padding: '40px 0 20px 0',
-  marginTop: 0,
+  padding: '160px 0 120px 0 !important',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  textAlign: 'center',
+  width: '100%',
 };
 
 export default function Home() {
@@ -32,16 +37,16 @@ export default function Home() {
     window.location.href = mailtoLink;
   }
 
-  // Animation variants for fade-in-up
+  // Animation variant for slide-up effect
   const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 100 },
     visible: (i = 0) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.2,
-        duration: 0.7,
-        ease: 'easeOut',
+        delay: i * 0.22,
+        duration: 1.4,
+        ease: [0.23, 1, 0.32, 1],
       },
     }),
   };
@@ -53,30 +58,228 @@ export default function Home() {
         <meta httpEquiv="X-UA-Compatible" content="IE=Edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
         <meta name="google-site-verification" content="fWH8xmeEzrfW56pmObDDENPOhvNHzvVaJUzJxGHtKW8" />
-        <meta name="description" content="Yash Verma is a student in UTSA's class of 2026, pursuing double majors in Computer Science and Mathematics of Data & Computing. He has experience in AI software development and software engineering, and enjoys singing, painting, and exploring Boston in her free time. He is currently looking for summer internships and other part-time opportunities." />
-        <meta name="keywords" content="Yash Verma, UTSA, University of Texas at San Antonio, MIT, Massachusetts Institute of Technology, student, computer science, math, mathematics, programming, software engineering" />
-        <meta name="resource-type" content="document" />
-        <meta name="revisit-after" content="5 days" />
-        <meta name="classification" content="Personal" />
-        <meta name="robots" content="ALL" />
-        <meta name="distribution" content="Global" />
-        <meta name="rating" content="Safe For Kids" />
-        <meta name="copyright" content="2025, Yash Verma" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="en" />
         <meta name="author" content="Yash Verma" />
-        <title>Yash Verma's Personal Website</title>
+        <meta name="copyright" content="2025, Yash Verma" />
+        <meta name="description" content="Yash Verma | Computer Science & Mathematics student at UTSA. AI, software engineering, and quantum computing enthusiast. Explore my projects, research, and experience." />
+        <meta name="keywords" content="Yash Verma, UTSA, Computer Science, Mathematics, AI, Software Engineering, Quantum Computing, Research, Resume, Portfolio" />
+        <link rel="canonical" href="https://yash-verma.com/" />
+        <title>Yash Verma | Computer Science & Mathematics | AI, Software Engineering, Quantum Computing</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.svg" />
-        {/* CSS links */}
-        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/css/linea.css" />
-        <link rel="stylesheet" href="/css/ionicons.min.css" />
-        <link rel="stylesheet" href="/css/owl.carousel.css" />
-        <link rel="stylesheet" href="/css/animate.css" />
-        <link rel="stylesheet" href="/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="/css/magnific-popup.css" />
-        <link rel="stylesheet" href="/css/tooplate-style.css" />
-        <link rel="stylesheet" href="/css/mobile-fixes.css" />
+        {/* Open Graph Meta Tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Yash Verma | Computer Science & Mathematics | AI, Software Engineering, Quantum Computing" />
+        <meta property="og:description" content="Yash Verma | Computer Science & Mathematics student at UTSA. AI, software engineering, and quantum computing enthusiast. Explore my projects, research, and experience." />
+        <meta property="og:url" content="https://yash-verma.com/" />
+        <meta property="og:image" content="https://yash-verma.com/images/acm.jpg" />
+        <meta property="og:site_name" content="Yash Verma" />
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Yash Verma | Computer Science & Mathematics | AI, Software Engineering, Quantum Computing" />
+        <meta name="twitter:description" content="Yash Verma | Computer Science & Mathematics student at UTSA. AI, software engineering, and quantum computing enthusiast. Explore my projects, research, and experience." />
+        <meta name="twitter:image" content="https://yash-verma.com/images/acm.jpg" />
+        <meta name="twitter:site" content="@yashyvverma" />
+        {/* JSON-LD Person Schema for Google Knowledge Panel */}
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Yash Verma",
+            "url": "https://yash-verma.com/",
+            "image": "https://yash-verma.com/images/acm.jpg",
+            "jobTitle": "Student, Developer, Researcher",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "The University of Texas at San Antonio"
+            },
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "The University of Texas at San Antonio"
+            },
+            "sameAs": [
+              "https://github.com/yash-yv-verma",
+              "https://www.linkedin.com/in/-yv/"
+            ]
+          }
+        `}</script>
+        <style>{`
+          @import url('https://fonts.googleapis.com/css?family=Poppins:600,700&display=swap');
+          .home-thumb { 
+            margin-top: 0; 
+            margin-left: 80px; 
+            white-space: nowrap; 
+          }
+          #home .container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 5%;
+          }
+          #home .row {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+          }
+          #home .col-md-offset-5.col-md-7.col-sm-12.col-xs-12 {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            width: auto;
+            max-width: 500px;
+          }
+          #contact { background: #fff !important; }
+          #contact .form-control {
+            border: 1px solid #ccc !important;
+            border-radius: 2px !important;
+            box-shadow: none !important;
+            background: #fff !important;
+            height: 38px !important;
+            font-size: 15px !important;
+            padding: 6px 10px !important;
+          }
+          #contact textarea.form-control {
+            min-height: 80px !important;
+            height: auto !important;
+            resize: vertical;
+          }
+          #contact .form-control:focus {
+            border-color: #888 !important;
+            outline: none !important;
+          }
+          footer {
+            padding: 180px 0 60px 0 !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+          }
+          footer .social-icon {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+          }
+          footer .social-icon li {
+            display: inline-block;
+            margin: 0 8px;
+            float: none;
+          }
+          .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 18px 14px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+          }
+          .service-thumb {
+            background: #23272f;
+            border-radius: 4px;
+            padding: 48px 32px;
+            min-height: 470px;
+            box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08), 0 1.5px 6px 0 rgba(0,0,0,0.04);
+            border: 1.5px solid #23272f;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            height: 100%;
+            transition: box-shadow 0.2s, border-radius 0.2s;
+          }
+          .service-thumb i {
+            color: #fff !important;
+            font-size: 84px !important;
+            margin-top: 8px !important;
+            margin-bottom: 22px !important;
+            transition: color 0.2s, font-size 0.2s, margin 0.2s;
+          }
+          .service-thumb h3 {
+            color: #fff !important;
+            margin-top: 18px;
+            margin-bottom: 16px;
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'Poppins', 'Roboto Mono', sans-serif !important;
+            letter-spacing: 0.5px;
+            text-transform: none;
+            transition: color 0.2s, font-size 0.2s;
+          }
+          .service-thumb p {
+            color: #8e99a7 !important;
+            font-size: 1.32rem;
+            font-weight: 500;
+            margin-bottom: 0.9rem;
+          }
+          .service-thumb:hover i,
+          .service-thumb:hover h3 {
+            color: #23272f !important;
+          }
+          .skill-container {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+          }
+          .skill {
+            background: #f0f6ff;
+            color: #303F9F;
+            border: 1px solid #dbeafe;
+            border-radius: 2em;
+            font-size: 0.95em;
+            padding: 2px 12px;
+            margin: 0;
+            font-weight: 600;
+            transition: background 0.2s, color 0.2s;
+          }
+          .skill:hover {
+            background: #303F9F;
+            color: #fff;
+            border-color: #303F9F;
+          }
+          @media (max-width: 600px) {
+            .projects-grid {
+              grid-template-columns: 1fr;
+              gap: 10px 0;
+            }
+            .service-thumb {
+              min-height: 300px;
+              padding: 28px 10px;
+            }
+            .service-thumb i {
+              font-size: 56px !important;
+            }
+            .service-thumb h3 {
+              font-size: 1.25rem;
+            }
+            .service-thumb p {
+              font-size: 1rem;
+            }
+          }
+          .fullwidth-section {
+            width: 100vw;
+            max-width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+            box-sizing: border-box;
+          }
+          .timeline-edu-desc {
+            font-size: 14px;
+            color: rgba(0,0,0,.6);
+            line-height: 1.6em;
+            font-family: inherit;
+          }
+        `}</style>
       </Head>
       {/* HOME SECTION */}
       <Parallax y={[-20, 20]} tagouter="section" id="home" className="parallax-section">
@@ -152,9 +355,9 @@ export default function Home() {
       <Parallax y={[-10, 10]} tagouter="section" id="about" className="parallax-section">
         <motion.div className="container" style={{ ...sectionStyles[1], ...sectionPadding }} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
           <div className="row">
-            <motion.div className="section-title" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
+            <div className="section-title">
               <h2>My Education</h2>
-            </motion.div>
+            </div>
             <ul className="timeline">
               <li>
                 <motion.div className="timeline-content" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.3}>
@@ -164,9 +367,9 @@ export default function Home() {
                     <span> | </span>
                     <span>2022-Present</span>
                   </em>
-                  <p><b>Major:</b> Computer Science and Mathematics of Data & Computing</p>
-                  <p><b>Relevant coursework:</b> Enterprise Software Engineering, Web Technologies Software Engineering, User Interface, Data Science, Algebra and Number Systems, Analysis of Algorithms, Application Programming, Systems Programming, Database Systems, Computer Organization, Web Technologies, Discrete Mathematical Structures, Data Structures, Mathematical Foundations of Computer Science, Linear Algebra</p>
-                  <p><b>Awards:</b> Dean's List (Spring 2024); Honor Roll (Fall 2022, Spring 2023, Fall 2023)</p>
+                  <p className="timeline-edu-desc"><b>Major:</b> Computer Science and Mathematics of Data & Computing</p>
+                  <p className="timeline-edu-desc"><b>Relevant coursework:</b> Enterprise Software Engineering, Web Technologies Software Engineering, User Interface, Data Science, Algebra and Number Systems, Analysis of Algorithms, Application Programming, Systems Programming, Database Systems, Computer Organization, Web Technologies, Discrete Mathematical Structures, Data Structures, Mathematical Foundations of Computer Science, Linear Algebra</p>
+                  <p className="timeline-edu-desc"><b>Awards:</b> Dean's List (Spring 2024); Honor Roll (Fall 2022, Spring 2023, Fall 2023)</p>
                 </motion.div>
               </li>
               <li>
@@ -177,8 +380,8 @@ export default function Home() {
                     <span> | </span>
                     <span>2018-2022</span>
                   </em>
-                  <p><b>Extra Curricular:</b> Varsity Wrestling, Code2College, Science Olympiad, UIL Computer Science</p>
-                  <p><b>Awards:</b> High Honors</p>
+                  <p className="timeline-edu-desc"><b>Extra Curricular:</b> Varsity Wrestling, Code2College, Science Olympiad, UIL Computer Science</p>
+                  <p className="timeline-edu-desc"><b>Awards:</b> High Honors</p>
                 </motion.div>
               </li>
             </ul>
@@ -189,9 +392,9 @@ export default function Home() {
       <Parallax y={[-10, 10]} tagouter="section" id="work" className="parallax-section">
         <motion.div className="container" style={{ ...sectionStyles[2], ...sectionPadding }} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
           <div className="row">
-            <motion.div className="section-title" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
+            <div className="section-title">
               <h2>My Experience</h2>
-            </motion.div>
+            </div>
             <ul className="timeline">
               <li>
                 <motion.div className="timeline-content" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.3}>
@@ -250,11 +453,12 @@ export default function Home() {
       </Parallax>
       {/* RESEARCH SECTION */}
       <Parallax y={[-10, 10]} tagouter="section" id="research" className="parallax-section">
-        <motion.div className="container" style={{ ...sectionStyles[3], ...sectionPadding }} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
+        <div className="fullwidth-section" style={{ ...sectionStyles[3], ...sectionPadding, padding: 0 }}>
+          <motion.div className="container" style={{ padding: '60px 0' }} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
           <div className="row">
-            <motion.div className="section-title" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
+              <div className="section-title">
               <h2>Research Experience</h2>
-            </motion.div>
+              </div>
             <ul className="timeline">
               <li>
                 <motion.div className="timeline-content" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.3}>
@@ -293,106 +497,144 @@ export default function Home() {
             </ul>
           </div>
         </motion.div>
+        </div>
       </Parallax>
       {/* PROJECTS SECTION */}
       <Parallax y={[-10, 10]} tagouter="section" id="projects" className="parallax-section">
         <motion.div className="container" style={{ ...sectionStyles[4], ...sectionPadding }} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
-          <div className="row">
-            <motion.div className="section-title" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
+          <div className="section-title">
               <h2>Projects</h2>
               <p>Click on any project to learn more</p>
-            </motion.div>
-            <div className="col-md-4 col-sm-6">
+          </div>
+          <div className="projects-grid">
               <a target="_blank" href="https://github.com/yash-yv-verma/Math.AI/">
-                <div className="service-thumb">
-                  <i className="fa fa-superscript" style={{ fontSize: 45, paddingLeft: 15 }}></i>
-                  <h4 className="white-color">Math.AI</h4>
+              <motion.div
+                className="service-thumb"
+                key="Math.AI"
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                custom={0}
+              >
+                <i className="fa fa-superscript"></i>
+                <h3>Math.AI</h3>
                   <p>Orchestrated the system design of a seamless and scalable AI chatbot web app exploiting AWS EC2 Auto Scaling, API Gateway, and DynamoDB, ensuring uptime and responsiveness by 100%.</p>
                   <div className="skill-container">
                     <button className="skill"><h6>NextJS</h6></button>
                     <button className="skill"><h6>AWS</h6></button>
                   </div>
-                </div>
+              </motion.div>
               </a>
-            </div>
-            <div className="col-md-4 col-sm-6">
               <a target="_blank" href="https://github.com/yash-yv-verma/W2V4K">
-                <div className="service-thumb">
-                  <i className="fa fa-cogs" style={{ fontSize: 45, paddingLeft: 15 }}></i>
-                  <h4 className="white-color">Word2Vec4Kids</h4>
+              <motion.div
+                className="service-thumb"
+                key="Word2Vec4Kids"
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                custom={1}
+              >
+                <i className="fa fa-cogs"></i>
+                <h3>Word2Vec4Kids</h3>
                   <p>Created the "Word2Vec4Kids" macOS application to demystify Artificial Intelligence and Machine Learning concepts to students at Basis School-San Antonio (Local Middle School).</p>
                   <div className="skill-container">
                     <button className="skill"><h6>Swift</h6></button>
                     <button className="skill"><h6>Python</h6></button>
                     <button className="skill"><h6>SQLite</h6></button>
                   </div>
-                </div>
+              </motion.div>
               </a>
-            </div>
-            <div className="col-md-4 col-sm-6">
               <a target="_blank" href="https://github.com/markusm02/SWE.github.io">
-                <div className="service-thumb">
-                  <i className="fa fa-shopping-cart" style={{ fontSize: 45, paddingLeft: 15 }}></i>
-                  <h4 className="white-color">Clothing E-commerce</h4>
+              <motion.div
+                className="service-thumb"
+                key="Clothing E-commerce"
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                custom={2}
+              >
+                <i className="fa fa-shopping-cart"></i>
+                <h3>Clothing E-commerce</h3>
                   <p>Managed a scalable React front-end hosted on an AWS EC2 instance, providing a dynamic user experience for a clothing e-commerce platform, utilizing strong problem-solving and adaptability to ensure scalability.</p>
                   <div className="skill-container">
                     <button className="skill"><h6>React</h6></button>
                     <button className="skill"><h6>AWS</h6></button>
                   </div>
-                </div>
+              </motion.div>
               </a>
-            </div>
-            <div className="col-md-4 col-sm-6">
               <a target="_blank" href="https://github.com/anjusoman/utsaairlines.git">
-                <div className="service-thumb">
-                  <i className="fa fa-database" style={{ fontSize: 45, paddingLeft: 15 }}></i>
-                  <h4 className="white-color">Southwest Airlines Database Replica</h4>
+              <motion.div
+                className="service-thumb"
+                key="Southwest Airlines Database Replica"
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                custom={3}
+              >
+                <i className="fa fa-database"></i>
+                <h3>Southwest Airlines Database Replica</h3>
                   <p>Developed Python scripts for automated data insertion from CSV files, designed a stored procedure for dynamic ticket pricing adjustments, and implemented a trigger for automatic pilot assignments, significantly improving operational efficiency and reducing manual errors in the Airlines database system.</p>
                   <div className="skill-container">
                     <button className="skill"><h6>MySQL</h6></button>
                     <button className="skill"><h6>Python</h6></button>
                   </div>
-                </div>
+              </motion.div>
               </a>
-            </div>
-            <div className="col-md-4 col-sm-6">
               <a target="_blank" href="https://github.com/UTSA-CS-3443/RowdyGuide.git">
-                <div className="service-thumb">
-                  <i className="fa fa-university" style={{ fontSize: 45, paddingLeft: 15 }}></i>
-                  <h4 className="white-color">Rowdy Guide</h4>
+              <motion.div
+                className="service-thumb"
+                key="Rowdy Guide"
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                custom={4}
+              >
+                <i className="fa fa-university"></i>
+                <h3>Rowdy Guide</h3>
                   <p>Demonstrated advanced Java and Android Studio skills to create a comprehensive tool for UTSA students, incorporating features such as interactive campus maps, interactive RecyclerView scrolling, application navigation menu, and a user-friendly GUI to enhance campus navigation and event awareness.</p>
                   <div className="skill-container">
                     <button className="skill"><h6>Java</h6></button>
                     <button className="skill"><h6>XML</h6></button>
                     <button className="skill"><h6>Gradle</h6></button>
                   </div>
-                </div>
+              </motion.div>
               </a>
-            </div>
-            <div className="col-md-4 col-sm-6">
               <a target="_blank" href="https://github.com/yash-yv-verma/Personal-Website">
-                <div className="service-thumb">
-                  <i className="fa fa-user" style={{ fontSize: 45, paddingLeft: 15 }}></i>
-                  <h4 className="white-color">Personal Website</h4>
+              <motion.div
+                className="service-thumb"
+                key="Personal Website"
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                custom={5}
+              >
+                <i className="fa fa-user"></i>
+                <h3>Personal Website</h3>
                   <p>I built this website by combining two existing HTML, CSS & Javascript templates and modifying the result to fit my needs.</p>
                   <div className="skill-container">
                     <button className="skill"><h6>JavaScript</h6></button>
                     <button className="skill"><h6>CSS</h6></button>
                     <button className="skill"><h6>HTML</h6></button>
                   </div>
-                </div>
+              </motion.div>
               </a>
-            </div>
           </div>
         </motion.div>
       </Parallax>
       {/* EXTRACURRICULAR SECTION */}
       <Parallax y={[-10, 10]} tagouter="section" id="extracurricular" className="parallax-section">
-        <motion.div className="container" style={{ ...sectionStyles[5], ...sectionPadding }} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
+        <div className="fullwidth-section" style={{ ...sectionStyles[5], ...sectionPadding, padding: 0 }}>
+          <motion.div className="container" style={{ padding: '60px 0' }} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
           <div className="row">
-            <motion.div className="section-title" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
+              <div className="section-title">
               <h2>My Extracurriculars</h2>
-            </motion.div>
+              </div>
             <div className="row">
               <div className="col-md-4 col-sm-8">
                 <div className="about-image-thumb">
@@ -401,27 +643,28 @@ export default function Home() {
               </div>
               <div className="col-md-8 col-sm-12">
                 <div className="about-thumb">
-                  <motion.div className="section-title" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.3}>
+                    <div className="section-title">
                     <a target="_blank" href="https://rowdycreators.org/"><h2>Rowdy Creators</h2></a>
                     <br />
                     <p>Leading a full rebrand and organizational revamp to boost engagement and visibility; introduced weekly sessions with industry professionals, increasing member participation by 40% and project activity across 7 active teams.</p>
                     <p>Previously served as CTO, providing technical mentorship across cloud, AI/ML, and full-stack development; maintained a Next.js website with 99.9% uptime, supporting 400+ users and reducing load time by 25%.</p>
-                  </motion.div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+          </motion.div>
           </div>
-        </motion.div>
       </Parallax>
       {/* CONTACT SECTION */}
       <Parallax y={[-10, 10]} tagouter="section" id="contact" className="parallax-section">
         <motion.div className="container" style={{ ...sectionStyles[6], ...sectionPadding }} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
           <div className="row">
             <div className="col-md-12 col-sm-12">
-              <motion.div className="section-title" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
+              <div className="section-title">
                 <h2>Get in touch</h2>
                 <p>If you want to contact me, fill out the following form and your email client will open to send me an email directly!</p>
-              </motion.div>
+              </div>
             </div>
             <div className="col-md-7 col-sm-10">
               <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.3}>
@@ -458,19 +701,13 @@ export default function Home() {
       </Parallax>
       {/* FOOTER SECTION */}
       <footer style={footerStyle}>
-        <div className="container bottom">
-          <div className="row">
-            <motion.div className="col-md-12 col-sm-12" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.4}>
-              <p>Copyright &copy; 2024 Yash Verma</p>
-              <div>
-                <ul className="social-icon" style={{ textAlign: 'center' }}>
+        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.4}>
+          <p>Copyright &copy; 2025 Yash Verma</p>
+          <ul className="social-icon" style={{ textAlign: 'center', padding: 0, margin: 0 }}>
                   <li><a target="_blank" href="https://github.com/yash-yv-verma" className="fa fa-github"></a></li>
                   <li><a target="_blank" href="https://www.linkedin.com/in/-yv/" className="fa fa-linkedin"></a></li>
                 </ul>
-              </div>
             </motion.div>
-          </div>
-        </div>
       </footer>
     </ParallaxProvider>
   );
