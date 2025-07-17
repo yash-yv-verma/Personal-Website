@@ -7,7 +7,7 @@ const sectionStyles = [
   { background: '#fff' }, // Service
   { background: '#f0f6ff' }, // About
   { background: '#fff' }, // Work
-  { background: '#f0f6ff' }, // Research
+  { background: '#fff' }, // Research - Fixed blue background
   { background: '#fff' }, // Projects
   { background: '#f0f6ff' }, // Extracurricular
   { background: '#fff' }, // Contact
