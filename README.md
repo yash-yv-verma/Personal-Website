@@ -1,28 +1,16 @@
-# yash-verma.com (Personal Website)
+# yash-verma.com Personal Website
 
-This site is being migrated to [Next.js](https://nextjs.org/) for better scalability and maintainability.
+My personal website built with Next.js and React.
 
-## Structure
+## Features
 
-- `src/pages/` — All routes/pages (e.g., `/`, `/bts`, `/blog`)
-- `src/public/` — Static assets (images, fonts, CSS, JS, etc.)
-- `src/styles/` — Global and page-specific CSS
+- Responsive design
+- Mobile-optimized with scroll-to-top functionality
+- Blog and projects sections
+- Contact information
 
-## Running Locally
+## Mobile Features
 
-```bash
-npm install
-npm run dev
-```
-
-## Building for GitHub Pages
-
-```bash
-npm run build
-npm run export
-```
-The static site will be output to the `out/` directory, which can be deployed to GitHub Pages.
-
----
-
-**All content and appearance are being preserved during migration.**
+- Invisible touch area at top for scroll-to-top (July 2025)
+- Optimized for mobile devices
+- Smooth scrolling experience
