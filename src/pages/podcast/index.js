@@ -24,6 +24,7 @@ export default function Podcast() {
         <meta property="twitter:description" content="Podcast by Yash Verma. Stay tuned for insightful discussions, interviews, and more. Coming soon!" />
         <meta property="twitter:image" content="https://yash-verma.com/images/homebg.jpeg" />
         <style>{`
+          /* Force rebuild for deployment sync */
           html, body {
             height: 100%;
             margin: 0;
