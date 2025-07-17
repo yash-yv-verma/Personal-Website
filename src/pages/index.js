@@ -16,13 +16,8 @@ const sectionPadding = { padding: '60px 0' };
 const footerStyle = {
   background: '#222',
   color: '#fff',
-  padding: '160px 0 120px 0 !important',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  textAlign: 'center',
-  width: '100%',
+  padding: '40px 0 20px 0',
+  marginTop: 0,
 };
 
 export default function Home() {
@@ -72,160 +67,16 @@ export default function Home() {
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon.svg" />
-        <style>{`
-          @import url('https://fonts.googleapis.com/css?family=Poppins:600,700&display=swap');
-          .home-thumb { margin-top: 60px; }
-          #contact { background: #fff !important; }
-          #contact .form-control {
-            border: 1px solid #ccc !important;
-            border-radius: 2px !important;
-            box-shadow: none !important;
-            background: #fff !important;
-            height: 38px !important;
-            font-size: 15px !important;
-            padding: 6px 10px !important;
-          }
-          #contact textarea.form-control {
-            min-height: 80px !important;
-            height: auto !important;
-            resize: vertical;
-          }
-          #contact .form-control:focus {
-            border-color: #888 !important;
-            outline: none !important;
-          }
-          footer {
-            padding: 180px 0 60px 0 !important;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            width: 100%;
-          }
-          footer .social-icon {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-          }
-          footer .social-icon li {
-            display: inline-block;
-            margin: 0 8px;
-            float: none;
-          }
-          .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 18px 14px;
-            margin-top: 32px;
-            margin-bottom: 32px;
-          }
-          .service-thumb {
-            background: #23272f;
-            border-radius: 4px;
-            padding: 48px 32px;
-            min-height: 470px;
-            box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08), 0 1.5px 6px 0 rgba(0,0,0,0.04);
-            border: 1.5px solid #23272f;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
-            height: 100%;
-            transition: box-shadow 0.2s, border-radius 0.2s;
-          }
-          .service-thumb i {
-            color: #fff !important;
-            font-size: 84px !important;
-            margin-top: 8px !important;
-            margin-bottom: 22px !important;
-            transition: color 0.2s, font-size 0.2s, margin 0.2s;
-          }
-          .service-thumb h3 {
-            color: #fff !important;
-            margin-top: 18px;
-            margin-bottom: 16px;
-            font-size: 2rem;
-            font-weight: 700;
-            font-family: 'Poppins', 'Roboto Mono', sans-serif !important;
-            letter-spacing: 0.5px;
-            text-transform: none;
-            transition: color 0.2s, font-size 0.2s;
-          }
-          .service-thumb p {
-            color: #8e99a7 !important;
-            font-size: 1.32rem;
-            font-weight: 500;
-            margin-bottom: 0.9rem;
-          }
-          .service-thumb:hover i,
-          .service-thumb:hover h3 {
-            color: #23272f !important;
-          }
-          .service-thumb:hover .btn-custom {
-            background: #000 !important;
-            color: #fff !important;
-            border-color: #000 !important;
-          }
-          .skill-container {
-            margin-top: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-          }
-          .skill {
-            background: #f0f6ff;
-            color: #303F9F;
-            border: 1px solid #dbeafe;
-            border-radius: 2em;
-            font-size: 0.95em;
-            padding: 2px 12px;
-            margin: 0;
-            font-weight: 600;
-            transition: background 0.2s, color 0.2s;
-          }
-          .skill:hover {
-            background: #303F9F;
-            color: #fff;
-            border-color: #303F9F;
-          }
-          @media (max-width: 600px) {
-            .projects-grid {
-              grid-template-columns: 1fr;
-              gap: 10px 0;
-            }
-            .service-thumb {
-              min-height: 300px;
-              padding: 28px 10px;
-            }
-            .service-thumb i {
-              font-size: 56px !important;
-            }
-            .service-thumb h3 {
-              font-size: 1.25rem;
-            }
-            .service-thumb p {
-              font-size: 1rem;
-            }
-          }
-          .projects-grid .service-thumb:hover .btn-custom {
-            background: #000 !important;
-            color: #fff !important;
-            border-color: #000 !important;
-            transition: background 0.2s, color 0.2s, border-color 0.2s;
-          }
-          .projects-grid .service-thumb:hover .skill {
-            background: #000 !important;
-            color: #fff !important;
-            border-color: #000 !important;
-            transition: background 0.2s, color 0.2s, border-color 0.2s;
-          }
-        `}</style>
+        {/* CSS links */}
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/css/linea.css" />
+        <link rel="stylesheet" href="/css/ionicons.min.css" />
+        <link rel="stylesheet" href="/css/owl.carousel.css" />
+        <link rel="stylesheet" href="/css/animate.css" />
+        <link rel="stylesheet" href="/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/css/magnific-popup.css" />
+        <link rel="stylesheet" href="/css/tooplate-style.css" />
+        <link rel="stylesheet" href="/css/mobile-fixes.css" />
       </Head>
       {/* HOME SECTION */}
       <Parallax y={[-20, 20]} tagouter="section" id="home" className="parallax-section">
@@ -446,80 +297,92 @@ export default function Home() {
       {/* PROJECTS SECTION */}
       <Parallax y={[-10, 10]} tagouter="section" id="projects" className="parallax-section">
         <motion.div className="container" style={{ ...sectionStyles[4], ...sectionPadding }} variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
-          <div className="section-title" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
-            <h2>Projects</h2>
-            <p>Click on any project to learn more</p>
-          </div>
-          <div className="projects-grid">
-            <a target="_blank" href="https://github.com/yash-yv-verma/Math.AI/">
-              <div className="service-thumb">
-                <i className="fa fa-superscript"></i>
-                <h3>Math.AI</h3>
-                <p>Orchestrated the system design of a seamless and scalable AI chatbot web app exploiting AWS EC2 Auto Scaling, API Gateway, and DynamoDB, ensuring uptime and responsiveness by 100%.</p>
-                <div className="skill-container">
-                  <button className="skill"><h6>NextJS</h6></button>
-                  <button className="skill"><h6>AWS</h6></button>
+          <div className="row">
+            <motion.div className="section-title" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.2}>
+              <h2>Projects</h2>
+              <p>Click on any project to learn more</p>
+            </motion.div>
+            <div className="col-md-4 col-sm-6">
+              <a target="_blank" href="https://github.com/yash-yv-verma/Math.AI/">
+                <div className="service-thumb">
+                  <i className="fa fa-superscript" style={{ fontSize: 45, paddingLeft: 15 }}></i>
+                  <h4 className="white-color">Math.AI</h4>
+                  <p>Orchestrated the system design of a seamless and scalable AI chatbot web app exploiting AWS EC2 Auto Scaling, API Gateway, and DynamoDB, ensuring uptime and responsiveness by 100%.</p>
+                  <div className="skill-container">
+                    <button className="skill"><h6>NextJS</h6></button>
+                    <button className="skill"><h6>AWS</h6></button>
+                  </div>
                 </div>
-              </div>
-            </a>
-            <a target="_blank" href="https://github.com/yash-yv-verma/W2V4K">
-              <div className="service-thumb">
-                <i className="fa fa-cogs"></i>
-                <h3>Word2Vec4Kids</h3>
-                <p>Created the "Word2Vec4Kids" macOS application to demystify Artificial Intelligence and Machine Learning concepts to students at Basis School-San Antonio (Local Middle School).</p>
-                <div className="skill-container">
-                  <button className="skill"><h6>Swift</h6></button>
-                  <button className="skill"><h6>Python</h6></button>
-                  <button className="skill"><h6>SQLite</h6></button>
+              </a>
+            </div>
+            <div className="col-md-4 col-sm-6">
+              <a target="_blank" href="https://github.com/yash-yv-verma/W2V4K">
+                <div className="service-thumb">
+                  <i className="fa fa-cogs" style={{ fontSize: 45, paddingLeft: 15 }}></i>
+                  <h4 className="white-color">Word2Vec4Kids</h4>
+                  <p>Created the "Word2Vec4Kids" macOS application to demystify Artificial Intelligence and Machine Learning concepts to students at Basis School-San Antonio (Local Middle School).</p>
+                  <div className="skill-container">
+                    <button className="skill"><h6>Swift</h6></button>
+                    <button className="skill"><h6>Python</h6></button>
+                    <button className="skill"><h6>SQLite</h6></button>
+                  </div>
                 </div>
-              </div>
-            </a>
-            <a target="_blank" href="https://github.com/markusm02/SWE.github.io">
-              <div className="service-thumb">
-                <i className="fa fa-shopping-cart"></i>
-                <h3>Clothing E-commerce</h3>
-                <p>Managed a scalable React front-end hosted on an AWS EC2 instance, providing a dynamic user experience for a clothing e-commerce platform, utilizing strong problem-solving and adaptability to ensure scalability.</p>
-                <div className="skill-container">
-                  <button className="skill"><h6>React</h6></button>
-                  <button className="skill"><h6>AWS</h6></button>
+              </a>
+            </div>
+            <div className="col-md-4 col-sm-6">
+              <a target="_blank" href="https://github.com/markusm02/SWE.github.io">
+                <div className="service-thumb">
+                  <i className="fa fa-shopping-cart" style={{ fontSize: 45, paddingLeft: 15 }}></i>
+                  <h4 className="white-color">Clothing E-commerce</h4>
+                  <p>Managed a scalable React front-end hosted on an AWS EC2 instance, providing a dynamic user experience for a clothing e-commerce platform, utilizing strong problem-solving and adaptability to ensure scalability.</p>
+                  <div className="skill-container">
+                    <button className="skill"><h6>React</h6></button>
+                    <button className="skill"><h6>AWS</h6></button>
+                  </div>
                 </div>
-              </div>
-            </a>
-            <a target="_blank" href="https://github.com/anjusoman/utsaairlines.git">
-              <div className="service-thumb">
-                <i className="fa fa-database"></i>
-                <h3>Southwest Airlines Database Replica</h3>
-                <p>Developed Python scripts for automated data insertion from CSV files, designed a stored procedure for dynamic ticket pricing adjustments, and implemented a trigger for automatic pilot assignments, significantly improving operational efficiency and reducing manual errors in the Airlines database system.</p>
-                <div className="skill-container">
-                  <button className="skill"><h6>MySQL</h6></button>
-                  <button className="skill"><h6>Python</h6></button>
+              </a>
+            </div>
+            <div className="col-md-4 col-sm-6">
+              <a target="_blank" href="https://github.com/anjusoman/utsaairlines.git">
+                <div className="service-thumb">
+                  <i className="fa fa-database" style={{ fontSize: 45, paddingLeft: 15 }}></i>
+                  <h4 className="white-color">Southwest Airlines Database Replica</h4>
+                  <p>Developed Python scripts for automated data insertion from CSV files, designed a stored procedure for dynamic ticket pricing adjustments, and implemented a trigger for automatic pilot assignments, significantly improving operational efficiency and reducing manual errors in the Airlines database system.</p>
+                  <div className="skill-container">
+                    <button className="skill"><h6>MySQL</h6></button>
+                    <button className="skill"><h6>Python</h6></button>
+                  </div>
                 </div>
-              </div>
-            </a>
-            <a target="_blank" href="https://github.com/UTSA-CS-3443/RowdyGuide.git">
-              <div className="service-thumb">
-                <i className="fa fa-university"></i>
-                <h3>Rowdy Guide</h3>
-                <p>Demonstrated advanced Java and Android Studio skills to create a comprehensive tool for UTSA students, incorporating features such as interactive campus maps, interactive RecyclerView scrolling, application navigation menu, and a user-friendly GUI to enhance campus navigation and event awareness.</p>
-                <div className="skill-container">
-                  <button className="skill"><h6>Java</h6></button>
-                  <button className="skill"><h6>XML</h6></button>
-                  <button className="skill"><h6>Gradle</h6></button>
+              </a>
+            </div>
+            <div className="col-md-4 col-sm-6">
+              <a target="_blank" href="https://github.com/UTSA-CS-3443/RowdyGuide.git">
+                <div className="service-thumb">
+                  <i className="fa fa-university" style={{ fontSize: 45, paddingLeft: 15 }}></i>
+                  <h4 className="white-color">Rowdy Guide</h4>
+                  <p>Demonstrated advanced Java and Android Studio skills to create a comprehensive tool for UTSA students, incorporating features such as interactive campus maps, interactive RecyclerView scrolling, application navigation menu, and a user-friendly GUI to enhance campus navigation and event awareness.</p>
+                  <div className="skill-container">
+                    <button className="skill"><h6>Java</h6></button>
+                    <button className="skill"><h6>XML</h6></button>
+                    <button className="skill"><h6>Gradle</h6></button>
+                  </div>
                 </div>
-              </div>
-            </a>
-            <a target="_blank" href="https://github.com/yash-yv-verma/Personal-Website">
-              <div className="service-thumb">
-                <i className="fa fa-user"></i>
-                <h3>Personal Website</h3>
-                <p>I built this website by combining two existing HTML, CSS & Javascript templates and modifying the result to fit my needs.</p>
-                <div className="skill-container">
-                  <button className="skill"><h6>JavaScript</h6></button>
-                  <button className="skill"><h6>CSS</h6></button>
-                  <button className="skill"><h6>HTML</h6></button>
+              </a>
+            </div>
+            <div className="col-md-4 col-sm-6">
+              <a target="_blank" href="https://github.com/yash-yv-verma/Personal-Website">
+                <div className="service-thumb">
+                  <i className="fa fa-user" style={{ fontSize: 45, paddingLeft: 15 }}></i>
+                  <h4 className="white-color">Personal Website</h4>
+                  <p>I built this website by combining two existing HTML, CSS & Javascript templates and modifying the result to fit my needs.</p>
+                  <div className="skill-container">
+                    <button className="skill"><h6>JavaScript</h6></button>
+                    <button className="skill"><h6>CSS</h6></button>
+                    <button className="skill"><h6>HTML</h6></button>
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
           </div>
         </motion.div>
       </Parallax>
@@ -595,13 +458,19 @@ export default function Home() {
       </Parallax>
       {/* FOOTER SECTION */}
       <footer style={footerStyle}>
-        <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.4}>
-          <p>Copyright &copy; 2025 Yash Verma</p>
-          <ul className="social-icon" style={{ textAlign: 'center', padding: 0, margin: 0 }}>
-            <li><a target="_blank" href="https://github.com/yash-yv-verma" className="fa fa-github"></a></li>
-            <li><a target="_blank" href="https://www.linkedin.com/in/-yv/" className="fa fa-linkedin"></a></li>
-          </ul>
-        </motion.div>
+        <div className="container bottom">
+          <div className="row">
+            <motion.div className="col-md-12 col-sm-12" variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0.4}>
+              <p>Copyright &copy; 2024 Yash Verma</p>
+              <div>
+                <ul className="social-icon" style={{ textAlign: 'center' }}>
+                  <li><a target="_blank" href="https://github.com/yash-yv-verma" className="fa fa-github"></a></li>
+                  <li><a target="_blank" href="https://www.linkedin.com/in/-yv/" className="fa fa-linkedin"></a></li>
+                </ul>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </footer>
     </ParallaxProvider>
   );
