@@ -23,16 +23,16 @@ export default function ServiceSection({ backgroundColor = '#fff' }) {
               <li><strong>Hometown:</strong> <span>Austin, TX</span></li>
               <li>
                 <ul className="social-icon">
-                  <li><a target="_blank" href="https://github.com/yash-yv-verma" className="fa fa-github"></a></li>
-                  <li><a target="_blank" href="https://www.linkedin.com/in/-yv/" className="fa fa-linkedin"></a></li>
+                  <li><a target="_blank" href="https://github.com/yash-yv-verma" className="fab fa-github"></a></li>
+                  <li><a target="_blank" href="https://www.linkedin.com/in/-yv/" className="fab fa-linkedin"></a></li>
                 </ul>
               </li>
             </ul>
           </div>
           <div className="col-md-8 col-sm-12 col-xs-12">
             <div className="about-text">
-              <p>I am a dedicated junior majoring in Computer Science and Mathematics of Data & Computing at The University of Texas at San Antonio, Honors College. My passion lies in exploring the realm of quantum computing, particularly in quantum software. Currently, I'm immersed in writing a research paper on quantum communication, aiming to advance innovative protocols for secure data transmission.</p>
-              <p>As a UG Researcher in CS-CURE, I'm actively delving into the realm of two-factor encryption, aiming to bridge the gap between traditional RSA encryption and quantum key distribution. Recognizing the challenges of immediately transitioning away from RSA, my research focuses on leveraging QKD as a supplementary layer of security within our encryption systems. Additionally, my involvement in an Independent Study centers on the development of AI tools tailored for children, with the goal of demystifying complex concepts in an engaging and accessible manner.</p>
+              <p>I am a dedicated junior majoring in Computer Science and Mathematics of Data &amp; Computing at The University of Texas at San Antonio, Honors College. My passion lies in exploring the realm of quantum computing, particularly in quantum software. Currently, I&rsquo;m immersed in writing a research paper on quantum communication, aiming to advance innovative protocols for secure data transmission.</p>
+              <p>As a UG Researcher in CS-CURE, I&rsquo;m actively delving into the realm of two-factor encryption, aiming to bridge the gap between traditional RSA encryption and quantum key distribution. Recognizing the challenges of immediately transitioning away from RSA, my research focuses on leveraging QKD as a supplementary layer of security within our encryption systems. Additionally, my involvement in an Independent Study centers on the development of AI tools tailored for children, with the goal of demystifying complex concepts in an engaging and accessible manner.</p>
               <p>Outside academia, I serve as a Computer Science Tutor at the University of Texas, San Antonio, where I assist students in understanding programming concepts and overcoming challenges in various courses.</p>
             </div>
             <div className="about-btns">

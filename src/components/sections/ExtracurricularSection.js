@@ -23,7 +23,7 @@ export default function ExtracurricularSection({ backgroundColor = '#f0f6ff' }) 
           <div className="row content-row">
             <div className="col-md-4 col-sm-8">
               <div className="about-image-thumb">
-                <img src="images/acm.jpg" className="img-responsive" alt="about image" />
+                <img src="/images/acm.jpg" className="img-responsive" alt="about image" />
               </div>
             </div>
             <div className="col-md-8 col-sm-12">

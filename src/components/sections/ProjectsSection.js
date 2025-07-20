@@ -88,7 +88,7 @@ const ProjectsSection = () => {
               <div className="service-thumb">
                 <i className="fa fa-cogs"></i>
                 <h3>Word2Vec4Kids</h3>
-                <p>Created the "Word2Vec4Kids" macOS application to demystify Artificial Intelligence and Machine Learning concepts to students at Basis School-San Antonio (Local Middle School).</p>
+                <p>Created the &ldquo;Word2Vec4Kids&rdquo; macOS application to demystify Artificial Intelligence and Machine Learning concepts to students at Basis School-San Antonio (Local Middle School).</p>
                 <div className="skill-container">
                   <button className="skill"><h6>Swift</h6></button>
                   <button className="skill"><h6>Python</h6></button>
