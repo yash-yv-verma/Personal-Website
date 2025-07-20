@@ -131,19 +131,19 @@ export default function Aadra() {
         <h1 className="blog-title">Aadra</h1>
         <div className="blog-intro">
           Hi Aadra<br />
-          This is where I'll write you updates, thoughts, and reasons to live.<br />
+          This is where I&rsquo;ll write you updates, thoughts, and reasons to live.<br />
           I hope you read them once in a while.
         </div>
         {/* Blog posts start here */}
         <div className="blog-post" data-post-id="2025-07-07">
           <div className="blog-date"></div>
-          <div>I hope you're doing ok Aadra. I don't know deep down how much this means to you, but I wanna say that I'm here for you. I am your advocate. 
-            I do feel for you and I think from your side always. I put you in this situation, I will definetely make sure to bring you out of it as well. That's my promise. I am working towards that promise so it comes true. 
-            That's all I wanted to say. Please hang in there. If you feel you need someone to talk to please just do it. We can figure out the rest later but just text me so we can help you get out of that state. Be safe Aadra. I miss you.</div>
+          <div>I hope you&rsquo;re doing ok Aadra. I don&rsquo;t know deep down how much this means to you, but I wanna say that I&rsquo;m here for you. I am your advocate. 
+            I do feel for you and I think from your side always. I put you in this situation, I will definetely make sure to bring you out of it as well. That&rsquo;s my promise. I am working towards that promise so it comes true. 
+            That&rsquo;s all I wanted to say. Please hang in there. If you feel you need someone to talk to please just do it. We can figure out the rest later but just text me so we can help you get out of that state. Be safe Aadra. I miss you.</div>
         </div>
         <div className="blog-post" data-post-id="2025-07-05">
           <div className="blog-date"></div>
-          <div>I was thinking about you. Just wanted to say hi. Hope you're doing ok. Just hang in there. I know things are tough. But just believe. You will feel better soon.</div>
+          <div>I was thinking about you. Just wanted to say hi. Hope you&rsquo;re doing ok. Just hang in there. I know things are tough. But just believe. You will feel better soon.</div>
         </div>
         <div className="blog-post" data-post-id="2025-06-30">
           <div className="blog-date"></div>

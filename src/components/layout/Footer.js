@@ -16,10 +16,14 @@ export default function Footer() {
         <p>Copyright &copy; 2025 Yash Verma</p>
         <ul className="social-icon">
           <li>
-            <a target="_blank" href="https://github.com/yash-yv-verma" className="fa fa-github"></a>
+            <a target="_blank" href="https://github.com/yash-yv-verma">
+              <i className="fab fa-github"></i>
+            </a>
           </li>
           <li>
-            <a target="_blank" href="https://www.linkedin.com/in/-yv/" className="fa fa-linkedin"></a>
+            <a target="_blank" href="https://www.linkedin.com/in/-yv/">
+              <i className="fab fa-linkedin"></i>
+            </a>
           </li>
         </ul>
       </motion.div>
@@ -51,6 +55,26 @@ export default function Footer() {
           display: inline-block;
           margin: 0 8px;
           float: none;
+        }
+        .social-icon a {
+          color: #222 !important;
+          font-size: 24px;
+          width: 50px;
+          height: 50px;
+          border: 2px solid #fff;
+          border-radius: 50%;
+          background: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          transform: translateY(-3px);
+        }
+        .social-icon .fab {
+          color: #222 !important;
+          font-size: 24px !important;
+          display: inline-block !important;
         }
         p {
           margin-bottom: 20px;

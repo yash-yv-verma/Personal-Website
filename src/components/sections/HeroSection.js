@@ -51,6 +51,43 @@ export default function HeroSection() {
           position: relative;
           left: 100px;
         }
+
+        
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+          .home-thumb {
+            left: 0;
+            text-align: center;
+            padding: 0 20px;
+          }
+          
+          .container {
+            padding: 40px 0;
+          }
+          
+          .col-md-offset-5 {
+            margin-left: 0;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .home-thumb {
+            left: 0;
+            text-align: center;
+            padding: 0 10px;
+          }
+          
+          .home-thumb h1 {
+            font-size: 32px;
+            line-height: 1.2;
+            word-wrap: break-word;
+          }
+          
+          .home-thumb p {
+            font-size: 16px;
+            margin-top: 10px;
+          }
+        }
       `}</style>
     </Parallax>
   );
