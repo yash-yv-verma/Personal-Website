@@ -323,7 +323,7 @@ export default function Blog() {
 
         .post-date {
           font-size: 1.05rem;
-          color: "#a1a1aa";
+          color: #ffffff;
           font-weight: 500;
         }
 
