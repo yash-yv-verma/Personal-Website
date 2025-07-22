@@ -1,11 +1,22 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 import SEOHead from '../../components/shared/SEOHead';
 import { getEpisodeById, getAllEpisodes } from '../../data/episodesData';
 import { useAnimations } from '../../hooks/useAnimations';
 
 export default function EpisodePage({ episode }) {
   const { fadeInUp } = useAnimations();
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+
+  // Delay video loading to let animations complete first
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true);
+    }, 800); // Wait for main animations to mostly complete
+
+    return () => clearTimeout(timer);
+  }, []);
 
   if (!episode) {
     return (
@@ -113,13 +124,39 @@ export default function EpisodePage({ episode }) {
               custom={0.2}
             >
               <div className="video-wrapper">
-                <iframe
-                  src={`https://www.youtube.com/embed/${episode.youtubeId}?rel=0&showinfo=0&modestbranding=1`}
-                  title={`Beyond the Stack EP. ${episode.episodeNumber} - ${episode.title}`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                {shouldLoadVideo ? (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${episode.youtubeId}?rel=0&showinfo=0&modestbranding=1&autoplay=0&loading=lazy`}
+                    title={`Beyond the Stack EP. ${episode.episodeNumber} - ${episode.title}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{ opacity: 1, transition: 'opacity 0.3s ease' }}
+                  ></iframe>
+                ) : (
+                  <div 
+                    className="video-placeholder"
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      width: '100%',
+                      height: '100%',
+                      background: 'linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#ffffff',
+                      fontSize: '1.2rem'
+                    }}
+                  >
+                    <div style={{ textAlign: 'center' }}>
+                      <i className="fab fa-youtube" style={{ fontSize: '3rem', marginBottom: '1rem', color: '#ff0000' }}></i>
+                      <div>Loading video...</div>
+                    </div>
+                  </div>
+                )}
               </div>
             </motion.div>
 
