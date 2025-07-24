@@ -22,13 +22,43 @@ export default function GlobalStyles() {
         -webkit-overflow-scrolling: touch;
       }
 
-      /* iPhone Safe Area Support */
+      /* iPhone Safe Area Support - Global */
       @supports (padding: max(0px)) {
-        body {
-          padding-left: env(safe-area-inset-left);
-          padding-right: env(safe-area-inset-right);
+        html {
           padding-top: env(safe-area-inset-top);
           padding-bottom: env(safe-area-inset-bottom);
+        }
+        
+        body {
+          padding-top: env(safe-area-inset-top);
+          padding-bottom: env(safe-area-inset-bottom);
+        }
+      }
+
+      /* Global Safe Area Black Background */
+      @supports (padding: max(0px)) {
+        html::before {
+          content: '';
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: env(safe-area-inset-top);
+          background: #0a0a0a;
+          z-index: 99999;
+          pointer-events: none;
+        }
+        
+        body::before {
+          content: '';
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: env(safe-area-inset-top);
+          background: #0a0a0a;
+          z-index: 99999;
+          pointer-events: none;
         }
       }
 
