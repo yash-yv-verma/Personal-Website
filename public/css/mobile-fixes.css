@@ -14,7 +14,7 @@
         min-height: 100vh !important;
     }
 
-    /* iPhone Safe Area Black Background */
+    /* iPhone Safe Area Black Background - ULTRA AGGRESSIVE */
     @supports (padding: max(0px)) {
         html::before {
             content: '';
@@ -23,8 +23,8 @@
             left: 0;
             right: 0;
             height: env(safe-area-inset-top);
-            background: #0a0a0a;
-            z-index: 99999;
+            background: #0a0a0a !important;
+            z-index: 999999 !important;
             pointer-events: none;
         }
         
@@ -35,8 +35,45 @@
             left: 0;
             right: 0;
             height: env(safe-area-inset-top);
-            background: #0a0a0a;
-            z-index: 99999;
+            background: #0a0a0a !important;
+            z-index: 999999 !important;
+            pointer-events: none;
+        }
+    }
+
+    /* Force black safe area on ALL pages - ULTRA AGGRESSIVE */
+    @supports (padding: max(0px)) {
+        *::before {
+            background: #0a0a0a !important;
+        }
+        
+        html::before,
+        body::before,
+        .blog-page::before,
+        .podcast-page::before,
+        #home::before,
+        #service::before,
+        #about::before,
+        #work::before,
+        #research::before,
+        #projects::before,
+        #extracurricular::before,
+        #contact::before,
+        footer::before,
+        .container::before,
+        .row::before,
+        .col-md-4::before,
+        .col-md-8::before,
+        .col-sm-12::before,
+        .col-xs-12::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: env(safe-area-inset-top);
+            background: #0a0a0a !important;
+            z-index: 999999 !important;
             pointer-events: none;
         }
     }

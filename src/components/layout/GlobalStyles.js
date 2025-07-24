@@ -35,7 +35,7 @@ export default function GlobalStyles() {
         }
       }
 
-      /* Global Safe Area Black Background */
+      /* Global Safe Area Black Background - AGGRESSIVE FIX */
       @supports (padding: max(0px)) {
         html::before {
           content: '';
@@ -44,8 +44,8 @@ export default function GlobalStyles() {
           left: 0;
           right: 0;
           height: env(safe-area-inset-top);
-          background: #0a0a0a;
-          z-index: 99999;
+          background: #0a0a0a !important;
+          z-index: 999999;
           pointer-events: none;
         }
         
@@ -56,8 +56,39 @@ export default function GlobalStyles() {
           left: 0;
           right: 0;
           height: env(safe-area-inset-top);
-          background: #0a0a0a;
-          z-index: 99999;
+          background: #0a0a0a !important;
+          z-index: 999999;
+          pointer-events: none;
+        }
+      }
+
+      /* Force black safe area on ALL pages */
+      @supports (padding: max(0px)) {
+        *::before {
+          background: #0a0a0a !important;
+        }
+        
+        html::before,
+        body::before,
+        .blog-page::before,
+        .podcast-page::before,
+        #home::before,
+        #service::before,
+        #about::before,
+        #work::before,
+        #research::before,
+        #projects::before,
+        #extracurricular::before,
+        #contact::before,
+        footer::before {
+          content: '';
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: env(safe-area-inset-top);
+          background: #0a0a0a !important;
+          z-index: 999999;
           pointer-events: none;
         }
       }
@@ -81,8 +112,8 @@ export default function GlobalStyles() {
           left: 0;
           right: 0;
           height: env(safe-area-inset-top);
-          background: #0a0a0a;
-          z-index: 9999;
+          background: #0a0a0a !important;
+          z-index: 999999;
           pointer-events: none;
         }
       }
