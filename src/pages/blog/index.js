@@ -170,11 +170,15 @@ export default function Blog() {
                         letterSpacing: "-0.02em"
                       }}>{post.title}</h3>
                       <p style={{
-                        fontSize: "1.15rem",
-                        color: "#9ca3af",
+                        fontSize: "1.15rem !important",
+                        color: "#d1d5db !important",
                         margin: "0 0 20px 0",
-                        lineHeight: "1.6",
-                        fontWeight: 400
+                        lineHeight: "1.6 !important",
+                        fontWeight: "400 !important",
+                        display: "-webkit-box",
+                        WebkitLineClamp: "3",
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden"
                       }}>{post.excerpt}</p>
                       <div className="post-tags">
                         {post.tags.slice(0, 3).map((tag, tagIndex) => (
@@ -232,19 +236,19 @@ export default function Blog() {
         }
 
         .posts-section {
-          padding: 30px 0 120px 0;
+          padding: 30px 0 100px 0;
           background: #0a0a0a;
         }
 
         .section-header {
-          margin-bottom: 60px;
+          margin-bottom: 35px;
         }
 
         .posts-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-          gap: 40px;
-          margin-top: 40px;
+          grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+          gap: 32px;
+          margin-top: 30px;
         }
 
         .post-card {
@@ -270,7 +274,7 @@ export default function Blog() {
         .post-thumbnail {
           position: relative;
           width: 100%;
-          height: 220px;
+          height: 240px;
           overflow: hidden;
           background: #2a2a2a;
         }
@@ -308,8 +312,8 @@ export default function Blog() {
           color: white;
           padding: 6px 12px;
           border-radius: 6px;
-          font-size: 0.85rem;
-          font-weight: 500;
+          font-size: 1rem;
+          font-weight: 600;
           backdrop-filter: blur(10px);
         }
 
@@ -334,7 +338,7 @@ export default function Blog() {
         @media (max-width: 768px) {
           .posts-grid {
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 24px;
           }
 
           .post-card {
@@ -342,7 +346,7 @@ export default function Blog() {
           }
 
           .hero-section {
-            padding: 30px 0 25px 0;
+            padding: 35px 0 30px 0;
           }
 
           .posts-section {
@@ -364,11 +368,11 @@ export default function Blog() {
           }
 
           .hero-section {
-            padding: 25px 0 20px 0;
+            padding: 30px 0 25px 0;
           }
 
           .posts-section {
-            padding: 25px 0 60px 0;
+            padding: 10px 0 80px 0;
           }
         }
       `}</style>
