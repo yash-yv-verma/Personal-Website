@@ -19,6 +19,42 @@ export default function GlobalStyles() {
         font-style: normal;
         font-weight: normal;
         overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* iPhone Safe Area Support */
+      @supports (padding: max(0px)) {
+        body {
+          padding-left: env(safe-area-inset-left);
+          padding-right: env(safe-area-inset-right);
+          padding-top: env(safe-area-inset-top);
+          padding-bottom: env(safe-area-inset-bottom);
+        }
+      }
+
+      /* Ensure safe area is black on dark pages */
+      .blog-page,
+      .podcast-page,
+      .hero-section,
+      .posts-section,
+      .episodes-section {
+        background: #0a0a0a;
+      }
+
+      /* Safe area background for dark pages */
+      @supports (padding: max(0px)) {
+        .blog-page::before,
+        .podcast-page::before {
+          content: '';
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: #0a0a0a;
+          z-index: -1;
+          pointer-events: none;
+        }
       }
       
       * {

@@ -166,7 +166,17 @@ export default function BeyondTheStack() {
                       <p className="episode-description">{episode.description}</p>
                       <div className="episode-tags">
                         {episode.tags.slice(0, 3).map((tag, tagIndex) => (
-                          <span key={tagIndex} className="tag">{tag}</span>
+                          <span key={tagIndex} className="tag" style={{
+                            fontSize: "0.9rem",
+                            fontWeight: 600,
+                            color: "#cbd5e1",
+                            background: "linear-gradient(135deg, #4c1d95, #312e81)",
+                            padding: "6px 12px",
+                            borderRadius: "4px",
+                            marginRight: "8px",
+                            display: "inline-block",
+                            marginBottom: "4px"
+                          }}>{tag}</span>
                         ))}
                       </div>
                     </div>
@@ -209,15 +219,7 @@ export default function BeyondTheStack() {
           align-items: center;
         }
 
-        .hero-section h1 {
-          font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-          font-size: 3.5rem;
-          font-weight: 700;
-          color: #ffffff;
-          text-align: center;
-          letter-spacing: -0.02em;
-          margin: 0;
-        }
+
 
         .episodes-section {
           padding: 30px 0 100px 0;
@@ -337,7 +339,7 @@ export default function BeyondTheStack() {
         }
 
         .episode-date {
-          color: #9ca3af;
+          color: #ffffff;
           font-weight: 500;
           font-size: 1.05rem;
           letter-spacing: 0.01em;
@@ -371,16 +373,7 @@ export default function BeyondTheStack() {
           gap: 8px;
         }
 
-        .tag {
-          background: rgba(255, 255, 255, 0.08);
-          color: #e4e4e7;
-          padding: 7px 12px;
-          border-radius: 4px;
-          font-size: 0.9rem;
-          font-weight: 500;
-          letter-spacing: 0.02em;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+
 
         /* Responsive design */
         @media (max-width: 768px) {
@@ -388,9 +381,7 @@ export default function BeyondTheStack() {
             padding: 35px 0 30px 0;
           }
 
-          .hero-section h1 {
-            font-size: 2.8rem;
-          }
+
 
           .episodes-section {
             padding: 25px 0 80px 0;
@@ -430,11 +421,6 @@ export default function BeyondTheStack() {
           .episode-date {
             font-size: 0.95rem;
           }
-
-          .tag {
-            font-size: 0.8rem;
-            padding: 6px 10px;
-          }
         }
 
         @media (max-width: 480px) {
@@ -442,9 +428,7 @@ export default function BeyondTheStack() {
             padding: 30px 0 25px 0;
           }
 
-          .hero-section h1 {
-            font-size: 2.4rem;
-          }
+
 
           .section-header h2 {
             font-size: 1rem;
@@ -477,23 +461,10 @@ export default function BeyondTheStack() {
           .episode-date {
             font-size: 0.9rem;
           }
-
-          .tag {
-            font-size: 0.8rem;
-            padding: 6px 10px;
-          }
         }
       `}</style>
     </>
   );
 }
 
-export async function getStaticProps() {
-  const episodes = getAllEpisodes();
-  
-  return {
-    props: {
-      episodes,
-    },
-  };
-} 
+ 

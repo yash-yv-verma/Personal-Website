@@ -124,6 +124,28 @@
         max-width: 100% !important;
         box-sizing: border-box !important;
     }
+
+    /* Fix scrolling for blog and podcast pages */
+    .blog-page,
+    .podcast-page {
+        overflow-x: visible !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .blog-page .container,
+    .podcast-page .container {
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+    }
+
+    .posts-grid,
+    .episodes-grid {
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
     /* Further adjustments for very small screens */
     @media (max-width: 480px) {
         h1 {
