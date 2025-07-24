@@ -50,9 +50,9 @@ export default function GlobalStyles() {
           top: 0;
           left: 0;
           right: 0;
-          bottom: 0;
+          height: env(safe-area-inset-top);
           background: #0a0a0a;
-          z-index: -1;
+          z-index: 9999;
           pointer-events: none;
         }
       }
