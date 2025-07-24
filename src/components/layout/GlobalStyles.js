@@ -35,7 +35,7 @@ export default function GlobalStyles() {
         }
       }
 
-      /* Global Safe Area Black Background - AGGRESSIVE FIX */
+      /* Global Safe Area Black Background - COMPREHENSIVE FIX */
       @supports (padding: max(0px)) {
         html::before {
           content: '';
@@ -62,14 +62,9 @@ export default function GlobalStyles() {
         }
       }
 
-      /* Force black safe area on ALL pages */
+      /* Safe area background for ALL pages - COMPREHENSIVE */
       @supports (padding: max(0px)) {
-        *::before {
-          background: #0a0a0a !important;
-        }
-        
-        html::before,
-        body::before,
+        #__next::before,
         .blog-page::before,
         .podcast-page::before,
         #home::before,
@@ -80,7 +75,10 @@ export default function GlobalStyles() {
         #projects::before,
         #extracurricular::before,
         #contact::before,
-        footer::before {
+        footer::before,
+        .hero-section::before,
+        .posts-section::before,
+        .episodes-section::before {
           content: '';
           position: fixed;
           top: 0;
@@ -102,10 +100,10 @@ export default function GlobalStyles() {
         background: #0a0a0a;
       }
 
-      /* Safe area background for dark pages */
+      /* Force black safe area on home page specifically */
       @supports (padding: max(0px)) {
-        .blog-page::before,
-        .podcast-page::before {
+        body > div::before,
+        body > div > div::before {
           content: '';
           position: fixed;
           top: 0;

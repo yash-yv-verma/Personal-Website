@@ -169,18 +169,7 @@ export default function Blog() {
                         lineHeight: "1.3",
                         letterSpacing: "-0.02em"
                       }}>{post.title}</h3>
-                      <p style={{
-                        fontSize: "1.15rem !important",
-                        color: "#d1d5db !important",
-                        margin: "0 0 20px 0",
-                        lineHeight: "1.6 !important",
-                        fontWeight: "400 !important",
-                        fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important",
-                        display: "-webkit-box",
-                        WebkitLineClamp: "3",
-                        WebkitBoxOrient: "vertical",
-                        overflow: "hidden"
-                      }}>{post.excerpt}</p>
+                      <p className="post-description">{post.excerpt}</p>
                       <div className="post-tags">
                         {post.tags.slice(0, 3).map((tag, tagIndex) => (
                           <span key={tagIndex} className="tag" style={{
@@ -332,6 +321,18 @@ export default function Blog() {
           font-weight: 500;
         }
 
+        .post-description {
+          color: #d1d5db;
+          font-size: 1.15rem;
+          line-height: 1.6;
+          margin: 0 0 20px 0;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          font-weight: 400;
+        }
+
         .post-tags {
           margin-top: 16px;
         }
@@ -348,6 +349,10 @@ export default function Blog() {
 
           .post-content {
             padding: 18px;
+          }
+
+          .post-description {
+            font-size: 1.05rem;
           }
 
           .hero-section {
