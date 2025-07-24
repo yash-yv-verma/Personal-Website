@@ -175,6 +175,7 @@ export default function Blog() {
                         margin: "0 0 20px 0",
                         lineHeight: "1.6 !important",
                         fontWeight: "400 !important",
+                        fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important",
                         display: "-webkit-box",
                         WebkitLineClamp: "3",
                         WebkitBoxOrient: "vertical",
@@ -318,7 +319,7 @@ export default function Blog() {
         }
 
         .post-content {
-          padding: 24px;
+          padding: 20px;
         }
 
         .post-meta {
@@ -345,6 +346,10 @@ export default function Blog() {
             margin: 0 10px;
           }
 
+          .post-content {
+            padding: 18px;
+          }
+
           .hero-section {
             padding: 35px 0 30px 0;
           }
@@ -364,7 +369,7 @@ export default function Blog() {
           }
 
           .post-content {
-            padding: 20px;
+            padding: 16px;
           }
 
           .hero-section {
