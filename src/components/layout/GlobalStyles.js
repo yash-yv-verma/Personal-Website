@@ -20,6 +20,9 @@ export default function GlobalStyles() {
         font-weight: normal;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
+        /* Ensure safe area is black on all devices */
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
       }
 
       /* iPhone Safe Area Support - Global */
@@ -44,7 +47,7 @@ export default function GlobalStyles() {
           left: 0;
           right: 0;
           height: env(safe-area-inset-top);
-          background: #0a0a0a !important;
+          background: #000000 !important;
           z-index: 999999;
           pointer-events: none;
         }
@@ -56,7 +59,7 @@ export default function GlobalStyles() {
           left: 0;
           right: 0;
           height: env(safe-area-inset-top);
-          background: #0a0a0a !important;
+          background: #000000 !important;
           z-index: 999999;
           pointer-events: none;
         }
@@ -85,7 +88,7 @@ export default function GlobalStyles() {
           left: 0;
           right: 0;
           height: env(safe-area-inset-top);
-          background: #0a0a0a !important;
+          background: #000000 !important;
           z-index: 999999;
           pointer-events: none;
         }
@@ -100,7 +103,7 @@ export default function GlobalStyles() {
         background: #0a0a0a;
       }
 
-      /* Force black safe area on home page specifically */
+            /* Force black safe area on home page specifically */
       @supports (padding: max(0px)) {
         body > div::before,
         body > div > div::before {
@@ -110,11 +113,30 @@ export default function GlobalStyles() {
           left: 0;
           right: 0;
           height: env(safe-area-inset-top);
-          background: #0a0a0a !important;
+          background: #000000 !important;
           z-index: 999999;
           pointer-events: none;
         }
       }
+
+      /* Ultimate safe area fix for all pages */
+      @supports (padding: max(0px)) {
+        #__next::before {
+          content: '';
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: env(safe-area-inset-top);
+          background: #000000 !important;
+          z-index: 999999;
+          pointer-events: none;
+        }
+      }
+
+
+
+      
       
       * {
         font-family: inherit;

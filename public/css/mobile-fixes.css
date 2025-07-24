@@ -23,7 +23,7 @@
             left: 0;
             right: 0;
             height: env(safe-area-inset-top);
-            background: #0a0a0a !important;
+            background: #000000 !important;
             z-index: 999999 !important;
             pointer-events: none;
         }
@@ -35,7 +35,7 @@
             left: 0;
             right: 0;
             height: env(safe-area-inset-top);
-            background: #0a0a0a !important;
+            background: #000000 !important;
             z-index: 999999 !important;
             pointer-events: none;
         }
@@ -64,7 +64,7 @@
             left: 0;
             right: 0;
             height: env(safe-area-inset-top);
-            background: #0a0a0a !important;
+            background: #000000 !important;
             z-index: 999999 !important;
             pointer-events: none;
         }
@@ -80,7 +80,7 @@
             left: 0;
             right: 0;
             height: env(safe-area-inset-top);
-            background: #0a0a0a !important;
+            background: #000000 !important;
             z-index: 999999 !important;
             pointer-events: none;
         }
