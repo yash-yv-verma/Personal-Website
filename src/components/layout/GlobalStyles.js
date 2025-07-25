@@ -50,14 +50,14 @@ export default function GlobalStyles() {
       }
       
       a {
-        color: #757557;
+        color: #ffffff;
         -webkit-transition: 0.5s;
         transition: 0.5s;
         text-decoration: none !important;
       }
       
       a:hover, a:active, a:focus {
-        color: #000000;
+        color: #cccccc;
         outline: none;
       }
       
@@ -80,14 +80,14 @@ export default function GlobalStyles() {
       }
       
       h2 {
-        color: #2b2b2b;
+        color: #ffffff;
         font-size: 35px;
         line-height: 52px;
         margin-top: 0px;
       }
       
       h3 {
-        color: #282828;
+        color: #ffffff;
         font-size: 16px;
         line-height: 32px;
         letter-spacing: 6px;
@@ -95,7 +95,7 @@ export default function GlobalStyles() {
       }
       
       h4 {
-        color: #353535;
+        color: #ffffff;
         font-size: 20px;
       }
       
@@ -104,7 +104,7 @@ export default function GlobalStyles() {
       }
       
       p {
-        color: #696969;
+        color: #ffffff;
         font-size: 16px;
         font-weight: normal;
         line-height: 25px;
@@ -183,12 +183,30 @@ export default function GlobalStyles() {
         margin-right: 0 !important;
       }
       
-      #about, #research, #extracurricular {
-        background: #f0f6ff;
+      /* Clean Black & White Alternating Theme */
+      #service, #work, #projects, #contact {
+        background: #ffffff;
+        border-bottom: 1px solid #e5e5e5;
       }
       
-      #contact {
-        background: #ffffff;
+      #about, #research, #extracurricular {
+        background: linear-gradient(90deg, #000000 0%, #000000 70%, #1e3a8a 100%);
+        border-bottom: 1px solid #333333;
+      }
+      
+      /* Text colors for white sections */
+      #service h2, #service h3, #service h4, #service p,
+      #work h2, #work h3, #work h4, #work p,
+      #projects h2, #projects h3, #projects h4, #projects p,
+      #contact h2, #contact h3, #contact h4, #contact p {
+        color: #000000;
+      }
+      
+      /* Text colors for black sections */
+      #about h2, #about h3, #about h4, #about p,
+      #research h2, #research h3, #research h4, #research p,
+      #extracurricular h2, #extracurricular h3, #extracurricular p {
+        color: #e5e5e5;
       }
       
 
@@ -334,12 +352,12 @@ export default function GlobalStyles() {
       
       .info-list > li > strong {
         letter-spacing: 4px;
-        color: #202020;
+        color: #ffffff;
         text-transform: uppercase;
       }
       
       .info-list > li > span {
-        color: rgba(0,0,0,.6);
+        color: #a1a1aa;
       }
       
       /*---------------------------------------
@@ -372,7 +390,7 @@ export default function GlobalStyles() {
         padding-left: 40px;
         margin-bottom: 40px;
         font-size: 14px;
-        color: rgba(0,0,0,.6);
+        color: #ffffff;
         line-height: 1.8em;
       }
       
@@ -416,17 +434,13 @@ export default function GlobalStyles() {
       .timeline > li > .timeline-content > em {
         margin-bottom: 10px;
         display: block;
-        color: rgba(0,0,0,.8);
-      }
-      
-      .timeline > li > .timeline-content > em > span {
-        margin-right: 10px;
+        color: #ffffff;
       }
       
       .timeline > li > .timeline-content > p {
         margin: 0;
         line-height: 1.6em;
-        color: rgba(0,0,0,.6);
+        color: #a1a1aa;
       }
       
       /*---------------------------------------
@@ -614,13 +628,117 @@ export default function GlobalStyles() {
       -----------------------------------------*/
       
       footer {
-        background: #2b2b2b;
+        background: #000000 !important;
         text-align: center;
         padding: 120px 0;
+        border-top: 1px solid #333333;
       }
       
       footer p {
         padding-bottom: 16px;
+        color: #ffffff;
+      }
+      
+      footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+        color: #ffffff;
+      }
+      
+      /*---------------------------------------
+        Bullet Point Styling - Uniform across all sections
+      -----------------------------------------*/
+      
+      ul li, ol li {
+        color: #666666 !important;
+      }
+      
+      /* Ensure bullets are visible on all backgrounds - consistent light color */
+      /* Bullet colors for white sections */
+      #service ul li, #service ol li,
+      #work ul li, #work ol li,
+      #projects ul li, #projects ol li,
+      #contact ul li, #contact ol li {
+        color: #333333 !important;
+      }
+      
+      /* Bullet colors for black sections */
+      #about ul li, #about ol li,
+      #research ul li, #research ol li,
+      #extracurricular ul li, #extracurricular ol li {
+        color: #cccccc !important;
+      }
+      
+      /* Job titles in work section should be black */
+      #work h4, #work .timeline > li > .timeline-content > h4 {
+        color: #000000 !important;
+      }
+      
+      /* Experience section text should be black */
+      #work .timeline > li > .timeline-content > em,
+      #work .timeline > li > .timeline-content > p {
+        color: #000000 !important;
+      }
+      
+      /* Info list colors for white sections */
+      #service .info-list > li > strong,
+      #work .info-list > li > strong,
+      #projects .info-list > li > strong,
+      #contact .info-list > li > strong {
+        color: #000000;
+      }
+      
+      #service .info-list > li > span,
+      #work .info-list > li > span,
+      #projects .info-list > li > span,
+      #contact .info-list > li > span {
+        color: #333333;
+      }
+      
+      /* Info list colors for black sections */
+      #about .info-list > li > strong,
+      #research .info-list > li > strong,
+      #extracurricular .info-list > li > strong {
+        color: #e5e5e5;
+      }
+      
+      #about .info-list > li > span,
+      #research .info-list > li > span,
+      #extracurricular .info-list > li > span {
+        color: #cccccc;
+      }
+      
+      /* Timeline colors for white sections */
+      #work .timeline > li,
+      #projects .timeline > li {
+        color: #000000;
+      }
+      
+      #work .timeline > li > .timeline-content > em,
+      #projects .timeline > li > .timeline-content > em {
+        color: #000000;
+      }
+      
+      #work .timeline > li > .timeline-content > p,
+      #projects .timeline > li > .timeline-content > p {
+        color: #333333;
+      }
+      
+      /* Timeline colors for black sections */
+      #about .timeline > li,
+      #research .timeline > li,
+      #extracurricular .timeline > li {
+        color: #e5e5e5;
+      }
+      
+      #about .timeline > li > .timeline-content > em,
+      #research .timeline > li > .timeline-content > em,
+      #extracurricular .timeline > li > .timeline-content > em {
+        color: #e5e5e5;
+      }
+      
+      #about .timeline > li > .timeline-content > p,
+      #research .timeline > li > .timeline-content > p,
+      #extracurricular .timeline > li > .timeline-content > p {
+        color: #cccccc;
       }
       
       /*---------------------------------------
@@ -640,9 +758,9 @@ export default function GlobalStyles() {
       }
       
       .social-icon li a {
-        background: #ffffff;
+        background: #000000;
         border-radius: 100%;
-        color: #454545;
+        color: #ffffff;
         cursor: pointer;
         font-size: 20px;
         text-decoration: none;
@@ -655,11 +773,12 @@ export default function GlobalStyles() {
         position: relative;
         top: 0;
         margin: 0px 6px 10px 6px;
+        border: 2px solid #ffffff;
       }
       
       .social-icon li a:hover {
-        background: #000000;
-        color: #ffffff;
+        background: #ffffff;
+        color: #000000;
         transform: scale(1.1);
         top: -5px;
       }
@@ -802,6 +921,120 @@ export default function GlobalStyles() {
           padding: 40px;
           padding-top: 0;
         }
+      }
+      
+      /* Project cards - make them black with gradient */
+      .service-thumb {
+        background: linear-gradient(135deg, #000000 0%, #000000 40%, #1a1a2e 70%, #1e3a8a 100%) !important;
+        border: 1px solid #1e3a8a !important; /* Blue border */
+      }
+      
+      .service-thumb h3,
+      .service-thumb h4,
+      .service-thumb p,
+      .service-thumb .fa {
+        color: #e5e5e5 !important;
+      }
+      
+      .service-thumb:hover {
+        background: #ffffff !important;
+        border: 2px solid #1e3a8a !important;
+      }
+      
+      .service-thumb:hover h3,
+      .service-thumb:hover h4,
+      .service-thumb:hover p {
+        color: #000000 !important;
+      }
+      
+      .service-thumb:hover .fa {
+        color: #1e3a8a !important;
+      }
+      
+      /* Skill tags - make them purple instead of gray */
+      .skill {
+        background: #1a1625 !important;
+        color: #ffffff !important;
+        border-color: #ffffff !important;
+      }
+      
+      .skill:hover {
+        background: #000000 !important;
+        color: #ffffff !important;
+        border-color: #000000 !important;
+      }
+      
+      .service-thumb:hover .skill {
+        background: #1e3a8a !important; /* Blue background when card hovered */
+        color: #ffffff !important;
+        border-color: #1e3a8a !important;
+      }
+      
+      .service-thumb:hover .skill:hover {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border-color: #1e3a8a !important; /* Blue border on combined hover */
+      }
+      
+      /* Button styles to match home page theme */
+      .btn-custom {
+        background: linear-gradient(135deg, #000000 0%, #1a1a2e 50%, #1e3a8a 100%) !important;
+        color: #e5e5e5 !important;
+        border: 1px solid #1e3a8a !important;
+        border-radius: 2px !important;
+        padding: 20px 40px !important;
+        text-decoration: none !important;
+        font-weight: 600 !important;
+        letter-spacing: 2px !important;
+        text-transform: uppercase !important;
+        transition: all 0.3s ease !important;
+        display: inline-block !important;
+        position: relative !important;
+        overflow: hidden !important;
+      }
+      
+      .btn-custom:hover {
+        background: linear-gradient(135deg, #1e3a8a 0%, #1a1a2e 50%, #000000 100%) !important;
+        color: #ffffff !important;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3) !important;
+      }
+      
+      .btn-custom:before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: -100% !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent) !important;
+        transition: left 0.5s !important;
+      }
+      
+      .btn-custom:hover:before {
+        left: 100% !important;
+      }
+      
+      /* Fix button alignment */
+      .about-btns {
+        text-align: left !important;
+        margin-top: 30px !important;
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+      }
+      
+      .btn-custom {
+        text-align: center !important;
+        margin: 0 !important;
+        vertical-align: middle !important;
+        line-height: normal !important;
+        display: inline-block !important;
+      }
+      
+      /* Ensure button aligns with text content */
+      .col-md-8 .about-btns {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
       }
     `}</style>
   );
