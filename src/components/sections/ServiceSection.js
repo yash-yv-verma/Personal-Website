@@ -36,7 +36,7 @@ export default function ServiceSection({ backgroundColor = '#fff' }) {
               <p>Outside academia, I serve as a Computer Science Tutor at the University of Texas, San Antonio, where I assist students in understanding programming concepts and overcoming challenges in various courses.</p>
             </div>
             <div className="about-btns">
-              <a target="_blank" href="/images/Resume.pdf" className="btn-custom btn-color" download="Yash Verma Resume">Download Resume</a>
+              <a href="/resume" className="btn-custom btn-color">View Resume</a>
             </div>
           </div>
         </div>
@@ -148,7 +148,7 @@ export default function ServiceSection({ backgroundColor = '#fff' }) {
         .about-text {
           margin-bottom: 25px;
           line-height: 1.8em;
-          margin-left: -25px;
+          margin-left: 0;
           padding-right: 20px;
         }
         
@@ -165,6 +165,8 @@ export default function ServiceSection({ backgroundColor = '#fff' }) {
         
         .about-btns {
           margin-top: 30px;
+          margin-left: 0;
+          padding-left: 0;
         }
         
         .about-btns > .btn-custom {
