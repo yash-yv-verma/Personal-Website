@@ -6,85 +6,19 @@
         overflow-x: hidden !important;
         width: 100% !important;
         max-width: 100% !important;
-        /* iPhone Safe Area Support */
-        padding-top: env(safe-area-inset-top) !important;
-        padding-bottom: env(safe-area-inset-bottom) !important;
+        background-color: #000000 !important;
+        color: #fff !important;
+        min-height: 100vh !important;
         margin: 0 !important;
         border: 0 !important;
-        min-height: 100vh !important;
+        /* iPhone Safe Area Support */
+        padding-top: env(safe-area-inset-top) !important;
+        padding-right: env(safe-area-inset-right) !important;
+        padding-bottom: env(safe-area-inset-bottom) !important;
+        padding-left: env(safe-area-inset-left) !important;
     }
 
-    /* iPhone Safe Area Black Background - COMPREHENSIVE */
-    @supports (padding: max(0px)) {
-        html::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: env(safe-area-inset-top);
-            background: #000000 !important;
-            z-index: 999999 !important;
-            pointer-events: none;
-        }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: env(safe-area-inset-top);
-            background: #000000 !important;
-            z-index: 999999 !important;
-            pointer-events: none;
-        }
-    }
 
-    /* Safe area background for ALL pages - COMPREHENSIVE */
-    @supports (padding: max(0px)) {
-        #__next::before,
-        .blog-page::before,
-        .podcast-page::before,
-        #home::before,
-        #service::before,
-        #about::before,
-        #work::before,
-        #research::before,
-        #projects::before,
-        #extracurricular::before,
-        #contact::before,
-        footer::before,
-        .hero-section::before,
-        .posts-section::before,
-        .episodes-section::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: env(safe-area-inset-top);
-            background: #000000 !important;
-            z-index: 999999 !important;
-            pointer-events: none;
-        }
-    }
-
-    /* Force black safe area on home page specifically */
-    @supports (padding: max(0px)) {
-        body > div::before,
-        body > div > div::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: env(safe-area-inset-top);
-            background: #000000 !important;
-            z-index: 999999 !important;
-            pointer-events: none;
-        }
-    }
 
     /* Container fixes to prevent overflow */
     .container {
