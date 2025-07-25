@@ -4,7 +4,7 @@ This site is being migrated to [Next.js](https://nextjs.org/) for better scalabi
 
 ## Structure
 
-- `src/pages/` — All routes/pages (e.g., `/`, `/aadra`, `/bts`, `/blog`)
+- `src/pages/` — All routes/pages (e.g., `/`, `/bts`, `/blog`)
 - `src/public/` — Static assets (images, fonts, CSS, JS, etc.)
 - `src/styles/` — Global and page-specific CSS
 
