@@ -11,128 +11,27 @@ export default function GlobalStyles() {
       html, body {
         width: 100%;
         height: 100%;
+        background-color: #000000;
+        color: #fff;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
       }
       
       body {
-        background: #ffffff;
+        background: #000000;
         font-family: Lora, serif;
         font-style: normal;
         font-weight: normal;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-        /* Ensure safe area is black on all devices */
         padding-top: env(safe-area-inset-top);
+        padding-right: env(safe-area-inset-right);
         padding-bottom: env(safe-area-inset-bottom);
+        padding-left: env(safe-area-inset-left);
       }
 
-      /* iPhone Safe Area Support - Global */
-      @supports (padding: max(0px)) {
-        html {
-          padding-top: env(safe-area-inset-top);
-          padding-bottom: env(safe-area-inset-bottom);
-        }
-        
-        body {
-          padding-top: env(safe-area-inset-top);
-          padding-bottom: env(safe-area-inset-bottom);
-        }
-      }
 
-      /* Global Safe Area Black Background - COMPREHENSIVE FIX */
-      @supports (padding: max(0px)) {
-        html::before {
-          content: '';
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: env(safe-area-inset-top);
-          background: #000000 !important;
-          z-index: 999999;
-          pointer-events: none;
-        }
-        
-        body::before {
-          content: '';
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: env(safe-area-inset-top);
-          background: #000000 !important;
-          z-index: 999999;
-          pointer-events: none;
-        }
-      }
-
-      /* Safe area background for ALL pages - COMPREHENSIVE */
-      @supports (padding: max(0px)) {
-        #__next::before,
-        .blog-page::before,
-        .podcast-page::before,
-        #home::before,
-        #service::before,
-        #about::before,
-        #work::before,
-        #research::before,
-        #projects::before,
-        #extracurricular::before,
-        #contact::before,
-        footer::before,
-        .hero-section::before,
-        .posts-section::before,
-        .episodes-section::before {
-          content: '';
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: env(safe-area-inset-top);
-          background: #000000 !important;
-          z-index: 999999;
-          pointer-events: none;
-        }
-      }
-
-      /* Ensure safe area is black on dark pages */
-      .blog-page,
-      .podcast-page,
-      .hero-section,
-      .posts-section,
-      .episodes-section {
-        background: #0a0a0a;
-      }
-
-            /* Force black safe area on home page specifically */
-      @supports (padding: max(0px)) {
-        body > div::before,
-        body > div > div::before {
-          content: '';
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: env(safe-area-inset-top);
-          background: #000000 !important;
-          z-index: 999999;
-          pointer-events: none;
-        }
-      }
-
-      /* Ultimate safe area fix for all pages */
-      @supports (padding: max(0px)) {
-        #__next::before {
-          content: '';
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: env(safe-area-inset-top);
-          background: #000000 !important;
-          z-index: 999999;
-          pointer-events: none;
-        }
-      }
 
 
 
