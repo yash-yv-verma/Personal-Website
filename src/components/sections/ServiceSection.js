@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Parallax } from 'react-scroll-parallax';
 import { useAnimations } from '../../hooks/useAnimations';
+import Link from 'next/link';
 
 export default function ServiceSection({ backgroundColor = '#fff' }) {
   const { fadeInUp } = useAnimations();
@@ -23,8 +24,8 @@ export default function ServiceSection({ backgroundColor = '#fff' }) {
               <li><strong>Hometown:</strong> <span>Austin, TX</span></li>
               <li>
                 <ul className="social-icon">
-                  <li><a target="_blank" href="https://github.com/yash-yv-verma" className="fab fa-github"></a></li>
-                  <li><a target="_blank" href="https://www.linkedin.com/in/-yv/" className="fab fa-linkedin"></a></li>
+                  <li><a href="https://github.com/yash-yv-verma" target="_blank" rel="noopener noreferrer" className="fab fa-github"></a></li>
+                  <li><a href="https://www.linkedin.com/in/-yv/" target="_blank" rel="noopener noreferrer" className="fab fa-linkedin"></a></li>
                 </ul>
               </li>
             </ul>
@@ -36,7 +37,7 @@ export default function ServiceSection({ backgroundColor = '#fff' }) {
               <p>Outside academia, I serve as a Computer Science Tutor at the University of Texas, San Antonio, where I assist students in understanding programming concepts and overcoming challenges in various courses.</p>
             </div>
             <div className="about-btns">
-              <a href="/resume" className="btn-custom btn-color">View Resume</a>
+              <Link href="/resume" className="btn-custom btn-color">View Resume</Link>
             </div>
           </div>
         </div>
@@ -136,8 +137,8 @@ export default function ServiceSection({ backgroundColor = '#fff' }) {
           position: relative;
           top: 0;
           margin: 0px 6px 10px 6px;
+          display: inline-block;
         }
-        
         .social-icon li a:hover {
           background: #000000;
           color: #ffffff;
