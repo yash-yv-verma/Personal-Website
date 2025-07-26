@@ -3,31 +3,31 @@ import { Parallax } from 'react-scroll-parallax';
 import { motion } from 'framer-motion';
 
 const ProjectsSection = () => {
-  // Animation variants for smoother, slower animations
+  // Animation variants for smoother, optimized animations
   const fadeInUp = {
     hidden: { 
       opacity: 0, 
-      y: 80 
+      y: 30 
     },
     visible: (custom) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: custom * 0.15,
-        duration: 0.8,
-        ease: "easeOut"
+        delay: custom * 0.1,
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     })
   };
 
   const containerVariants = {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.7,
-        ease: "easeOut"
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94]
       }
     }
   };

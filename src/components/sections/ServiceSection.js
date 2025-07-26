@@ -7,7 +7,7 @@ export default function ServiceSection({ backgroundColor = '#fff' }) {
   const { fadeInUp } = useAnimations();
 
   return (
-    <Parallax y={[-10, 10]} tagouter="section" id="service" className="parallax-section">
+    <Parallax y={[-3, 3]} tagouter="section" id="service" className="parallax-section">
       <motion.div 
         className="container" 
         variants={fadeInUp} 

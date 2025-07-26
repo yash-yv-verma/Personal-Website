@@ -6,6 +6,7 @@ export default function GlobalStyles() {
       
       html {
         -webkit-font-smoothing: antialiased;
+        scroll-behavior: smooth;
       }
       
       html, body {
@@ -16,6 +17,7 @@ export default function GlobalStyles() {
         min-height: 100vh;
         margin: 0;
         padding: 0;
+        overflow-x: hidden;
       }
       
       body {
@@ -29,6 +31,10 @@ export default function GlobalStyles() {
         padding-right: env(safe-area-inset-right);
         padding-bottom: env(safe-area-inset-bottom);
         padding-left: env(safe-area-inset-left);
+        /* Smooth scrolling optimizations */
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
 
@@ -47,6 +53,41 @@ export default function GlobalStyles() {
       *:after {
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
+      }
+      
+      /* Performance optimizations for smoother scrolling */
+      * {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+      
+      /* Optimize animations and transitions */
+      .parallax-section,
+      .motion-div,
+      [data-framer-motion] {
+        will-change: transform;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+      }
+      
+      /* Reduce GPU usage for smoother scrolling */
+      .container,
+      .row,
+      .col-md-offset-5,
+      .col-md-7,
+      .col-sm-12,
+      .col-xs-12 {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+      
+      /* Optimize transitions */
+      a, button, .btn-custom, .service-thumb {
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
       }
       
       a {
@@ -126,6 +167,81 @@ export default function GlobalStyles() {
       .parallax-section {
         background-attachment: fixed !important;
         background-size: cover !important;
+        /* Performance optimizations */
+        will-change: transform;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+      }
+      
+      /* Reduce parallax intensity for smoother scrolling */
+      .parallax-section[data-parallax-y] {
+        transform: translateY(0) translateZ(0);
+      }
+      
+      /* Fix gradient issues on mobile */
+      @media (max-width: 768px) {
+        .parallax-section {
+          background-attachment: scroll !important;
+          background-size: cover !important;
+        }
+        
+        /* Improve gradient rendering on mobile */
+        #about, #research, #extracurricular {
+          background: linear-gradient(135deg, #000000 0%, #000000 60%, #1e3a8a 100%) !important;
+          background-attachment: scroll !important;
+        }
+        
+        /* Prevent sections from being scrollable on mobile */
+        #service, #about, #work, #research, #projects, #extracurricular, #contact, footer {
+          position: relative !important;
+          overflow: hidden !important;
+        }
+        
+        /* Ensure proper section spacing on mobile */
+        .container {
+          padding-left: 15px !important;
+          padding-right: 15px !important;
+        }
+        
+        /* Fix mobile touch scrolling */
+        body {
+          -webkit-overflow-scrolling: touch !important;
+          overflow-x: hidden !important;
+        }
+        
+        /* Additional mobile improvements */
+        html {
+          -webkit-text-size-adjust: 100% !important;
+          -ms-text-size-adjust: 100% !important;
+        }
+        
+        /* Prevent zoom on input focus on iOS */
+        input, textarea, select {
+          font-size: 16px !important;
+        }
+        
+        /* Improve touch targets */
+        button, a, [role="button"] {
+          min-height: 44px !important;
+          min-width: 44px !important;
+        }
+        
+        /* Fix iOS Safari viewport issues */
+        @supports (-webkit-touch-callout: none) {
+          body {
+            padding-top: env(safe-area-inset-top) !important;
+            padding-bottom: env(safe-area-inset-bottom) !important;
+            padding-left: env(safe-area-inset-left) !important;
+            padding-right: env(safe-area-inset-right) !important;
+          }
+        }
+      }
+      
+      /* Disable parallax on lower-end devices for better performance */
+      @media (max-width: 1024px) {
+        .parallax-section {
+          background-attachment: scroll !important;
+        }
       }
       
       .section-title {
