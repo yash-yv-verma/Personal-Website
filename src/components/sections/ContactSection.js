@@ -17,7 +17,7 @@ export default function ContactSection({ backgroundColor = '#fff' }) {
   }
 
   return (
-    <Parallax y={[-10, 10]} tagouter="section" id="contact" className="parallax-section">
+    <Parallax y={[-3, 3]} tagouter="section" id="contact" className="parallax-section">
       <motion.div 
         className="container" 
         variants={fadeInUp} 

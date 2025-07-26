@@ -31,7 +31,7 @@ export default function ResearchSection({ backgroundColor = '#f0f6ff' }) {
   const { fadeInUp } = useAnimations();
 
   return (
-    <Parallax y={[-10, 10]} tagouter="section" id="research" className="parallax-section">
+    <Parallax y={[-3, 3]} tagouter="section" id="research" className="parallax-section">
       <div className="fullwidth-section">
         <motion.div 
           className="container" 
