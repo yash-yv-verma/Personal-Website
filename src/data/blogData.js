@@ -1,399 +1,91 @@
 const blogPosts = [
   {
     id: '01',
-    title: 'Building Scalable Systems: Lessons from the Trenches',
-    excerpt: 'Exploring the key principles and patterns for building systems that can handle millions of users while maintaining performance and reliability.',
+    title: 'Monoliths Explained: The Architecture I Kept Hearing About at My First Internship',
+    excerpt: 'A beginner-friendly look at what a monolith is, how it compares to microservices, and why it comes up so often in software discussions.',
     content: `
-# Building Scalable Systems: Lessons from the Trenches
+# Monoliths Explained: The Architecture I Kept Hearing About at My First Internship
 
-Building systems that can scale from thousands to millions of users is one of the most challenging aspects of software engineering. Over the years, I've learned that scalability isn't just about handling more traffic—it's about building systems that can evolve and adapt.
+## The First Standup
 
-## The Foundation: Start with Good Architecture
+It was my first standup meeting at my internship, and honestly, I had no idea what was going on.
 
-The most important lesson I've learned is that scalability starts with good architectural decisions from day one. You don't need to over-engineer for massive scale initially, but you need to make choices that won't paint you into a corner later.
+There were so many words being thrown around that I didn't understand, and I just kept nodding along, hoping no one noticed. But out of everything mentioned, there was one word that kept coming up — monolith.
 
-### Key Principles
+Monolith this. Monolith that. The monolith needs an update.
 
-1. **Separation of Concerns**: Keep your data layer, business logic, and presentation layer clearly separated
-2. **Stateless Services**: Design your services to be stateless whenever possible
-3. **Horizontal Scaling**: Build with horizontal scaling in mind from the beginning
+The more they said it, the more it seemed like this word was the most important thing in the world, and everyone else knew exactly what it meant.
 
-## Performance Optimization Strategies
+Meanwhile, I was sitting there, smiling and nodding, secretly Googling "What is a monolith?". To my surprise, the search didn't help me much, and I left the meeting just as confused as I entered it.
 
-### Database Optimization
-- Use proper indexing strategies
-- Implement read replicas for read-heavy workloads
-- Consider database sharding for write-heavy applications
+When the weekend came around, I decided enough was enough. I wasn't going to spend another week feeling clueless. I was going to figure out what this "monolith" *thing* actually was.
 
-### Caching Layers
-- Implement Redis or Memcached for frequently accessed data
-- Use CDNs for static assets
-- Implement application-level caching where appropriate
+## So… What is a Monolith?
 
-### Load Balancing
-- Distribute traffic across multiple instances
-- Use health checks to ensure traffic only goes to healthy instances
-- Implement circuit breakers for fault tolerance
+In simple terms, a monolith is a single, unified application. All the parts of the app — backend, frontend, and database logic — live together and are deployed as one unit.
 
-## Real-World Examples
+Imagine a large office building where different departments are all located in the same structure. Each department has its own space, but everything is still connected. If you want to change the layout of one department, it might be a small update. But if you make bigger changes, you have to think about how those changes affect the rest of the building.
 
-In my experience building systems at scale, I've seen the importance of monitoring and observability. You can't optimize what you can't measure.
+In a monolithic application, updates or deployments happen to the whole system together, even if you only changed one part. This can make it easier to manage when starting out, but it can become more challenging as the system grows in size and complexity.
 
-## Conclusion
+One of the other big names you'll hear in the same conversation is microservices. Microservices take the opposite approach: instead of one large application, you break it into smaller, independent services that can be deployed and updated separately.
 
-Scalability is a journey, not a destination. The key is to make informed decisions, measure everything, and iterate based on real data rather than assumptions.
+## Quick Peek: Monolith vs Microservices
+
+If a monolith is one large office building, microservices are like separate office buildings for each department. Each building can be renovated, moved, or expanded without touching the others.
+
+This can make scaling and maintaining easier, but it also comes with challenges like making sure all the buildings can communicate effectively and work toward the same goals.
+
+## Other Common Architectures You'll Hear About
+
+While monoliths and microservices are two of the most talked-about patterns, there are a few others you'll hear in meetings and tech discussions:
+
+- Layered (n-tier) — Separates code into layers like presentation, business logic, and data access.
+
+- Event-Driven — Services communicate by producing and consuming events, often in real time.
+
+- Serverless — Runs application code in cloud-managed functions without provisioning servers.
+
+Understanding these will help you see the bigger picture when people talk about "system design" or "architecture" in a professional setting.
+
+## Wrapping Up
+
+So that's the mystery behind the "monolith" I kept hearing about in my first standup. It is not a secret project name. It is a way of building software that is still common today, especially for projects in their early stages.
     `,
-    publishDate: '2024-01-15',
-    readTime: '8 min read',
-    tags: ['Architecture', 'Scalability', 'Performance', 'Backend'],
-    thumbnail: '/images/homebg.jpeg',
+    publishDate: '2025-08-09T12:00:00',
+    readTime: '6 min read',
+    tags: ['Architecture', 'Software Engineering', 'Backend', 'Microservices'],
+    thumbnail: '/images/mono.jpeg',
     featured: true
   },
   {
     id: '02',
-    title: 'React Performance Optimization: A Complete Guide',
-    excerpt: 'Deep dive into React performance optimization techniques, from basic best practices to advanced patterns for building lightning-fast UIs.',
+    title: 'More Content Coming Soon!',
+    excerpt: 'Stay tuned for more insights, tutorials, and stories from my journey in software development.',
     content: `
-# React Performance Optimization: A Complete Guide
+# More Content Coming Soon!
 
-React applications can become slow if not optimized properly. This guide covers everything you need to know about optimizing React performance.
+Thanks for reading my first blog post! I'm excited to share more content with you soon.
 
-## Understanding React's Rendering
+## What's Coming Next?
 
-React re-renders components when their props or state change. Understanding this fundamental concept is crucial for optimization.
+I'm working on more articles covering:
 
-### Common Performance Issues
+- My experiences learning new technologies
+- Practical tutorials and tips
+- Behind-the-scenes stories from software development
+- Lessons learned from real projects
 
-1. **Unnecessary Re-renders**: Components re-rendering when they shouldn't
-2. **Large Bundle Sizes**: Loading too much JavaScript upfront
-3. **Inefficient Data Structures**: Using objects as keys or dependencies
+## Stay Connected
 
-## Optimization Techniques
+Keep checking back for new posts, or connect with me to stay updated on my latest content and projects.
 
-### 1. Memoization
-Use React.memo, useMemo, and useCallback strategically:
-
-\`\`\`jsx
-const ExpensiveComponent = React.memo(({ data }) => {
-  return <div>{/* Expensive computation */}</div>;
-});
-\`\`\`
-
-### 2. Code Splitting
-Break your app into smaller chunks:
-
-\`\`\`jsx
-const LazyComponent = React.lazy(() => import('./LazyComponent'));
-\`\`\`
-
-### 3. Virtual Scrolling
-For large lists, implement virtual scrolling to only render visible items.
-
-## Advanced Patterns
-
-### Concurrent Features
-React 18 introduced concurrent features like Suspense and automatic batching that can significantly improve performance.
-
-### State Management
-Consider using Zustand or Jotai for more efficient state management in complex applications.
-
-## Measuring Performance
-
-Always measure before and after optimization:
-- Use React DevTools Profiler
-- Implement Core Web Vitals monitoring
-- Use Lighthouse for performance audits
-
-## Conclusion
-
-React performance optimization is about finding the right balance between development speed and runtime performance. Start with the basics and optimize based on real performance metrics.
+More exciting content is on the way!
     `,
-    publishDate: '2024-02-20',
-    readTime: '12 min read',
-    tags: ['React', 'Performance', 'Frontend', 'JavaScript'],
-    thumbnail: '/images/homebg.jpeg',
-    featured: false
-  },
-  {
-    id: '03',
-    title: 'Modern CSS Techniques for Better User Interfaces',
-    excerpt: 'Explore cutting-edge CSS features like Container Queries, CSS Grid, and modern layout techniques that will transform your UI development.',
-    content: `
-# Modern CSS Techniques for Better User Interfaces
-
-CSS has evolved tremendously in recent years. Let's explore some modern techniques that can dramatically improve your UI development workflow.
-
-## Container Queries: The Game Changer
-
-Container queries allow components to respond to their container's size rather than the viewport:
-
-\`\`\`css
-.card {
-  container-type: inline-size;
-}
-
-@container (min-width: 300px) {
-  .card-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-  }
-}
-\`\`\`
-
-## Advanced Grid Techniques
-
-### Intrinsic Web Design
-Use CSS Grid's intrinsic sizing for truly responsive layouts:
-
-\`\`\`css
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-\`\`\`
-
-### Subgrid for Perfect Alignment
-Subgrid allows nested grids to align with their parent:
-
-\`\`\`css
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.card {
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 3;
-}
-\`\`\`
-
-## CSS Custom Properties (Variables)
-
-Create dynamic, theme-aware interfaces:
-
-\`\`\`css
-:root {
-  --primary-color: #3b82f6;
-  --spacing-unit: 0.5rem;
-}
-
-.button {
-  background: var(--primary-color);
-  padding: calc(var(--spacing-unit) * 2);
-}
-\`\`\`
-
-## Modern Layout Patterns
-
-### The Stack Pattern
-Create consistent vertical spacing:
-
-\`\`\`css
-.stack > * + * {
-  margin-top: var(--space, 1rem);
-}
-\`\`\`
-
-### The Cluster Pattern
-Group related items with consistent spacing:
-
-\`\`\`css
-.cluster {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space, 1rem);
-  justify-content: flex-start;
-  align-items: center;
-}
-\`\`\`
-
-## Performance Considerations
-
-- Use \`contain\` property for layout containment
-- Leverage \`will-change\` sparingly for animations
-- Implement efficient CSS selectors
-
-## Browser Support
-
-Most modern CSS features have excellent browser support, but always check caniuse.com and provide fallbacks where necessary.
-
-## Conclusion
-
-Modern CSS provides powerful tools for creating maintainable, responsive, and performant user interfaces. Embrace these techniques to build better web experiences.
-    `,
-    publishDate: '2024-03-10',
-    readTime: '10 min read',
-    tags: ['CSS', 'Frontend', 'Web Design', 'Layout'],
-    thumbnail: '/images/homebg.jpeg',
-    featured: true
-  },
-  {
-    id: '04',
-    title: 'Advanced TypeScript Patterns for Enterprise Applications',
-    excerpt: 'Master advanced TypeScript patterns including conditional types, mapped types, and template literal types to build type-safe enterprise applications.',
-    content: `
-# Advanced TypeScript Patterns for Enterprise Applications
-
-TypeScript's type system is incredibly powerful. Let's explore advanced patterns that can help you build more maintainable and type-safe enterprise applications.
-
-## Conditional Types
-
-Conditional types allow you to create types that depend on conditions:
-
-\`\`\`typescript
-type ApiResponse<T> = T extends string 
-  ? { message: T } 
-  : { data: T };
-
-type StringResponse = ApiResponse<string>; // { message: string }
-type DataResponse = ApiResponse<User>; // { data: User }
-\`\`\`
-
-## Mapped Types
-
-Transform existing types to create new ones:
-
-\`\`\`typescript
-type Optional<T> = {
-  [K in keyof T]?: T[K];
-};
-
-type RequiredFields<T, K extends keyof T> = T & Required<Pick<T, K>>;
-
-interface User {
-  id?: string;
-  name?: string;
-  email?: string;
-}
-
-type UserWithRequiredEmail = RequiredFields<User, 'email'>;
-\`\`\`
-
-## Template Literal Types
-
-Create precise string types:
-
-\`\`\`typescript
-type EventName<T extends string> = \`on\${Capitalize<T>}\`;
-
-type ButtonEvents = EventName<'click' | 'hover'>; // 'onClick' | 'onHover'
-
-type Route<T extends string> = \`/api/\${T}\`;
-type ApiRoute = Route<'users' | 'posts'>; // '/api/users' | '/api/posts'
-\`\`\`
-
-## Utility Types for Domain Modeling
-
-### Result Type for Error Handling
-
-\`\`\`typescript
-type Result<T, E = Error> = 
-  | { success: true; data: T }
-  | { success: false; error: E };
-
-async function fetchUser(id: string): Promise<Result<User>> {
-  try {
-    const user = await api.getUser(id);
-    return { success: true, data: user };
-  } catch (error) {
-    return { success: false, error: error as Error };
-  }
-}
-\`\`\`
-
-### Brand Types for Domain Safety
-
-\`\`\`typescript
-type Brand<T, B> = T & { __brand: B };
-
-type UserId = Brand<string, 'UserId'>;
-type Email = Brand<string, 'Email'>;
-
-function createUser(id: UserId, email: Email) {
-  // Implementation
-}
-
-// This would cause a type error:
-// createUser('some-string', 'not-an-email');
-\`\`\`
-
-## Advanced Patterns for API Design
-
-### Fluent APIs with Method Chaining
-
-\`\`\`typescript
-class QueryBuilder<T> {
-  where<K extends keyof T>(
-    field: K, 
-    value: T[K]
-  ): QueryBuilder<T> {
-    // Implementation
-    return this;
-  }
-  
-  select<K extends keyof T>(
-    ...fields: K[]
-  ): QueryBuilder<Pick<T, K>> {
-    // Implementation
-    return this as any;
-  }
-}
-\`\`\`
-
-### Type-Safe Event Systems
-
-\`\`\`typescript
-interface EventMap {
-  user:login: { userId: string; timestamp: Date };
-  user:logout: { userId: string };
-  order:created: { orderId: string; total: number };
-}
-
-class EventEmitter<T extends Record<string, any>> {
-  on<K extends keyof T>(event: K, handler: (data: T[K]) => void) {
-    // Implementation
-  }
-  
-  emit<K extends keyof T>(event: K, data: T[K]) {
-    // Implementation
-  }
-}
-
-const emitter = new EventEmitter<EventMap>();
-emitter.on('user:login', (data) => {
-  // data is properly typed as { userId: string; timestamp: Date }
-});
-\`\`\`
-
-## Performance Considerations
-
-- Use \`as const\` assertions for immutable data
-- Leverage \`readonly\` modifiers for immutable interfaces
-- Consider using \`unknown\` instead of \`any\` for better type safety
-
-## Testing with Advanced Types
-
-\`\`\`typescript
-type AssertEqual<T, U> = T extends U 
-  ? U extends T 
-    ? true 
-    : false 
-  : false;
-
-type Test1 = AssertEqual<EventName<'click'>, 'onClick'>; // true
-type Test2 = AssertEqual<EventName<'click'>, 'onHover'>; // false
-\`\`\`
-
-## Conclusion
-
-Advanced TypeScript patterns can significantly improve the maintainability and safety of enterprise applications. Start with simpler patterns and gradually adopt more advanced techniques as your team becomes comfortable with the type system.
-    `,
-    publishDate: '2024-04-05',
-    readTime: '15 min read',
-    tags: ['TypeScript', 'Enterprise', 'Advanced', 'Type System'],
-    thumbnail: '/images/homebg.jpeg',
+    publishDate: '2025-08-22T12:00:00',
+    readTime: '1 min read',
+    tags: ['Updates', 'Coming Soon'],
+    thumbnail: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI0MCIgdmlld0JveD0iMCAwIDQwMCAyNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNDAiIGZpbGw9IiMyYTJhMmEiLz4KICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIxMjAiIHI9IjYiIGZpbGw9IiMwMDAwMDAiPgogICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0ib3BhY2l0eSIgdmFsdWVzPSIwLjM7MTswLjMiIGR1cj0iMS41cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz4KICA8L2NpcmNsZT4KICA8Y2lyY2xlIGN4PSIyMDAiIGN5PSIxMjAiIHI9IjYiIGZpbGw9IiMwMDAwMDAiPgogICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0ib3BhY2l0eSIgdmFsdWVzPSIwLjM7MTswLjMiIGR1cj0iMS41cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIGJlZ2luPSIwLjVzIi8+CiAgPC9jaXJjbGU+CiAgPGNpcmNsZSBjeD0iMjIwIiBjeT0iMTIwIiByPSI2IiBmaWxsPSIjMDAwMDAwIj4KICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9Im9wYWNpdHkiIHZhbHVlcz0iMC4zOzE7MC4zIiBkdXI9IjEuNXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBiZWdpbj0iMXMiLz4KICA8L2NpcmNsZT4KPC9zdmc+',
     featured: false
   }
 ];

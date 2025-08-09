@@ -21,10 +21,15 @@ export default function BlogPost({ post }) {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
-  // Convert markdown-style content to JSX
+  // Convert markdown-style content to JSX with basic italic support
   const renderContent = (content) => {
     const lines = content.split('\n');
     let skipFirstH1 = false;
+    
+    const processItalics = (text) => {
+      // Simple italic processing
+      return text.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+    };
     
     return lines.map((line, index) => {
       if (line.startsWith('# ')) {
@@ -33,21 +38,27 @@ export default function BlogPost({ post }) {
           skipFirstH1 = true;
           return null;
         }
-        return <h1 key={index} className="content-h1">{line.slice(2)}</h1>;
+        const text = processItalics(line.slice(2));
+        return <h1 key={index} className="content-h1" dangerouslySetInnerHTML={{ __html: text }} />;
       } else if (line.startsWith('## ')) {
-        return <h2 key={index} className="content-h2">{line.slice(3)}</h2>;
+        const text = processItalics(line.slice(3));
+        return <h2 key={index} className="content-h2" dangerouslySetInnerHTML={{ __html: text }} />;
       } else if (line.startsWith('### ')) {
-        return <h3 key={index} className="content-h3">{line.slice(4)}</h3>;
+        const text = processItalics(line.slice(4));
+        return <h3 key={index} className="content-h3" dangerouslySetInnerHTML={{ __html: text }} />;
       } else if (line.startsWith('```')) {
         return null; // Handle code blocks separately if needed
       } else if (line.trim() === '') {
         return <br key={index} />;
       } else if (line.startsWith('- ')) {
-        return <li key={index} className="content-li">{line.slice(2)}</li>;
+        const text = processItalics(line.slice(2));
+        return <li key={index} className="content-li" dangerouslySetInnerHTML={{ __html: text }} />;
       } else if (/^\d+\./.test(line)) {
-        return <li key={index} className="content-li">{line.replace(/^\d+\.\s/, '')}</li>;
+        const text = processItalics(line.replace(/^\d+\.\s/, ''));
+        return <li key={index} className="content-li" dangerouslySetInnerHTML={{ __html: text }} />;
       } else {
-        return <p key={index} className="content-p">{line}</p>;
+        const text = processItalics(line);
+        return <p key={index} className="content-p" dangerouslySetInnerHTML={{ __html: text }} />;
       }
     });
   };
@@ -343,6 +354,71 @@ export default function BlogPost({ post }) {
           line-height: 1.7;
           margin: 8px 0;
           margin-left: 20px;
+        }
+
+        .content-list {
+          margin: 16px 0;
+          padding-left: 20px;
+        }
+
+        .content-list-container {
+          margin: 16px 0;
+        }
+
+        .inline-code {
+          background: #1a1a1a;
+          color: #7c7dfe;
+          padding: 2px 6px;
+          border-radius: 4px;
+          font-family: 'Courier New', monospace;
+          font-size: 0.9em;
+          border: 1px solid #2a2a2a;
+        }
+
+        .content-code-block {
+          background: #1a1a1a;
+          border: 1px solid #2a2a2a;
+          border-radius: 8px;
+          padding: 20px;
+          margin: 20px 0;
+          overflow-x: auto;
+        }
+
+        .content-code-block code {
+          color: #d1d5db;
+          font-family: 'Courier New', monospace;
+          font-size: 0.95rem;
+          line-height: 1.5;
+          white-space: pre;
+        }
+
+        .content-link {
+          color: #7c7dfe;
+          text-decoration: underline;
+          transition: color 0.3s ease;
+        }
+
+        .content-link:hover {
+          color: #9ca3ff;
+        }
+
+        .content-image {
+          max-width: 100%;
+          height: auto;
+          margin: 20px 0;
+          border-radius: 8px;
+          border: 1px solid #2a2a2a;
+        }
+
+        strong {
+          font-weight: 700;
+          color: #ffffff;
+        }
+
+        em {
+          font-style: italic !important;
+          color: #e2e8f0;
+          font-family: inherit;
         }
 
         .share-section-bottom {
