@@ -42,12 +42,6 @@ export default function GlobalStyles() {
         -moz-osx-font-smoothing: grayscale;
       }
 
-
-
-
-
-      
-      
       * {
         font-family: inherit;
         -webkit-box-sizing: border-box;
@@ -60,37 +54,18 @@ export default function GlobalStyles() {
         box-sizing: border-box;
       }
       
-      /* Performance optimizations for smoother scrolling */
-      * {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-      }
-      
-      /* Optimize animations and transitions */
+      /* IMPORTANT: Avoid forcing GPU transforms globally.
+         Applying transform on ancestors breaks iOS fixed elements and top-tap behavior. */
+
+      /* Optimize only animated elements, without forcing transform */
       .parallax-section,
       .motion-div,
       [data-framer-motion] {
         will-change: transform;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
       }
-      
-      /* Reduce GPU usage for smoother scrolling */
-      .container,
-      .row,
-      .col-md-offset-5,
-      .col-md-7,
-      .col-sm-12,
-      .col-xs-12 {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-      }
-      
-      /* Optimize transitions */
+
+      /* Remove previous translateZ/backface hacks from layout containers to prevent new stacking contexts */
+
       a, button, .btn-custom, .service-thumb {
         transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
       }
@@ -172,15 +147,11 @@ export default function GlobalStyles() {
       .parallax-section {
         background-attachment: fixed !important;
         background-size: cover !important;
-        /* Performance optimizations */
-        will-change: transform;
-        transform: translateZ(0);
-        backface-visibility: hidden;
       }
       
       /* Reduce parallax intensity for smoother scrolling */
       .parallax-section[data-parallax-y] {
-        transform: translateY(0) translateZ(0);
+        transform: translateY(0);
       }
       
       /* Fix gradient issues on mobile */

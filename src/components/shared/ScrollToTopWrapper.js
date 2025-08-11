@@ -5,82 +5,79 @@ export default function ScrollToTopWrapper({ children }) {
   const router = useRouter();
 
   useEffect(() => {
-    const handleScrollToTop = () => {
-      // Force scroll to top
-      if (typeof window !== 'undefined') {
-        const beforeScroll = window.pageYOffset;
-        console.log('Scrolling to top... Current position:', beforeScroll);
-        
-        // Add CSS class to override smooth scrolling
-        document.documentElement.classList.add('scroll-to-top');
-        
-        // Function to perform scroll
-        const performScroll = () => {
-          // Method 1: Direct scroll
-          window.scrollTo(0, 0);
-          
-          // Method 2: Scroll document element
-          if (document.documentElement) {
-            document.documentElement.scrollTop = 0;
-          }
-          
-          // Method 3: Scroll body
-          if (document.body) {
-            document.body.scrollTop = 0;
-          }
-          
-          // Method 4: Use scrollIntoView on body
-          if (document.body) {
-            document.body.scrollIntoView({ top: 0, behavior: 'instant' });
-          }
-        };
+    const isMobile = () => typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-        // First attempt - immediate
-        performScroll();
-        
-        // Second attempt - after DOM is ready
-        requestAnimationFrame(() => {
-          performScroll();
-        });
-        
-        // Third attempt - after a short delay
-        setTimeout(() => {
-          performScroll();
-        }, 100);
-        
-        // Fourth attempt - after page is fully loaded
-        setTimeout(() => {
-          performScroll();
-        }, 300);
-        
-        // Check if scroll worked and retry if needed
-        setTimeout(() => {
-          const afterScroll = window.pageYOffset;
-          console.log('Scroll to top completed. New position:', afterScroll);
-          if (afterScroll > 0) {
-            console.warn('Scroll to top may not have worked completely. Trying again...');
-            performScroll();
-          }
-        }, 50);
-        
-        // Remove the CSS class after scrolling
-        setTimeout(() => {
-          document.documentElement.classList.remove('scroll-to-top');
-        }, 400);
+    const scrollAllTheWayUp = () => {
+      // Multiple strategies to ensure absolute top
+      window.scrollTo(0, 0);
+      if (document.documentElement) document.documentElement.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
+      const root = document.getElementById('__next');
+      if (root && root.scrollIntoView) {
+        root.scrollIntoView({ block: 'start' });
       }
+      // Final direct call without smooth
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     };
 
-    // Only handle route change complete (new page loaded)
+    const handleScrollToTop = () => {
+      if (typeof window === 'undefined') return;
+
+      // Override smooth temporarily to avoid interference
+      document.documentElement.classList.add('scroll-to-top');
+
+      // Immediate attempts
+      scrollAllTheWayUp();
+      requestAnimationFrame(scrollAllTheWayUp);
+      setTimeout(scrollAllTheWayUp, 100);
+      setTimeout(scrollAllTheWayUp, 300);
+
+      // Extra attempts for mobile to cope with address bar/viewport changes
+      if (isMobile()) {
+        setTimeout(scrollAllTheWayUp, 600);
+        setTimeout(scrollAllTheWayUp, 1000);
+
+        // One-off resize and visualViewport listeners right after navigation
+        let didAdjust = false;
+        const onResize = () => {
+          if (didAdjust) return;
+          didAdjust = true;
+          scrollAllTheWayUp();
+        };
+        window.addEventListener('resize', onResize, { passive: true });
+
+        const vv = window.visualViewport;
+        let vvHandler;
+        if (vv) {
+          vvHandler = () => {
+            if (didAdjust) return;
+            didAdjust = true;
+            scrollAllTheWayUp();
+          };
+          vv.addEventListener('resize', vvHandler, { passive: true });
+        }
+
+        // Cleanup listeners after a short window
+        setTimeout(() => {
+          window.removeEventListener('resize', onResize);
+          if (vv && vvHandler) vv.removeEventListener('resize', vvHandler);
+        }, 1500);
+      }
+
+      // Remove class after done
+      setTimeout(() => {
+        document.documentElement.classList.remove('scroll-to-top');
+      }, 1600);
+    };
+
     const handleRouteChangeComplete = () => {
-      console.log('Route change complete - scrolling to top on new page');
-      // Small delay to ensure the new page content is rendered
+      // Small delay to ensure new content is in DOM
       setTimeout(handleScrollToTop, 50);
     };
 
-    // Listen only for route change complete (not start)
     router.events.on('routeChangeComplete', handleRouteChangeComplete);
 
-    // Also handle initial page load
+    // Initial load
     handleScrollToTop();
 
     return () => {
