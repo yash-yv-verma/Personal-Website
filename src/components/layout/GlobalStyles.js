@@ -9,6 +9,11 @@ export default function GlobalStyles() {
         scroll-behavior: smooth;
       }
       
+      /* Override scroll behavior for immediate scroll to top */
+      html.scroll-to-top {
+        scroll-behavior: auto !important;
+      }
+      
       html, body {
         width: 100%;
         height: 100%;

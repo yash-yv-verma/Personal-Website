@@ -82,7 +82,7 @@ Keep checking back for new posts, or connect with me to stay updated on my lates
 
 More exciting content is on the way!
     `,
-    publishDate: '2025-08-22T12:00:00',
+    publishDate: '2004-02-15T12:00:00',
     readTime: '1 min read',
     tags: ['Updates', 'Coming Soon'],
     thumbnail: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI0MCIgdmlld0JveD0iMCAwIDQwMCAyNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNDAiIGZpbGw9IiMyYTJhMmEiLz4KICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIxMjAiIHI9IjYiIGZpbGw9IiMwMDAwMDAiPgogICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0ib3BhY2l0eSIgdmFsdWVzPSIwLjM7MTswLjMiIGR1cj0iMS41cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz4KICA8L2NpcmNsZT4KICA8Y2lyY2xlIGN4PSIyMDAiIGN5PSIxMjAiIHI9IjYiIGZpbGw9IiMwMDAwMDAiPgogICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0ib3BhY2l0eSIgdmFsdWVzPSIwLjM7MTswLjMiIGR1cj0iMS41cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIGJlZ2luPSIwLjVzIi8+CiAgPC9jaXJjbGU+CiAgPGNpcmNsZSBjeD0iMjIwIiBjeT0iMTIwIiByPSI2IiBmaWxsPSIjMDAwMDAwIj4KICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9Im9wYWNpdHkiIHZhbHVlcz0iMC4zOzE7MC4zIiBkdXI9IjEuNXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBiZWdpbj0iMXMiLz4KICA8L2NpcmNsZT4KPC9zdmc+',

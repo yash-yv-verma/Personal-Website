@@ -21,19 +21,44 @@ export default function MobileTouchArea() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleTouch = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
+  // Global top-edge tap listener as a fallback (in case overlay is not hit)
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const TOP_TAP_THRESHOLD_PX = 80; // area near top of viewport
+
+    const handleGlobalTouchStart = (e) => {
+      const touch = e.touches && e.touches[0];
+      if (!touch) return;
+      if (touch.clientY <= TOP_TAP_THRESHOLD_PX) {
+        scrollToTop();
+      }
+    };
+
+    const handleGlobalClick = (e) => {
+      if (e.clientY <= TOP_TAP_THRESHOLD_PX) {
+        scrollToTop();
+      }
+    };
+
+    window.addEventListener('touchstart', handleGlobalTouchStart, { passive: true });
+    window.addEventListener('click', handleGlobalClick, { passive: true });
+
+    return () => {
+      window.removeEventListener('touchstart', handleGlobalTouchStart);
+      window.removeEventListener('click', handleGlobalClick);
+    };
+  }, [isVisible]);
+
+  const handleTouch = () => {
+    // Do not preventDefault; just trigger scroll
     scrollToTop();
   };
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     scrollToTop();
   };
 
@@ -57,7 +82,7 @@ export default function MobileTouchArea() {
           top: 0;
           left: 0;
           right: 0;
-          height: 120px;
+          height: calc(env(safe-area-inset-top) + 64px);
           z-index: 9999;
           cursor: pointer;
           /* Completely invisible */
@@ -67,7 +92,7 @@ export default function MobileTouchArea() {
           touch-action: manipulation;
           /* Ensure it's above everything */
           pointer-events: auto;
-          /* Make sure it's not interfering with other elements */
+          /* Make sure it's not interfering with selection */
           user-select: none;
           -webkit-user-select: none;
           /* Ensure it stays fixed to viewport */
