@@ -84,7 +84,7 @@ export default function EpisodePage({ episode }) {
               e.currentTarget.style.backgroundColor = 'transparent';
             }}
           >
-            <i className="fa fa-arrow-left" style={{ pointerEvents: 'none' }}></i>
+            <i className="fa fa-arrow-left"></i>
           </Link>
         </motion.div>
         <div className="hero-section">
@@ -152,7 +152,7 @@ export default function EpisodePage({ episode }) {
                     }}
                   >
                     <div style={{ textAlign: 'center' }}>
-                      <i className="fab fa-youtube" style={{ fontSize: '3rem', marginBottom: '1rem', color: '#ff0000' }}></i>
+                      <span style={{ fontSize: '3rem', marginBottom: '1rem', color: '#ff0000' }}>▶</span>
                       <div>Loading video...</div>
                     </div>
                   </div>
@@ -236,7 +236,7 @@ export default function EpisodePage({ episode }) {
                         className="share-btn twitter"
                       >
                         <i className="fab fa-twitter"></i> Twitter
-                      </a>
+                    </a>
                     </div>
                   </div>
                 </div>
@@ -253,7 +253,7 @@ export default function EpisodePage({ episode }) {
         }
 
         .hero-section {
-          background: linear-gradient(180deg, #2d1b4e 0%, #1a1625 50%, #0a0a0a 100%);
+          background: linear-gradient(180deg, #312e81 0%, #1e1b4b 0%, #0a0a0a 100%);
           padding: 40px 0 35px 0;
           display: flex;
           align-items: center;
@@ -366,6 +366,7 @@ export default function EpisodePage({ episode }) {
         .tag {
           background: linear-gradient(135deg, #4c1d95, #312e81);
           color: #e2e8f0;
+          line-height: 1.5;
           padding: 8px 16px;
           border-radius: 6px;
           font-size: 0.95rem;

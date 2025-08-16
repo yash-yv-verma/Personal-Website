@@ -1,6 +1,7 @@
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Head from 'next/head';
 import GlobalStyles from './GlobalStyles';
+import Navigation from './Navigation';
 
 export default function Layout({ children }) {
   return (
@@ -11,6 +12,7 @@ export default function Layout({ children }) {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </Head>
       <GlobalStyles />
+      <Navigation />
       {children}
     </ParallaxProvider>
   );
