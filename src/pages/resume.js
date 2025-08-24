@@ -1,6 +1,23 @@
+import { motion } from 'framer-motion';
 import Head from 'next/head';
+import { useAnimations } from '../hooks/useAnimations';
+import { useState, useEffect } from 'react';
 
 export default function Resume() {
+  const { fadeInUp, slideInLeft, fadeIn } = useAnimations();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <>
       <Head>
@@ -18,11 +35,17 @@ export default function Resume() {
           justifyContent: 'center',
           position: 'relative'
         }}>
-          <div style={{ textAlign: 'center' }}>
+          <motion.div 
+            style={{ textAlign: 'center' }}
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.1}
+          >
             <h1 style={{
               fontFamily: "'Orbitron', 'Space Grotesk', monospace",
               fontWeight: 700,
-              fontSize: "2.5rem",
+              fontSize: isMobile ? "2rem" : "2.5rem",
               letterSpacing: "0.15em",
               textTransform: "uppercase",
               background: "linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #cbd5e1 100%)",
@@ -33,23 +56,50 @@ export default function Resume() {
               margin: 0,
               textAlign: "center"
             }}>Resume</h1>
-          </div>
+          </motion.div>
         </div>
         
-        <div style={{ padding: '40px 20px 120px 20px', maxWidth: '1200px', margin: '0 auto' }}>
-          <iframe
-            src="/images/Resume.pdf"
-            style={{
-              width: '100%',
-              height: '1200px',
-              borderRadius: '8px',
-              boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-              border: '1px solid #2a2a2a',
-              backgroundColor: '#000000'
+        <motion.div 
+          style={{ 
+            padding: isMobile ? '20px 15px 80px 15px' : '40px 20px 120px 20px', 
+            maxWidth: '1200px', 
+            margin: '0 auto' 
+          }}
+          variants={slideInLeft}
+          initial="hidden"
+          animate="visible"
+          custom={0.2}
+        >
+          <motion.div
+            variants={fadeIn}
+            initial="hidden"
+            animate="visible"
+            custom={0.4}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            whileHover={{ 
+              scale: isMobile ? 1 : 1.02,
+              transition: { duration: 0.3, ease: "easeOut" }
             }}
-            title="Resume PDF"
-          />
-        </div>
+            style={{
+              borderRadius: '8px',
+              overflow: 'hidden'
+            }}
+          >
+            <iframe
+              src="/images/Resume.pdf"
+              style={{
+                width: '100%',
+                height: isMobile ? '600px' : '1200px',
+                borderRadius: '8px',
+                boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+                border: '1px solid #2a2a2a',
+                backgroundColor: '#000000',
+                transition: 'all 0.3s ease'
+              }}
+              title="Resume PDF"
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </>
   );

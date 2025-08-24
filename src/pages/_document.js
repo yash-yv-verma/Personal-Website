@@ -43,6 +43,19 @@ class MyDocument extends Document {
           {/* Meta tags */}
           <meta charSet="utf-8" />
           <link rel="icon" href="/favicon.svg" />
+          
+          {/* Disable scroll restoration to ensure pages always start at top */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                if (typeof window !== 'undefined') {
+                  if ('scrollRestoration' in history) {
+                    history.scrollRestoration = 'manual';
+                  }
+                }
+              `,
+            }}
+          />
         </Head>
         <body>
           <Main />

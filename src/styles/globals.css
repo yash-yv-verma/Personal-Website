@@ -1,0 +1,24 @@
+/* Global scroll behavior fixes */
+html {
+  scroll-behavior: auto !important;
+}
+
+body {
+  scroll-behavior: auto !important;
+}
+
+/* Force scroll to top for all pages */
+#__next {
+  scroll-behavior: auto !important;
+}
+
+/* Prevent scroll position inheritance */
+* {
+  scroll-behavior: auto !important;
+}
+
+/* Ensure smooth scrolling is disabled globally */
+html, body {
+  scroll-behavior: auto !important;
+  -webkit-overflow-scrolling: auto !important;
+}
