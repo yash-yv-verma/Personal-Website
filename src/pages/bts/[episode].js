@@ -171,6 +171,91 @@ export default function EpisodePage({ episode }) {
                 color: '#ffffff'
               }}>EP. {episode.episodeNumber} - {episode.title}</h2>
             </motion.div>
+
+            <motion.div 
+              className="platform-buttons"
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.35}
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                gap: '20px',
+                marginBottom: '30px',
+                flexWrap: 'wrap'
+              }}
+            >
+              <a 
+                href={episode.spotifyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="platform-btn spotify"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  padding: '12px 24px',
+                  backgroundColor: '#1DB954',
+                  color: '#ffffff',
+                  textDecoration: 'none',
+                  borderRadius: '25px',
+                  fontWeight: '600',
+                  fontSize: '1rem',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 15px rgba(29, 185, 84, 0.3)',
+                  border: 'none',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(29, 185, 84, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(29, 185, 84, 0.3)';
+                }}
+              >
+                <i className="fab fa-spotify" style={{ fontSize: '1.2rem' }}></i>
+                Listen on Spotify
+              </a>
+
+              <a 
+                href={episode.applePodcastsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="platform-btn apple"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  padding: '12px 24px',
+                  backgroundColor: '#000000',
+                  color: '#ffffff',
+                  textDecoration: 'none',
+                  borderRadius: '25px',
+                  fontWeight: '600',
+                  fontSize: '1rem',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 15px rgba(0, 0, 0, 0.3)',
+                  border: '1px solid #333333',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.4)';
+                  e.currentTarget.style.backgroundColor = '#1a1a1a';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.3)';
+                  e.currentTarget.style.backgroundColor = '#000000';
+                }}
+              >
+                <i className="fab fa-apple" style={{ fontSize: '1.2rem' }}></i>
+                Listen on Apple Podcasts
+              </a>
+            </motion.div>
           </div>
         </div>
 
@@ -519,6 +604,16 @@ export default function EpisodePage({ episode }) {
 
           .episode-description {
             font-size: 1.1rem;
+          }
+
+          .platform-buttons {
+            gap: 15px;
+            margin-bottom: 25px;
+          }
+          
+          .platform-btn {
+            padding: 10px 20px !important;
+            font-size: 0.9rem !important;
           }
         }
 

@@ -8,7 +8,9 @@ const episodes = [
     youtubeId: 'Mn44AiX7kF0',
     publishDate: '2024-08-21',
     duration: '47 min',
-    tags: ['Leadership', 'Career Growth', 'Engineering Management', 'Tech Industry']
+    tags: ['Leadership', 'Career Growth', 'Engineering Management', 'Tech Industry'],
+    spotifyUrl: 'https://open.spotify.com/episode/7sRQvp5hRY99vOZzdfw3Fq?si=6420ba4e5f104170',
+    applePodcastsUrl: 'https://podcasts.apple.com/us/podcast/ep-01-building-a-career-beyond-just-software-with/id1836825875?i=1000724315848'
   },
   {
     id: 'ep02',
@@ -19,7 +21,9 @@ const episodes = [
     youtubeId: 'dQw4w9WgXcQ',
     publishDate: '2004-02-15',
     duration: '52 min',
-    tags: ['AI', 'Developer Experience', 'Vibe Coding', 'MCP Servers', 'Software Engineering']
+    tags: ['AI', 'Developer Experience', 'Vibe Coding', 'MCP Servers', 'Software Engineering'],
+    spotifyUrl: 'https://open.spotify.com/episode/REPLACE_WITH_ACTUAL_SPOTIFY_EPISODE_ID',
+    applePodcastsUrl: 'https://podcasts.apple.com/podcast/REPLACE_WITH_ACTUAL_APPLE_PODCASTS_EPISODE_ID'
   }
 ];
 
