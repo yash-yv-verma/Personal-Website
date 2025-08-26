@@ -321,7 +321,7 @@ export default function EpisodePage({ episode }) {
 
 
         .episode-content {
-          padding: 30px 0 120px 0;
+          padding: 30px 0 140px 0;
           background: #0a0a0a;
         }
 
@@ -340,6 +340,10 @@ export default function EpisodePage({ episode }) {
           font-size: 2.2rem;
           font-weight: 700;
           letter-spacing: -0.02em;
+        }
+
+        .main-content {
+          margin-bottom: 40px;
         }
 
         .episode-description {
@@ -528,7 +532,7 @@ export default function EpisodePage({ episode }) {
           }
 
           .episode-content {
-            padding: 10px 0 80px 0;
+            padding: 10px 0 120px 0;
           }
         }
       `}</style>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 /**
- * MobileScrollToTop - provides an intuitive scroll-to-top experience on mobile devices
- * Uses industry-standard touch areas and behavior
+ * Simple and reliable mobile scroll-to-top component
+ * Covers the entire top area including iPhone notch for easy access
  */
 export default function MobileTouchArea() {
   const [isMobile, setIsMobile] = useState(false);
@@ -15,13 +15,8 @@ export default function MobileTouchArea() {
   }, []);
 
   const scrollToTop = () => {
-    // Smooth scroll to top with fallback for older browsers
-    if ('scrollBehavior' in document.documentElement.style) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      // Fallback for older browsers
-      window.scrollTo(0, 0);
-    }
+    // Immediate scroll to top - no smooth scrolling to ensure it works
+    window.scrollTo(0, 0);
   };
 
   // Only render on mobile devices
@@ -30,46 +25,34 @@ export default function MobileTouchArea() {
   return (
     <>
       <div
-        className="mobile-scroll-to-top-area"
-        aria-hidden="true"
+        className="mobile-scroll-to-top"
         onClick={scrollToTop}
-        onTouchEnd={scrollToTop}
+        onTouchStart={scrollToTop}
+        aria-label="Scroll to top"
       />
       <style jsx>{`
-        .mobile-scroll-to-top-area {
+        .mobile-scroll-to-top {
           position: fixed;
           top: 0;
           left: 0;
           right: 0;
-          /* Industry standard: 88px touch area (44px * 2) plus safe area */
-          height: calc(88px + env(safe-area-inset-top));
-          z-index: 10000;
+          /* Large touch area covering the entire top including notch */
+          height: 120px;
+          z-index: 9999;
           background: transparent;
-          pointer-events: auto;
-          -webkit-tap-highlight-color: transparent;
-          touch-action: manipulation;
-          /* Ensure it's above all content but doesn't interfere with normal interactions */
           cursor: pointer;
+          /* Ensure it's clickable */
+          pointer-events: auto;
+          /* Remove any touch highlights */
+          -webkit-tap-highlight-color: transparent;
+          /* Optimize for touch */
+          touch-action: manipulation;
         }
         
         /* Hide on desktop */
         @media (min-width: 769px) {
-          .mobile-scroll-to-top-area { 
+          .mobile-scroll-to-top { 
             display: none; 
-          }
-        }
-        
-        /* Additional touch area for iPhone status bar area */
-        @media (max-width: 768px) and (max-height: 844px) {
-          .mobile-scroll-to-top-area {
-            height: calc(120px + env(safe-area-inset-top));
-          }
-        }
-        
-        /* Larger area for very small screens */
-        @media (max-width: 375px) {
-          .mobile-scroll-to-top-area {
-            height: calc(100px + env(safe-area-inset-top));
           }
         }
       `}</style>

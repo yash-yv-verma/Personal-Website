@@ -36,7 +36,7 @@ export default function Resume() {
           </div>
         </div>
         
-        <div style={{ padding: '40px 20px', maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{ padding: '40px 20px 120px 20px', maxWidth: '1200px', margin: '0 auto' }}>
           <iframe
             src="/images/Resume.pdf"
             style={{

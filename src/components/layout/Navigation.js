@@ -65,7 +65,7 @@ export default function Navigation() {
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    ...(isMobile && { height: '44px' })
+    ...(isMobile && { height: '56px' })
   };
 
   const linkStyle = (isActive) => ({

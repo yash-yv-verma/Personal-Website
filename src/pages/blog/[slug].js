@@ -243,7 +243,7 @@ export default function BlogPost({ post }) {
         }
 
         .post-section {
-          padding: 30px 0 120px 0;
+          padding: 30px 0 140px 0;
           background: #0a0a0a;
         }
 
@@ -315,6 +315,7 @@ export default function BlogPost({ post }) {
           border-radius: 12px;
           border: 1px solid #2a2a2a;
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+          margin-bottom: 40px;
         }
 
         .content-h1 {
@@ -529,7 +530,7 @@ export default function BlogPost({ post }) {
           }
 
           .post-section {
-            padding: 20px 0 80px 0;
+            padding: 20px 0 120px 0;
           }
         }
       `}</style>
