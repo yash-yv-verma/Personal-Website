@@ -2,48 +2,25 @@ const episodes = [
   {
     id: 'ep01',
     episodeNumber: '01',
-    title: 'Getting Started with React',
-    description: 'In this episode, we dive deep into React fundamentals, discussing hooks, state management, and best practices for building modern web applications.',
-    thumbnail: '/images/homebg.jpeg',
-    youtubeId: 'dQw4w9WgXcQ',
-    publishDate: '2024-01-15',
-    duration: '45 min',
-    tags: ['React', 'JavaScript', 'Frontend', 'Web Development']
+    title: 'Building a Career Beyond Just Software with Seth Hodgson',
+    description: 'From biochemistry to SVP of Engineering at Udemy, Seth shares how to grow as a developer and leader beyond just software.',
+    thumbnail: 'https://img.youtube.com/vi/Mn44AiX7kF0/maxresdefault.jpg',
+    youtubeId: 'Mn44AiX7kF0',
+    publishDate: '2024-08-21',
+    duration: '47 min',
+    tags: ['Leadership', 'Career Growth', 'Engineering Management', 'Tech Industry']
   },
   {
     id: 'ep02',
     episodeNumber: '02',
-    title: 'Backend Architecture Patterns',
-    description: 'Exploring different backend architecture patterns including microservices, monoliths, and serverless approaches for scalable applications.',
-    thumbnail: '/images/homebg.jpeg',
+    title: 'Jilles Soeters on AI/ML and Developer Experience',
+    description: 'Jilles talks about vibe coding, MCP servers, and how AI is shaping the future of software development.',
+    thumbnail: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI0MCIgdmlld0JveD0iMCAwIDQwMCAyNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIyNDAiIGZpbGw9IiMyYTJhMmEiLz4KICA8Y2lyY2xlIGN4PSIxODAiIGN5PSIxMjAiIHI9IjYiIGZpbGw9IiMwMDAwMDAiPgogICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0ib3BhY2l0eSIgdmFsdWVzPSIwLjM7MTswLjMiIGR1cj0iMS41cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiLz4KICA8L2NpcmNsZT4KICA8Y2lyY2xlIGN4PSIyMDAiIGN5PSIxMjAiIHI9IjYiIGZpbGw9IiMwMDAwMDAiPgogICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0ib3BhY2l0eSIgdmFsdWVzPSIwLjM7MTswLjMiIGR1cj0iMS41cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIGJlZ2luPSIwLjVzIi8+CiAgPC9jaXJjbGU+CiAgPGNpcmNsZSBjeD0iMjIwIiBjeT0iMTIwIiByPSI2IiBmaWxsPSIjMDAwMDAwIj4KICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9Im9wYWNpdHkiIHZhbHVlcz0iMC4zOzE7MC4zIiBkdXI9IjEuNXMiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBiZWdpbj0iMXMiLz4KICA8L2NpcmNsZT4KPC9zdmc+',
     youtubeId: 'dQw4w9WgXcQ',
-    publishDate: '2024-03-22',
+    publishDate: '2004-02-15',
     duration: '52 min',
-    tags: ['Backend', 'Architecture', 'Microservices', 'Node.js']
-  },
-  {
-    id: 'ep03',
-    episodeNumber: '03',
-    title: 'Frontend Frameworks in 2025',
-    description: 'A comprehensive comparison of modern frontend frameworks and their evolution, covering React, Vue, Svelte, and emerging technologies.',
-    thumbnail: '/images/homebg.jpeg',
-    youtubeId: 'dQw4w9WgXcQ',
-    publishDate: '2024-05-29',
-    duration: '38 min',
-    tags: ['Frontend', 'Frameworks', 'React', 'Vue', 'Svelte']
-  },
-  {
-    id: 'ep04',
-    episodeNumber: '04',
-    title: 'Kubernetes Infrastructure Usage',
-    description: 'A comprehensive exploration of different backend architecture patterns and technologies, focusing on Kubernetes infrastructure management and deployment strategies.',
-    thumbnail: '/images/homebg.jpeg',
-    youtubeId: 'dQw4w9WgXcQ',
-    publishDate: '2024-07-15',
-    duration: '38 min',
-    tags: ['Kubernetes', 'Infrastructure', 'Docker', 'Terraform']
+    tags: ['AI', 'Developer Experience', 'Vibe Coding', 'MCP Servers', 'Software Engineering']
   }
-  
 ];
 
 // Helper function to get episode by ID

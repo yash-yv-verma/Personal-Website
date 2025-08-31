@@ -115,7 +115,7 @@ export default function BlogPost({ post }) {
               e.currentTarget.style.backgroundColor = 'transparent';
             }}
           >
-            <i className="fa fa-arrow-left" style={{ pointerEvents: 'none' }}></i>
+            <i className="fa fa-arrow-left"></i>
           </Link>
         </motion.div>
 
@@ -218,7 +218,7 @@ export default function BlogPost({ post }) {
         }
 
         .hero-section {
-          background: linear-gradient(180deg, #2d1b4e 0%, #1a1625 50%, #0a0a0a 100%);
+          background: linear-gradient(180deg, #312e81 0%, #1e1b4b 0%, #0a0a0a 100%);
           padding: 40px 0 35px 0;
           display: flex;
           align-items: center;
@@ -279,7 +279,7 @@ export default function BlogPost({ post }) {
         }
 
         .tag {
-          background: linear-gradient(135deg, #4c1d95, #312e81);
+          background: linear-gradient(135deg, #312e81, #1e1b4b);
           color: #e2e8f0;
           padding: 8px 16px;
           border-radius: 6px;

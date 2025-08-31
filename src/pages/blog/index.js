@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import SEOHead from '../../components/shared/SEOHead';
+import Navigation from '../../components/layout/Navigation';
 import { getAllBlogPosts } from '../../data/blogData';
 import { useAnimations } from '../../hooks/useAnimations';
 
@@ -176,7 +177,7 @@ export default function Blog() {
                             fontSize: "0.9rem",
                             fontWeight: 600,
                             color: "#cbd5e1",
-                            background: "linear-gradient(135deg, #4c1d95, #312e81)",
+                            background: "linear-gradient(135deg, #312e81, #1e1b4b)",
                             padding: "6px 12px",
                             borderRadius: "4px",
                             marginRight: "8px",
@@ -201,7 +202,7 @@ export default function Blog() {
         }
 
         .hero-section {
-          background: linear-gradient(180deg, #2d1b4e 0%, #1a1625 50%, #0a0a0a 100%);
+          background: linear-gradient(180deg, #312e81 0%, #1e1b4b 0%, #0a0a0a 100%);
           padding: 40px 0 35px 0;
           display: flex;
           align-items: center;
@@ -251,8 +252,8 @@ export default function Blog() {
         }
 
         .post-card:hover {
-          border-color: #4c1d95;
-          box-shadow: 0 20px 60px rgba(76, 29, 149, 0.2);
+          border-color: #3b82f6;
+          box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
         }
 
         .post-link {

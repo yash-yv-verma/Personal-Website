@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import SEOHead from '../../components/shared/SEOHead';
+import Navigation from '../../components/layout/Navigation';
 import { getAllEpisodes } from '../../data/episodesData';
 import { useAnimations } from '../../hooks/useAnimations';
 
@@ -151,11 +152,11 @@ export default function BeyondTheStack() {
                   <Link href={`/bts/${episode.id}`} className="episode-link">
                     <div className="episode-thumbnail">
                       <img src={episode.thumbnail} alt={episode.title} />
-                      <div className="play-overlay">
-                        <div className="play-button">
-                          <i className="fa fa-play"></i>
+                                              <div className="play-overlay">
+                          <div className="play-button">
+                            ▶
+                          </div>
                         </div>
-                      </div>
                       <div className="episode-duration">{episode.duration}</div>
                     </div>
                     <div className="episode-content">
@@ -170,7 +171,7 @@ export default function BeyondTheStack() {
                             fontSize: "0.9rem",
                             fontWeight: 600,
                             color: "#cbd5e1",
-                            background: "linear-gradient(135deg, #4c1d95, #312e81)",
+                            background: "linear-gradient(135deg, #312e81, #1e1b4b)",
                             padding: "6px 12px",
                             borderRadius: "4px",
                             marginRight: "8px",
@@ -195,7 +196,7 @@ export default function BeyondTheStack() {
         }
 
         .hero-section {
-          background: linear-gradient(180deg, #2d1b4e 0%, #1a1625 50%, #0a0a0a 100%);
+          background: linear-gradient(180deg, #312e81 0%, #1e1b4b 0%, #0a0a0a 100%);
           padding: 40px 0 35px 0;
           display: flex;
           align-items: center;
@@ -287,7 +288,7 @@ export default function BeyondTheStack() {
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(45deg, rgba(76, 29, 149, 0.8), rgba(139, 69, 196, 0.8));
+          background: linear-gradient(45deg, rgba(59, 130, 246, 0.8), rgba(30, 64, 175, 0.8));
           display: flex;
           align-items: center;
           justify-content: center;
