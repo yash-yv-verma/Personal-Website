@@ -1,11 +1,11 @@
 import Head from 'next/head';
 
 export default function SEOHead({ 
-  title = "Yash Verma | Computer Science & Mathematics | AI, Software Engineering, Quantum Computing",
-  description = "Yash Verma | Computer Science & Mathematics student at UTSA. AI, software engineering, and quantum computing enthusiast. Explore my projects, research, and experience.",
+  title = "Yash Verma | Computer Science & Mathematics | KubeLLM & Agentic AI Researcher | Beyond the Stack Podcast Host | Rowdy Creators Leader | EAAI 2025 Author",
+  description = "Yash Verma is a UTSA Honors College senior double majoring in Computer Science & Mathematics of Data & Computing. Currently researching KubeLLM and agentic AI with Dr. Palden Lama, exploring large-scale intelligent systems. Co-authored Word2Vec4Kids published at EAAI 2025. Host of Beyond the Stack podcast featuring industry leaders, and founder of Rowdy Creators student community at UTSA.",
   canonical = "https://yash-verma.com/",
-  ogImage = "https://yash-verma.com/images/acm.jpg",
-  keywords = "Yash Verma, UTSA, Computer Science, Mathematics, AI, Software Engineering, Quantum Computing, Research, Resume, Portfolio",
+  ogImage = "https://yash-verma.com/images/homebg.jpeg",
+  keywords = "Yash Verma, UTSA, University of Texas San Antonio, Computer Science, Mathematics of Data Computing, Honors College, KubeLLM, Agentic AI, Large Language Models, Machine Learning, AI Research, Dr. Palden Lama, Word2Vec4Kids, EAAI 2025, Educational Technology, Natural Language Processing, Quantum Cryptography, Beyond the Stack Podcast, Tech Podcast, Industry Leaders, Software Engineering Leadership, Career Development, Technology Podcast, YouTube Channel, Spotify Podcast, Apple Podcasts, Rowdy Creators, Student Community, Software Engineering, Cloud Computing, Web Development, Research Publications, Academic Portfolio, Student Researcher, Undergraduate Research, CS-CURE, Independent Study, Tech Leadership, Student Entrepreneurship",
   twitterSite = "@yashyvverma"
 }) {
   return (
@@ -48,8 +48,8 @@ export default function SEOHead({
           "@type": "Person",
           "name": "Yash Verma",
           "url": "https://yash-verma.com/",
-          "image": "https://yash-verma.com/images/acm.jpg",
-          "jobTitle": "Student, Developer, Researcher",
+          "image": "https://yash-verma.com/images/homebg.jpeg",
+          "jobTitle": "Computer Science & Mathematics Student, AI Researcher, Podcast Host, Community Leader",
           "worksFor": {
             "@type": "Organization",
             "name": "The University of Texas at San Antonio"
@@ -60,8 +60,33 @@ export default function SEOHead({
           },
           "sameAs": [
             "https://github.com/yash-yv-verma",
-            "https://www.linkedin.com/in/-yv/"
-          ]
+            "https://www.linkedin.com/in/-yv/",
+            "https://www.youtube.com/@beyond-the-stack",
+            "https://open.spotify.com/show/770A9NCMDj1cSXpMfsv5o2",
+            "https://podcasts.apple.com/us/podcast/beyond-the-stack/id1836825875"
+          ],
+          "knowsAbout": [
+            "Computer Science",
+            "Mathematics of Data Computing",
+            "KubeLLM",
+            "Agentic AI",
+            "Large Language Models",
+            "Machine Learning",
+            "Quantum Cryptography",
+            "Educational Technology",
+            "Natural Language Processing",
+            "Software Engineering",
+            "Cloud Computing",
+            "Web Development"
+          ],
+          "hasOccupation": {
+            "@type": "Occupation",
+            "name": "AI Researcher",
+            "occupationLocation": {
+              "@type": "Place",
+              "name": "The University of Texas at San Antonio"
+            }
+          }
         })}
       </script>
     </Head>
