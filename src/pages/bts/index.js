@@ -69,11 +69,48 @@ export default function BeyondTheStack() {
   return (
     <>
       <SEOHead 
-        title="Beyond the Stack | Yash Verma"
-        description="Deep dives into technology, development, and innovation. Join me for insightful conversations about the future of software development."
+        title="Beyond the Stack Podcast | Yash Verma | Technology & Software Engineering Conversations"
+        description="Beyond the Stack is a technology podcast hosted by Yash Verma featuring deep conversations with industry leaders about software development, AI, machine learning, and career growth. Subscribe on YouTube, Spotify, and Apple Podcasts."
         canonical="https://yash-verma.com/bts/"
-        keywords="Yash Verma, Beyond the Stack, Podcast, Technology, Software Development, Innovation, Programming"
+        keywords="Beyond the Stack, Yash Verma, Technology Podcast, Software Engineering, AI Podcast, Machine Learning, Programming, Career Development, Industry Leaders, Tech Interviews, YouTube Podcast, Spotify Podcast, Apple Podcasts, UTSA, Computer Science, Mathematics, KubeLLM, Agentic AI, Research, Student Podcast, Tech Community"
         ogImage="https://yash-verma.com/images/homebg.jpeg"
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "PodcastSeries",
+          "name": "Beyond the Stack",
+          "description": "Deep conversations about technology, development, and the future of software engineering with industry leaders.",
+          "url": "https://yash-verma.com/bts/",
+          "author": {
+            "@type": "Person",
+            "name": "Yash Verma",
+            "url": "https://yash-verma.com/"
+          },
+          "publisher": {
+            "@type": "Person",
+            "name": "Yash Verma"
+          },
+          "inLanguage": "en",
+          "copyrightYear": 2025,
+          "genre": "Technology",
+          "keywords": "technology, software engineering, programming, AI, machine learning, career development, industry leaders, tech interviews",
+          "distribution": [
+            {
+              "@type": "MediaObject",
+              "name": "YouTube",
+              "url": "https://www.youtube.com/@beyond-the-stack"
+            },
+            {
+              "@type": "MediaObject", 
+              "name": "Spotify",
+              "url": "https://open.spotify.com/show/770A9NCMDj1cSXpMfsv5o2"
+            },
+            {
+              "@type": "MediaObject",
+              "name": "Apple Podcasts", 
+              "url": "https://podcasts.apple.com/us/podcast/beyond-the-stack/id1836825875"
+            }
+          ]
+        }}
       />
 
       <div className="podcast-page">
@@ -185,6 +222,57 @@ export default function BeyondTheStack() {
                 </motion.div>
               ))}
             </div>
+
+            {/* YouTube Subscribe Button - Aligned to episodes grid */}
+            <motion.div 
+              className="youtube-subscribe-aligned"
+              variants={fadeInUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.5}
+              style={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+                marginTop: '40px',
+                paddingRight: '0'
+              }}
+            >
+              <a 
+                href="https://www.youtube.com/@beyond-the-stack"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="youtube-btn-aligned"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  padding: '14px 20px',
+                  backgroundColor: '#FF0000',
+                  color: '#ffffff',
+                  textDecoration: 'none',
+                  borderRadius: '30px',
+                  fontWeight: '600',
+                  fontSize: '1rem',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 6px 20px rgba(255, 0, 0, 0.4)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  minWidth: '180px',
+                  justifyContent: 'center'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-3px) scale(1.05)';
+                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(255, 0, 0, 0.5)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(255, 0, 0, 0.4)';
+                }}
+              >
+                <i className="fab fa-youtube" style={{ fontSize: '1.3rem' }}></i>
+                Subscribe on YouTube
+              </a>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -376,13 +464,43 @@ export default function BeyondTheStack() {
 
 
 
+        /* YouTube Button Aligned to Episodes Grid */
+        .youtube-subscribe-aligned {
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 40px;
+          padding-right: 0;
+        }
+
+        .youtube-btn-aligned {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding: 14px 20px;
+          background-color: #FF0000;
+          color: #ffffff;
+          text-decoration: none;
+          border-radius: 30px;
+          font-weight: 600;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+          border: none;
+          cursor: pointer;
+          min-width: 180px;
+          justify-content: center;
+        }
+
+        .youtube-btn-aligned:hover {
+          transform: translateY(-3px) scale(1.05);
+          box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
           .hero-section {
             padding: 35px 0 30px 0;
           }
-
-
 
           .episodes-section {
             padding: 25px 0 80px 0;
@@ -422,14 +540,23 @@ export default function BeyondTheStack() {
           .episode-date {
             font-size: 0.95rem;
           }
+
+          .youtube-subscribe-aligned {
+            margin-top: 30px;
+            justify-content: center;
+          }
+
+          .youtube-btn-aligned {
+            padding: 12px 16px;
+            font-size: 0.9rem;
+            min-width: 160px;
+          }
         }
 
         @media (max-width: 480px) {
           .hero-section {
             padding: 30px 0 25px 0;
           }
-
-
 
           .section-header h2 {
             font-size: 1rem;
@@ -461,6 +588,18 @@ export default function BeyondTheStack() {
 
           .episode-date {
             font-size: 0.9rem;
+          }
+
+          .youtube-subscribe-aligned {
+            margin-top: 25px;
+            justify-content: center;
+          }
+
+          .youtube-btn-aligned {
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            min-width: 140px;
+            border-radius: 25px;
           }
         }
       `}</style>

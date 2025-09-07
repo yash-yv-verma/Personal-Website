@@ -255,6 +255,40 @@ export default function EpisodePage({ episode }) {
                 <i className="fab fa-apple" style={{ fontSize: '1.2rem' }}></i>
                 Listen on Apple Podcasts
               </a>
+
+              <a 
+                href="https://www.youtube.com/@beyond-the-stack"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="platform-btn youtube"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  padding: '12px 24px',
+                  backgroundColor: '#FF0000',
+                  color: '#ffffff',
+                  textDecoration: 'none',
+                  borderRadius: '25px',
+                  fontWeight: '600',
+                  fontSize: '1rem',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 4px 15px rgba(255, 0, 0, 0.3)',
+                  border: 'none',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(255, 0, 0, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(255, 0, 0, 0.3)';
+                }}
+              >
+                <i className="fab fa-youtube" style={{ fontSize: '1.2rem' }}></i>
+                Subscribe on YouTube
+              </a>
             </motion.div>
           </div>
         </div>

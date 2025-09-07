@@ -1,2 +1,19 @@
 User-agent: *
-Disallow: 
+Allow: /
+
+# Sitemap
+Sitemap: https://yash-verma.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+
+# Allow important pages
+Allow: /blog/
+Allow: /bts/
+Allow: /resume
+Allow: /aadra/
+
+# Crawl delay for better server performance
+Crawl-delay: 1
