@@ -269,22 +269,26 @@ export default function SEOHead({
           "@context": "https://schema.org",
           "@type": "ScholarlyArticle",
           "name": "Word2Vec4Kids",
+          "headline": "Word2Vec4Kids: Educational Technology for Natural Language Processing",
           "description": "Educational technology research paper on natural language processing for children",
+          "image": "https://yash-verma.com/images/homebg.jpeg",
+          "url": "https://yash-verma.com/",
           "author": [
             {
               "@type": "Person",
-              "name": "Yash Verma"
+              "name": "Yash Verma",
+              "url": "https://yash-verma.com/"
             }
           ],
           "publisher": {
             "@type": "Organization",
             "name": "EAAI 2025"
           },
-          "datePublished": "2025-01-01",
+          "datePublished": "2025-04-011T00:00:00-06:00",
           "isPartOf": {
             "@type": "PublicationIssue",
             "issueNumber": "2025",
-            "datePublished": "2025-01-01"
+            "datePublished": "2025-04-11T00:00:00-06:00"
           },
           "about": [
             {
