@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   
   <!-- Homepage -->
   <url>
@@ -7,6 +8,11 @@
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://yash-verma.com/images/homebg.jpeg</image:loc>
+      <image:title>Yash Verma - AI Researcher &amp; Podcast Host</image:title>
+      <image:caption>Portfolio of Yash Verma, UTSA Honors College student researching KubeLLM and agentic AI</image:caption>
+    </image:image>
   </url>
 
   <!-- Resume Page -->
