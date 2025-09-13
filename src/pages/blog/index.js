@@ -5,6 +5,26 @@ import Navigation from '../../components/layout/Navigation';
 import { getAllBlogPosts } from '../../data/blogData';
 import { useAnimations } from '../../hooks/useAnimations';
 
+const blogStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Yash Verma's Blog",
+  "description": "Thoughts on technology, research, and career development",
+  "url": "https://yash-verma.com/blog/",
+  "author": {
+    "@type": "Person",
+    "name": "Yash Verma"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Yash Verma"
+  },
+  "inLanguage": "en",
+  "copyrightYear": 2025,
+  "genre": "Technology Blog",
+  "keywords": "technology, research, career, AI, machine learning, software engineering"
+};
+
 export default function Blog() {
   const blogPosts = getAllBlogPosts();
   const { fadeInUp } = useAnimations();
@@ -74,6 +94,7 @@ export default function Blog() {
         canonical="https://yash-verma.com/blog/"
         keywords="Yash Verma, Blog, Technology, Programming, Tutorials, Articles, Web Development, Software Engineering"
         ogImage="https://yash-verma.com/images/homebg.jpeg"
+        structuredData={blogStructuredData}
       />
 
       <div className="blog-page">

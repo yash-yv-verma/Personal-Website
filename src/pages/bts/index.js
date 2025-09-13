@@ -5,6 +5,31 @@ import Navigation from '../../components/layout/Navigation';
 import { getAllEpisodes } from '../../data/episodesData';
 import { useAnimations } from '../../hooks/useAnimations';
 
+const btsStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "PodcastSeries",
+  "name": "Beyond the Stack",
+  "description": "Deep conversations about technology, development, and the future of software engineering with industry leaders.",
+  "url": "https://yash-verma.com/bts/",
+  "author": {
+    "@type": "Person",
+    "name": "Yash Verma"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Yash Verma"
+  },
+  "inLanguage": "en",
+  "copyrightYear": 2025,
+  "genre": "Technology",
+  "keywords": "technology, software engineering, programming, AI, machine learning, career development",
+  "sameAs": [
+    "https://www.youtube.com/@beyond-the-stack",
+    "https://open.spotify.com/show/770A9NCMDj1cSXpMfsv5o2",
+    "https://podcasts.apple.com/us/podcast/beyond-the-stack/id1836825875"
+  ]
+};
+
 export default function BeyondTheStack() {
   const episodes = getAllEpisodes();
   const { fadeInUp } = useAnimations();
@@ -74,43 +99,7 @@ export default function BeyondTheStack() {
         canonical="https://yash-verma.com/bts/"
         keywords="Beyond the Stack, Yash Verma, Technology Podcast, Software Engineering, AI Podcast, Machine Learning, Programming, Career Development, Industry Leaders, Tech Interviews, YouTube Podcast, Spotify Podcast, Apple Podcasts, UTSA, Computer Science, Mathematics, KubeLLM, Agentic AI, Research, Student Podcast, Tech Community"
         ogImage="https://yash-verma.com/images/homebg.jpeg"
-        structuredData={{
-          "@context": "https://schema.org",
-          "@type": "PodcastSeries",
-          "name": "Beyond the Stack",
-          "description": "Deep conversations about technology, development, and the future of software engineering with industry leaders.",
-          "url": "https://yash-verma.com/bts/",
-          "author": {
-            "@type": "Person",
-            "name": "Yash Verma",
-            "url": "https://yash-verma.com/"
-          },
-          "publisher": {
-            "@type": "Person",
-            "name": "Yash Verma"
-          },
-          "inLanguage": "en",
-          "copyrightYear": 2025,
-          "genre": "Technology",
-          "keywords": "technology, software engineering, programming, AI, machine learning, career development, industry leaders, tech interviews",
-          "distribution": [
-            {
-              "@type": "MediaObject",
-              "name": "YouTube",
-              "url": "https://www.youtube.com/@beyond-the-stack"
-            },
-            {
-              "@type": "MediaObject", 
-              "name": "Spotify",
-              "url": "https://open.spotify.com/show/770A9NCMDj1cSXpMfsv5o2"
-            },
-            {
-              "@type": "MediaObject",
-              "name": "Apple Podcasts", 
-              "url": "https://podcasts.apple.com/us/podcast/beyond-the-stack/id1836825875"
-            }
-          ]
-        }}
+        structuredData={btsStructuredData}
       />
 
       <div className="podcast-page">

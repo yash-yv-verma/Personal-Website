@@ -63,6 +63,40 @@ export default function BlogPost({ post }) {
     });
   };
 
+  // Individual Blog Post Schema
+  const blogPostStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "url": `https://yash-verma.com/blog/${post.id}/`,
+    "datePublished": post.publishDate,
+    "dateModified": post.publishDate,
+    "author": {
+      "@type": "Person",
+      "name": "Yash Verma",
+      "url": "https://yash-verma.com/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Yash Verma"
+    },
+    "image": post.thumbnail,
+    "keywords": post.tags.join(", "),
+    "wordCount": post.readTime,
+    "articleSection": "Technology",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "Blog",
+      "name": "Yash Verma's Blog",
+      "url": "https://yash-verma.com/blog/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://yash-verma.com/blog/${post.id}/`
+    }
+  };
+
   return (
     <>
       <SEOHead 
@@ -71,6 +105,7 @@ export default function BlogPost({ post }) {
         canonical={`https://yash-verma.com/blog/${post.id}/`}
         keywords={`Yash Verma, Blog, ${post.title}, ${post.tags.join(', ')}, Technical Article`}
         ogImage="https://yash-verma.com/images/homebg.jpeg"
+        structuredData={blogPostStructuredData}
       />
 
       <div className="blog-page" style={{ position: 'relative' }}>

@@ -3,6 +3,45 @@ import Head from 'next/head';
 import { useAnimations } from '../hooks/useAnimations';
 import { useState, useEffect } from 'react';
 
+const resumeStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Yash Verma",
+  "jobTitle": "Computer Science & Mathematics Student, AI Researcher",
+  "description": "UTSA Honors College senior researching KubeLLM and agentic AI. Co-author of Word2Vec4Kids published at EAAI 2025.",
+  "url": "https://yash-verma.com/resume",
+  "image": "https://yash-verma.com/images/homebg.jpeg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Antonio",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "The University of Texas at San Antonio"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "The University of Texas at San Antonio"
+  },
+  "sameAs": [
+    "https://github.com/yash-yv-verma",
+    "https://www.linkedin.com/in/-yv/",
+    "https://www.youtube.com/@beyond-the-stack",
+    "https://orcid.org/0009-0009-8210-464X",
+    "https://scholar.google.com/citations?user=sOcV2JEAAAAJ"
+  ],
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "AI Researcher",
+    "occupationLocation": {
+      "@type": "Place",
+      "name": "The University of Texas at San Antonio"
+    }
+  }
+};
+
 export default function Resume() {
   const { fadeInUp, slideInLeft, fadeIn } = useAnimations();
   const [isMobile, setIsMobile] = useState(false);
@@ -24,6 +63,9 @@ export default function Resume() {
         <title>Resume | Yash Verma</title>
         <meta name="robots" content="noindex, nofollow" />
         <link rel="icon" href="/favicon.svg" />
+        <script type="application/ld+json">
+          {JSON.stringify(resumeStructuredData)}
+        </script>
       </Head>
       
       <div style={{ minHeight: '100vh', background: '#0a0a0a' }}>

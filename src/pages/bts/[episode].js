@@ -32,6 +32,53 @@ export default function EpisodePage({ episode }) {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
+  // Individual Podcast Episode Schema
+  const episodeStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "PodcastEpisode",
+    "name": `EP. ${episode.episodeNumber} - ${episode.title}`,
+    "description": episode.description,
+    "url": `https://yash-verma.com/bts/${episode.id}/`,
+    "datePublished": episode.publishDate,
+    "duration": episode.duration,
+    "image": episode.thumbnail,
+    "partOfSeries": {
+      "@type": "PodcastSeries",
+      "name": "Beyond the Stack",
+      "url": "https://yash-verma.com/bts/"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Yash Verma",
+      "url": "https://yash-verma.com/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Yash Verma"
+    },
+    "keywords": episode.tags.join(", "),
+    "inLanguage": "en",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://yash-verma.com/bts/${episode.id}/`
+    },
+    "associatedMedia": [
+      {
+        "@type": "VideoObject",
+        "name": `EP. ${episode.episodeNumber} - ${episode.title}`,
+        "description": episode.description,
+        "thumbnailUrl": episode.thumbnail,
+        "embedUrl": `https://www.youtube.com/embed/${episode.youtubeId}`,
+        "uploadDate": episode.publishDate,
+        "duration": episode.duration,
+        "publisher": {
+          "@type": "Person",
+          "name": "Yash Verma"
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <SEOHead 
@@ -40,6 +87,7 @@ export default function EpisodePage({ episode }) {
         canonical={`https://yash-verma.com/bts/${episode.id}/`}
         keywords={`Yash Verma, Beyond the Stack, ${episode.title}, ${episode.tags.join(', ')}, Podcast, Tech Interview`}
         ogImage="https://yash-verma.com/images/homebg.jpeg"
+        structuredData={episodeStructuredData}
       />
 
       <div className="podcast-page" style={{ position: 'relative' }}>
