@@ -127,5 +127,13 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
+  
+  <!-- Rowdy Creators Organization -->
+  <url>
+    <loc>https://rowdycreators.org</loc>
+    <lastmod>2025-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>

@@ -5,7 +5,7 @@ export default function SEOHead({
   description = "Yash Verma is a UTSA Honors College senior double majoring in Computer Science & Mathematics of Data & Computing. Currently researching KubeLLM and agentic AI with Dr. Palden Lama, exploring large-scale intelligent systems. Co-authored Word2Vec4Kids published at EAAI 2025. Host of Beyond the Stack podcast featuring industry leaders, and founder of Rowdy Creators student community at UTSA.",
   canonical = "https://yash-verma.com/",
   ogImage = "https://yash-verma.com/images/homebg.jpeg",
-  keywords = "Yash Verma, UTSA, University of Texas San Antonio, Computer Science, Mathematics of Data Computing, Honors College, KubeLLM, Agentic AI, Large Language Models, Machine Learning, AI Research, Dr. Palden Lama, Word2Vec4Kids, EAAI 2025, Educational Technology, Natural Language Processing, Quantum Cryptography, Beyond the Stack Podcast, Tech Podcast, Industry Leaders, Software Engineering Leadership, Career Development, Technology Podcast, YouTube Channel, Spotify Podcast, Apple Podcasts, Rowdy Creators, Student Community, Software Engineering, Cloud Computing, Web Development, Research Publications, Academic Portfolio, Student Researcher, Undergraduate Research, CS-CURE, Independent Study, Tech Leadership, Student Entrepreneurship",
+  keywords = "Yash Verma, UTSA, University of Texas San Antonio, Computer Science, Mathematics of Data Computing, Honors College, KubeLLM, Agentic AI, Large Language Models, Machine Learning, AI Research, Dr. Palden Lama, Word2Vec4Kids, EAAI 2025, Educational Technology, Natural Language Processing, Quantum Cryptography, Beyond the Stack Podcast, Tech Podcast, Industry Leaders, Software Engineering Leadership, Career Development, Technology Podcast, YouTube Channel, Spotify Podcast, Apple Podcasts, Rowdy Creators, rowdycreators.org, Student Community, Software Engineering, Cloud Computing, Web Development, Research Publications, Academic Portfolio, Student Researcher, Undergraduate Research, CS-CURE, Independent Study, Tech Leadership, Student Entrepreneurship",
   twitterSite = "@yashyvverma",
   structuredData = null
 }) {
@@ -127,6 +127,7 @@ export default function SEOHead({
           "description": "UTSA Honors College senior researching KubeLLM and agentic AI. Co-author of Word2Vec4Kids published at EAAI 2025. Host of Beyond the Stack podcast and founder of Rowdy Creators.",
           "birthDate": "2004-02-15",
           "nationality": "American",
+          "email": "yash.verma@my.utsa.edu",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "San Antonio",
@@ -150,7 +151,8 @@ export default function SEOHead({
             "https://open.spotify.com/show/770A9NCMDj1cSXpMfsv5o2",
             "https://podcasts.apple.com/us/podcast/beyond-the-stack/id1836825875",
             "https://orcid.org/0009-0009-8210-464X",
-            "https://scholar.google.com/citations?user=sOcV2JEAAAAJ"
+            "https://scholar.google.com/citations?user=sOcV2JEAAAAJ",
+            "https://rowdycreators.org"
           ],
           "knowsAbout": [
             "Computer Science",
@@ -167,7 +169,29 @@ export default function SEOHead({
             "Web Development",
             "Podcast Hosting",
             "Student Leadership",
-            "Research Publications"
+            "Research Publications",
+            "Python",
+            "Java",
+            "React",
+            "Next.js",
+            "AWS",
+            "Swift",
+            "SwiftUI",
+            "JavaScript",
+            "TypeScript",
+            "Node.js",
+            "Docker",
+            "Kubernetes",
+            "MySQL",
+            "SQLite",
+            "Git",
+            "Agile Development",
+            "Full Stack Development",
+            "Mobile Development",
+            "Database Design",
+            "API Development",
+            "System Design",
+            "DevOps"
           ],
           "hasOccupation": {
             "@type": "Occupation",
@@ -180,7 +204,13 @@ export default function SEOHead({
           "award": [
             "EAAI 2025 Author - Word2Vec4Kids Publication",
             "UTSA Honors College Student",
-            "CS-CURE Research Participant"
+            "CS-CURE Research Participant",
+            "Dean's List (Spring 2025)",
+            "Honor Roll (Fall 2022, Spring 2023, Fall 2023)",
+            "High Honors - Hendrickson High School",
+            "Varsity Wrestling Team Member",
+            "Science Olympiad Participant",
+            "UIL Computer Science Competitor"
           ],
           "memberOf": [
             {
@@ -284,7 +314,7 @@ export default function SEOHead({
             "@type": "Organization",
             "name": "EAAI 2025"
           },
-          "datePublished": "2025-04-011T00:00:00-06:00",
+          "datePublished": "2025-04-11T00:00:00-06:00",
           "isPartOf": {
             "@type": "PublicationIssue",
             "issueNumber": "2025",
@@ -311,10 +341,11 @@ export default function SEOHead({
           "@type": "Organization",
           "name": "Rowdy Creators",
           "description": "Student community at UTSA focused on building real projects and preparing for internships",
-          "url": "https://yash-verma.com/",
-          "founder": {
+          "url": "https://rowdycreators.org",
+          "director": {
             "@type": "Person",
-            "name": "Yash Verma"
+            "name": "Yash Verma",
+            "url": "https://yash-verma.com/"
           },
           "foundingDate": "2024-01-01",
           "location": {
@@ -323,8 +354,12 @@ export default function SEOHead({
           },
           "member": {
             "@type": "Person",
-            "name": "Yash Verma"
+            "name": "Yash Verma",
+            "url": "https://yash-verma.com/"
           },
+          "sameAs": [
+            "https://rowdycreators.org"
+          ],
           "knowsAbout": [
             "Software Engineering",
             "Web Development",
