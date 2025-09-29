@@ -13,7 +13,24 @@ Disallow: /admin/
 Allow: /blog/
 Allow: /bts/
 Allow: /resume
-Allow: /aadra/
+
 
 # Crawl delay for better server performance
 Crawl-delay: 1
+
+# Important external profiles for discovery
+# YouTube Channel
+# https://www.youtube.com/@beyond-the-stack
+
+# GitHub Profile  
+# https://github.com/yash-yv-verma
+
+# LinkedIn Profile
+# https://www.linkedin.com/in/-yv/
+
+# Academic Profiles
+# https://orcid.org/0009-0009-8210-464X
+# https://scholar.google.com/citations?user=sOcV2JEAAAAJ
+
+# Rowdy Creators Team Page
+# https://rowdycreators.org/team

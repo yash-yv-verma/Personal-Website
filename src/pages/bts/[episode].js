@@ -79,6 +79,30 @@ export default function EpisodePage({ episode }) {
     ]
   };
 
+  // Standalone VideoObject Schema for better video indexing
+  const videoStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": `Beyond the Stack - Episode ${episode.episodeNumber} with ${episode.title}`,
+    "description": episode.description,
+    "thumbnailUrl": episode.thumbnail,
+    "uploadDate": episode.publishDate,
+    "embedUrl": `https://www.youtube.com/embed/${episode.youtubeId}`,
+    "contentUrl": `https://yash-verma.com/bts/${episode.id}`,
+    "duration": episode.duration,
+    "publisher": {
+      "@type": "Person",
+      "name": "Yash Verma",
+      "url": "https://yash-verma.com/"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Yash Verma"
+    },
+    "keywords": episode.tags.join(", "),
+    "inLanguage": "en"
+  };
+
   return (
     <>
       <SEOHead 
@@ -87,7 +111,7 @@ export default function EpisodePage({ episode }) {
         canonical={`https://yash-verma.com/bts/${episode.id}/`}
         keywords={`Yash Verma, Beyond the Stack, ${episode.title}, ${episode.tags.join(', ')}, Podcast, Tech Interview`}
         ogImage="https://yash-verma.com/images/homebg.jpeg"
-        structuredData={episodeStructuredData}
+        structuredData={[episodeStructuredData, videoStructuredData]}
       />
 
       <div className="podcast-page" style={{ position: 'relative' }}>
@@ -157,7 +181,45 @@ export default function EpisodePage({ episode }) {
                 textShadow: "0 0 20px rgba(255, 255, 255, 0.3)",
                 margin: 0,
                 textAlign: "center"
-              }}>Beyond the Stack</h1>
+              }}>Beyond the Stack - Episode {episode.episodeNumber}</h1>
+              
+              <motion.h2 
+                variants={fadeInUp}
+                initial="hidden"
+                animate="visible"
+                custom={0.15}
+                style={{
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontWeight: 600,
+                  fontSize: "1.5rem",
+                  color: "#e2e8f0",
+                  margin: "20px 0 10px 0",
+                  textAlign: "center",
+                  lineHeight: 1.4
+                }}
+              >
+                {episode.title}
+              </motion.h2>
+              
+              <motion.p 
+                variants={fadeInUp}
+                initial="hidden"
+                animate="visible"
+                custom={0.2}
+                style={{
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontSize: "1.1rem",
+                  color: "#cbd5e1",
+                  margin: "0 0 30px 0",
+                  textAlign: "center",
+                  lineHeight: 1.6,
+                  maxWidth: "800px",
+                  marginLeft: "auto",
+                  marginRight: "auto"
+                }}
+              >
+                {episode.description}
+              </motion.p>
             </motion.div>
           </div>
         </div>

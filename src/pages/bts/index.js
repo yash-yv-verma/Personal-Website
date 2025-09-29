@@ -192,7 +192,7 @@ export default function BeyondTheStack() {
                       <h3 className="episode-title">EP. {episode.episodeNumber} - {episode.title}</h3>
                       <p className="episode-description">{episode.description}</p>
                       <div className="episode-tags">
-                        {episode.tags.slice(0, 3).map((tag, tagIndex) => (
+                        {episode.tags.slice(0, 5).map((tag, tagIndex) => (
                           <span key={tagIndex} className="tag" style={{
                             fontSize: "0.9rem",
                             fontWeight: 600,

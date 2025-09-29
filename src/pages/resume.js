@@ -61,7 +61,6 @@ export default function Resume() {
     <>
       <Head>
         <title>Resume | Yash Verma</title>
-        <meta name="robots" content="noindex, nofollow" />
         <link rel="icon" href="/favicon.svg" />
         <script type="application/ld+json">
           {JSON.stringify(resumeStructuredData)}

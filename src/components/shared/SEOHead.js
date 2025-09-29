@@ -152,7 +152,8 @@ export default function SEOHead({
             "https://podcasts.apple.com/us/podcast/beyond-the-stack/id1836825875",
             "https://orcid.org/0009-0009-8210-464X",
             "https://scholar.google.com/citations?user=sOcV2JEAAAAJ",
-            "https://rowdycreators.org"
+            "https://rowdycreators.org",
+            "https://rowdycreators.org/team"
           ],
           "knowsAbout": [
             "Computer Science",
