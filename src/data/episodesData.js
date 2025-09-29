@@ -10,7 +10,7 @@ const episodes = [
     duration: '27 min',
     tags: ['AI', 'LLM', 'ML', 'Developer Experience', 'Vibe Coding', 'MCP Servers', 'Software Engineering'],
     spotifyUrl: 'https://open.spotify.com/episode/3IBqHboITGtxUQsUhp9hHH?si=650c91b9f0894b4a',
-    applePodcastsUrl: 'https://podcasts.apple.com/us/podcast/beyond-the-stack/id1836825875'
+    applePodcastsUrl: 'https://podcasts.apple.com/us/podcast/ep-02-jilles-soeters-on-ai-ml-and-developer-experience/id1836825875?i=1000729052881'
   },
   {
     id: 'ep01',
