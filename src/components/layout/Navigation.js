@@ -48,9 +48,10 @@ export default function Navigation() {
   const navStyle = {
     position: 'fixed',
     bottom: isMobile ? '20px' : '32px',
-    left: '50%',
+    left: isMobile ? '20px' : '50%',
+    right: isMobile ? '20px' : 'auto',
     zIndex: 1000,
-    padding: isMobile ? '8px 20px' : '10px 28px',
+    padding: isMobile ? '8px 12px' : '10px 28px',
     borderRadius: '50px',
     background: 'rgba(0, 0, 0, 0.25)',
     backdropFilter: 'blur(20px) saturate(180%)',
@@ -59,21 +60,30 @@ export default function Navigation() {
     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2)',
     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
     opacity: isVisible ? 1 : 0,
-    transform: `translateX(-50%) ${isVisible ? 'translateY(0)' : 'translateY(20px)'}`,
-    minWidth: isMobile ? '280px' : '400px',
+    transform: isMobile 
+      ? `${isVisible ? 'translateY(0)' : 'translateY(20px)'}`
+      : `translateX(-50%) ${isVisible ? 'translateY(0)' : 'translateY(20px)'}`,
+    maxWidth: isMobile ? 'calc(100vw - 40px)' : 'none',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    ...(isMobile && { height: '56px' })
+    overflow: isMobile ? 'auto' : 'hidden',
+    ...(isMobile && { 
+      height: '56px',
+      // Smooth scrolling for mobile
+      scrollBehavior: 'smooth',
+      WebkitOverflowScrolling: 'touch',
+      // Hide scrollbar but keep functionality
+      scrollbarWidth: 'none', // Firefox
+      msOverflowStyle: 'none', // IE/Edge
+    })
   };
 
   const linkStyle = (isActive) => ({
     textDecoration: 'none',
     color: '#ffffff',
-    fontSize: isMobile ? '0.95rem' : '1.1rem',
+    fontSize: isMobile ? '0.9rem' : '1.1rem',
     fontWeight: isActive ? '600' : '400',
-    padding: isMobile ? '8px 12px' : '10px 16px',
+    padding: isMobile ? '8px 14px' : '10px 16px',
     borderRadius: '25px',
     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
     fontFamily: "'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif",
@@ -81,6 +91,7 @@ export default function Navigation() {
     background: isActive ? 'rgba(59, 130, 246, 0.2)' : 'transparent',
     border: isActive ? '1px solid rgba(59, 130, 246, 0.4)' : '1px solid transparent',
     whiteSpace: 'nowrap',
+    flexShrink: 0, // Prevent items from shrinking
     ...(isMobile && {
       display: 'flex',
       alignItems: 'center',
@@ -91,13 +102,18 @@ export default function Navigation() {
 
   return (
     <nav style={navStyle}>
-      <div style={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: isMobile ? '16px' : '24px',
-        position: 'relative',
-        zIndex: 1
-      }}>
+      <div 
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: isMobile ? '12px' : '24px',
+          position: 'relative',
+          zIndex: 1,
+          minWidth: isMobile ? 'max-content' : 'auto',
+          padding: isMobile ? '0 8px' : '0'
+        }}
+        className="nav-links-container"
+      >
         <Link href="/" style={linkStyle(router.pathname === '/')}>
           Home
         </Link>
@@ -122,6 +138,18 @@ export default function Navigation() {
           Resume
         </Link>
       </div>
+      <style jsx>{`
+        .nav-links-container::-webkit-scrollbar {
+          display: none; /* Chrome, Safari, Opera */
+        }
+        
+        /* Ensure smooth scrolling on mobile */
+        @media (max-width: 768px) {
+          nav {
+            -webkit-overflow-scrolling: touch;
+          }
+        }
+      `}</style>
     </nav>
   );
 }

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
  */
 export default function MobileTouchArea() {
   const [isMobile, setIsMobile] = useState(false);
+  const touchStartRef = { y: null, time: null };
 
   useEffect(() => {
     const checkMobile = () => {
@@ -27,18 +28,88 @@ export default function MobileTouchArea() {
       e.stopPropagation();
     }
     
-    // Immediate scroll to top - no smooth scrolling to ensure it works
-    // Use multiple methods for maximum compatibility
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    // Detect iOS - improved detection
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     
-    // Force scroll after a brief delay to ensure it works
-    requestAnimationFrame(() => {
+    // Smooth scroll function that works on all platforms
+    const performSmoothScroll = () => {
+      const startPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      
+      if (startPosition === 0) return; // Already at top
+      
+      const duration = 400; // 400ms for smooth but responsive scroll
+      const startTime = performance.now();
+      
+      // Easing function for smooth animation
+      const easeInOutCubic = (t) => {
+        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      };
+      
+      const animate = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = easeInOutCubic(progress);
+        const currentPosition = startPosition * (1 - ease);
+        
+        // Scroll all possible scroll containers
+        window.scrollTo(0, currentPosition);
+        document.documentElement.scrollTop = currentPosition;
+        document.body.scrollTop = currentPosition;
+        
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          // Ensure we're exactly at the top
+          window.scrollTo(0, 0);
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+        }
+      };
+      
+      requestAnimationFrame(animate);
+    };
+    
+    // For iOS, ensure immediate response then smooth scroll
+    if (isIOS) {
+      // First, ensure immediate response
       window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
-    });
+      
+      // Then apply smooth scroll on next frame
+      requestAnimationFrame(() => {
+        performSmoothScroll();
+      });
+    } else {
+      // For Android and other browsers, use smooth scroll directly
+      performSmoothScroll();
+    }
+  };
+  
+  // Track touch start for better gesture detection
+  const handleTouchStart = (e) => {
+    const touch = e.touches[0];
+    touchStartRef.y = touch.clientY;
+    touchStartRef.time = Date.now();
+  };
+  
+  const handleTouchEnd = (e) => {
+    if (!touchStartRef.y) return;
+    
+    const touch = e.changedTouches[0];
+    const deltaY = Math.abs(touch.clientY - touchStartRef.y);
+    const deltaTime = Date.now() - touchStartRef.time;
+    
+    // If it's a quick tap (small movement, short time), trigger scroll
+    if (deltaY < 15 && deltaTime < 300) {
+      e.preventDefault();
+      scrollToTop(e);
+    }
+    
+    // Reset
+    touchStartRef.y = null;
+    touchStartRef.time = null;
   };
 
   // Only render on mobile devices
@@ -49,11 +120,8 @@ export default function MobileTouchArea() {
       <div
         className="mobile-scroll-to-top"
         onClick={scrollToTop}
-        onTouchStart={scrollToTop}
-        onTouchEnd={(e) => {
-          e.preventDefault();
-          scrollToTop(e);
-        }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         aria-label="Scroll to top"
         role="button"
         tabIndex={-1}
@@ -73,8 +141,13 @@ export default function MobileTouchArea() {
           pointer-events: auto;
           /* Remove any touch highlights */
           -webkit-tap-highlight-color: transparent;
-          /* Optimize for touch */
+          /* Optimize for touch - use manipulation for better iOS support */
           touch-action: manipulation;
+          /* Prevent text selection */
+          user-select: none;
+          -webkit-user-select: none;
+          /* Better touch handling for iOS */
+          -webkit-touch-callout: none;
         }
         
         /* Hide on desktop */

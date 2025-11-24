@@ -75,9 +75,9 @@ export default function Research() {
       />
       <Navigation />
       
-      <div style={{ minHeight: '100vh', background: '#0a0a0a', paddingBottom: isMobile ? '120px' : '150px' }}>
+      <div style={{ minHeight: '100vh', background: '#ffffff', paddingBottom: isMobile ? '120px' : '150px' }}>
         <div style={{ 
-          background: 'linear-gradient(180deg, #312e81 0%, #1e1b4b 0%, #0a0a0a 100%)',
+          background: '#f0f6ff',
           padding: '40px 0 35px 0',
           display: 'flex',
           alignItems: 'center',
@@ -92,16 +92,12 @@ export default function Research() {
             custom={0.1}
           >
             <h1 style={{
-              fontFamily: "'Orbitron', 'Space Grotesk', monospace",
+              fontFamily: "'Roboto Mono', sans-serif",
               fontWeight: 700,
               fontSize: isMobile ? "2rem" : "2.5rem",
-              letterSpacing: "0.15em",
+              letterSpacing: "0.1em",
               textTransform: "uppercase",
-              background: "linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #cbd5e1 100%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              textShadow: "0 0 20px rgba(255, 255, 255, 0.3)",
+              color: "#2b2b2b",
               margin: 0,
               textAlign: "center"
             }}>Research</h1>
@@ -112,7 +108,8 @@ export default function Research() {
           style={{ 
             padding: isMobile ? '20px 15px' : '40px 20px', 
             maxWidth: '1200px', 
-            margin: '0 auto' 
+            margin: '0 auto',
+            background: '#ffffff'
           }}
           variants={fadeInUp}
           initial="hidden"
@@ -122,12 +119,12 @@ export default function Research() {
           {/* Research Interests Section */}
           <motion.div 
             style={{
-              background: '#1a1a1a',
+              background: '#ffffff',
               borderRadius: '8px',
               padding: isMobile ? '30px 20px' : '50px 40px',
-              border: '1px solid #2a2a2a',
+              border: '1px solid #e5e5e5',
               marginBottom: '30px',
-              color: '#e5e5e5'
+              boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
             }}
             variants={fadeInUp}
             initial="hidden"
@@ -135,25 +132,24 @@ export default function Research() {
             custom={0.3}
           >
             <h2 style={{
-              fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+              fontFamily: "'Roboto Mono', sans-serif",
               fontSize: isMobile ? '1.3rem' : '1.6rem',
               fontWeight: 600,
-              color: '#9ca3af',
+              color: '#2b2b2b',
               marginBottom: '20px',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              opacity: 0.9,
-              borderBottom: '2px solid #312e81',
+              borderBottom: '2px solid #e5e5e5',
               paddingBottom: '10px'
             }}>
               Research Interests
             </h2>
             <p style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: isMobile ? '1rem' : '1.1rem',
+              fontFamily: "'Lora', serif",
+              fontSize: isMobile ? '14px' : '16px',
               lineHeight: '1.6',
               margin: 0,
-              color: '#cbd5e1'
+              color: 'rgba(0,0,0,.7)'
             }}>
               My research focuses on building multi-agent systems for distributed infrastructure, reasoning about stochastic system failures, orchestrating recovery, and designing scalable, interpretable AI infrastructure for large-language-model and reinforcement learning agents in real-world computing environments.
             </p>
@@ -162,12 +158,12 @@ export default function Research() {
           {/* Current Research Project */}
           <motion.div 
             style={{
-              background: '#1a1a1a',
+              background: '#f0f6ff',
               borderRadius: '8px',
               padding: isMobile ? '30px 20px' : '50px 40px',
-              border: '1px solid #2a2a2a',
+              border: '1px solid #e5e5e5',
               marginBottom: '30px',
-              color: '#e5e5e5'
+              boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
             }}
             variants={fadeInUp}
             initial="hidden"
@@ -175,74 +171,74 @@ export default function Research() {
             custom={0.4}
           >
             <h2 style={{
-              fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+              fontFamily: "'Roboto Mono', sans-serif",
               fontSize: isMobile ? '1.3rem' : '1.6rem',
               fontWeight: 600,
-              color: '#9ca3af',
+              color: '#2b2b2b',
               marginBottom: '15px',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              opacity: 0.9,
-              borderBottom: '2px solid #312e81',
+              borderBottom: '2px solid #e5e5e5',
               paddingBottom: '10px'
             }}>
               Current Research
             </h2>
             
             <h3 style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "'Roboto Mono', sans-serif",
               fontSize: isMobile ? '1.2rem' : '1.4rem',
-              fontWeight: 700,
-              color: '#ffffff',
+              fontWeight: 600,
+              color: '#2b2b2b',
               marginTop: '20px',
               marginBottom: '10px',
-              lineHeight: '1.3',
-              letterSpacing: '-0.02em'
+              lineHeight: '1.3'
             }}>
               LLM-Based Multi-Agent Framework For Troubleshooting Distributed Systems
             </h3>
             
             <div style={{
               marginBottom: '20px',
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: isMobile ? '0.9rem' : '1rem',
-              color: '#a1a1aa'
+              fontFamily: "'Lora', serif",
+              fontSize: isMobile ? '14px' : '16px',
+              color: 'rgba(0,0,0,.7)'
             }}>
-              <p style={{ margin: '5px 0' }}><strong style={{ color: '#cbd5e1' }}>Role:</strong> Undergraduate Research Assistant</p>
-              <p style={{ margin: '5px 0' }}><strong style={{ color: '#cbd5e1' }}>Advisor:</strong> Dr. Palden Lama</p>
-              <p style={{ margin: '5px 0' }}><strong style={{ color: '#cbd5e1' }}>Institution:</strong> The University of Texas at San Antonio</p>
-              <p style={{ margin: '5px 0' }}><strong style={{ color: '#cbd5e1' }}>Duration:</strong> June 2025 – Present</p>
-              <p style={{ margin: '5px 0' }}><strong style={{ color: '#cbd5e1' }}>Status:</strong> In preparation: publication expected Spring 2026</p>
+              <p style={{ margin: '5px 0' }}><strong style={{ color: 'rgba(0,0,0,.9)' }}>Role:</strong> Undergraduate Research Assistant</p>
+              <p style={{ margin: '5px 0' }}><strong style={{ color: 'rgba(0,0,0,.9)' }}>Advisor:</strong> Dr. Palden Lama</p>
+              <p style={{ margin: '5px 0' }}><strong style={{ color: 'rgba(0,0,0,.9)' }}>Institution:</strong> The University of Texas at San Antonio</p>
+              <p style={{ margin: '5px 0' }}><strong style={{ color: 'rgba(0,0,0,.9)' }}>Duration:</strong> June 2025 – Present</p>
+              <p style={{ margin: '5px 0' }}><strong style={{ color: 'rgba(0,0,0,.9)' }}>Status:</strong> In preparation: publication expected Spring 2026</p>
             </div>
 
             <h4 style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: isMobile ? '0.95rem' : '1.05rem',
+              fontFamily: "'Roboto Mono', sans-serif",
+              fontSize: isMobile ? '14px' : '16px',
               fontWeight: 600,
-              color: '#e2e8f0',
+              color: '#2b2b2b',
               marginTop: '20px',
-              marginBottom: '10px'
+              marginBottom: '10px',
+              letterSpacing: '6px',
+              textTransform: 'uppercase'
             }}>
               Key Contributions:
             </h4>
             <ul style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "'Lora', serif",
               paddingLeft: '20px',
               margin: '10px 0',
               lineHeight: '1.6',
-              color: '#cbd5e1',
-              fontSize: isMobile ? '1rem' : '1.1rem'
+              color: 'rgba(0,0,0,.7)',
+              fontSize: isMobile ? '14px' : '16px'
             }}>
-              <li style={{ marginBottom: '10px', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <li style={{ marginBottom: '10px', fontFamily: "'Lora', serif" }}>
                 Advancing KubeLLM, an IEEE Cloud Summit 2025 Best Paper framework, by integrating agentic reasoning for autonomous diagnosis and recovery in Kubernetes clusters.
               </li>
-              <li style={{ marginBottom: '10px', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <li style={{ marginBottom: '10px', fontFamily: "'Lora', serif" }}>
                 Implementing an independent verification layer that cross-checks LLM actions against system logs, metrics, and retrieved documentation to prevent low-confidence executions.
               </li>
-              <li style={{ marginBottom: '10px', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <li style={{ marginBottom: '10px', fontFamily: "'Lora', serif" }}>
                 Optimizing retrieval-augmented generation (RAG) pipelines and distributed inference to improve accuracy-latency tradeoffs across multi-agent configurations.
               </li>
-              <li style={{ marginBottom: '10px', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <li style={{ marginBottom: '10px', fontFamily: "'Lora', serif" }}>
                 Conducting benchmarking using KubeLLMBench to evaluate Llama 3.3, GPT-4o, Gemini 1.5 Flash, and o3-mini, analyzing performance, cost, and reliability trade-offs for scalable AI-driven DevOps.
               </li>
             </ul>
@@ -251,12 +247,12 @@ export default function Research() {
           {/* Published Research */}
           <motion.div 
             style={{
-              background: '#1a1a1a',
+              background: '#ffffff',
               borderRadius: '8px',
               padding: isMobile ? '30px 20px' : '50px 40px',
-              border: '1px solid #2a2a2a',
+              border: '1px solid #e5e5e5',
               marginBottom: '30px',
-              color: '#e5e5e5'
+              boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
             }}
             variants={fadeInUp}
             initial="hidden"
@@ -264,70 +260,70 @@ export default function Research() {
             custom={0.5}
           >
             <h2 style={{
-              fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+              fontFamily: "'Roboto Mono', sans-serif",
               fontSize: isMobile ? '1.3rem' : '1.6rem',
               fontWeight: 600,
-              color: '#9ca3af',
+              color: '#2b2b2b',
               marginBottom: '15px',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              opacity: 0.9,
-              borderBottom: '2px solid #312e81',
+              borderBottom: '2px solid #e5e5e5',
               paddingBottom: '10px'
             }}>
               Publications
             </h2>
             
             <h3 style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "'Roboto Mono', sans-serif",
               fontSize: isMobile ? '1.2rem' : '1.4rem',
-              fontWeight: 700,
-              color: '#ffffff',
+              fontWeight: 600,
+              color: '#2b2b2b',
               marginTop: '20px',
               marginBottom: '10px',
-              lineHeight: '1.3',
-              letterSpacing: '-0.02em'
+              lineHeight: '1.3'
             }}>
               Word2Vec4Kids: Interactive Challenges to Introduce Middle School Students to Word Embeddings
             </h3>
             
             <div style={{
               marginBottom: '20px',
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: isMobile ? '0.9rem' : '1rem',
-              color: '#a1a1aa'
+              fontFamily: "'Lora', serif",
+              fontSize: isMobile ? '14px' : '16px',
+              color: 'rgba(0,0,0,.7)'
             }}>
-              <p style={{ margin: '5px 0' }}><strong style={{ color: '#cbd5e1' }}>Role:</strong> Undergraduate Research Assistant</p>
-              <p style={{ margin: '5px 0' }}><strong style={{ color: '#cbd5e1' }}>Venue:</strong> AAAI/EAAI April 2025</p>
-              <p style={{ margin: '5px 0' }}><strong style={{ color: '#cbd5e1' }}>Duration:</strong> January 2024 – February 2025</p>
-              <p style={{ margin: '5px 0' }}><strong style={{ color: '#cbd5e1' }}>Status:</strong> Published</p>
+              <p style={{ margin: '5px 0' }}><strong style={{ color: 'rgba(0,0,0,.9)' }}>Role:</strong> Undergraduate Research Assistant</p>
+              <p style={{ margin: '5px 0' }}><strong style={{ color: 'rgba(0,0,0,.9)' }}>Venue:</strong> AAAI/EAAI April 2025</p>
+              <p style={{ margin: '5px 0' }}><strong style={{ color: 'rgba(0,0,0,.9)' }}>Duration:</strong> January 2024 – February 2025</p>
+              <p style={{ margin: '5px 0' }}><strong style={{ color: 'rgba(0,0,0,.9)' }}>Status:</strong> Published</p>
             </div>
 
             <h4 style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: isMobile ? '0.95rem' : '1.05rem',
+              fontFamily: "'Roboto Mono', sans-serif",
+              fontSize: isMobile ? '14px' : '16px',
               fontWeight: 600,
-              color: '#e2e8f0',
+              color: '#2b2b2b',
               marginTop: '20px',
-              marginBottom: '10px'
+              marginBottom: '10px',
+              letterSpacing: '6px',
+              textTransform: 'uppercase'
             }}>
               Key Contributions:
             </h4>
             <ul style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "'Lora', serif",
               paddingLeft: '20px',
               margin: '10px 0',
               lineHeight: '1.6',
-              color: '#cbd5e1',
-              fontSize: isMobile ? '1rem' : '1.1rem'
+              color: 'rgba(0,0,0,.7)',
+              fontSize: isMobile ? '14px' : '16px'
             }}>
-              <li style={{ marginBottom: '10px', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <li style={{ marginBottom: '10px', fontFamily: "'Lora', serif" }}>
                 Co-authored and published Word2Vec4Kids (W2V4K), an interactive macOS application that introduces middle school students to foundational concepts in natural language processing.
               </li>
-              <li style={{ marginBottom: '10px', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <li style={{ marginBottom: '10px', fontFamily: "'Lora', serif" }}>
                 Designed game-based learning modules that employ the Word2Vec model to explore word associations, semantic similarity, and vector arithmetic through playful experimentation.
               </li>
-              <li style={{ marginBottom: '10px', fontFamily: "'Space Grotesk', sans-serif" }}>
+              <li style={{ marginBottom: '10px', fontFamily: "'Lora', serif" }}>
                 Implemented local data collection and per-student tracking with SQLite, then analyzed interaction logs, survey responses, and performance metrics in Python to evaluate learning outcomes.
               </li>
             </ul>
@@ -336,12 +332,12 @@ export default function Research() {
           {/* Technical Skills */}
           <motion.div 
             style={{
-              background: '#1a1a1a',
+              background: '#f0f6ff',
               borderRadius: '8px',
               padding: isMobile ? '30px 20px' : '50px 40px',
-              border: '1px solid #2a2a2a',
+              border: '1px solid #e5e5e5',
               marginBottom: '30px',
-              color: '#e5e5e5'
+              boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
             }}
             variants={fadeInUp}
             initial="hidden"
@@ -349,15 +345,14 @@ export default function Research() {
             custom={0.6}
           >
             <h2 style={{
-              fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+              fontFamily: "'Roboto Mono', sans-serif",
               fontSize: isMobile ? '1.3rem' : '1.6rem',
               fontWeight: 600,
-              color: '#9ca3af',
+              color: '#2b2b2b',
               marginBottom: '20px',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              opacity: 0.9,
-              borderBottom: '2px solid #312e81',
+              borderBottom: '2px solid #e5e5e5',
               paddingBottom: '10px'
             }}>
               Research Tools & Technologies
@@ -371,19 +366,21 @@ export default function Research() {
             }}>
               <div>
                 <h4 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: isMobile ? '0.95rem' : '1.05rem',
+                  fontFamily: "'Roboto Mono', sans-serif",
+                  fontSize: isMobile ? '14px' : '16px',
                   fontWeight: 600,
-                  color: '#e2e8f0',
-                  marginBottom: '10px'
+                  color: '#2b2b2b',
+                  marginBottom: '10px',
+                  letterSpacing: '6px',
+                  textTransform: 'uppercase'
                 }}>
                   Machine Learning & AI
                 </h4>
                 <p style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: isMobile ? '0.95rem' : '1rem',
+                  fontFamily: "'Lora', serif",
+                  fontSize: isMobile ? '14px' : '16px',
                   lineHeight: '1.6',
-                  color: '#cbd5e1',
+                  color: 'rgba(0,0,0,.7)',
                   margin: 0
                 }}>
                   PyTorch, TensorFlow, scikit-learn, RLlib, LangChain, AutoGen, Hugging Face, MLflow, Jupyter
@@ -392,19 +389,21 @@ export default function Research() {
               
               <div>
                 <h4 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: isMobile ? '0.95rem' : '1.05rem',
+                  fontFamily: "'Roboto Mono', sans-serif",
+                  fontSize: isMobile ? '14px' : '16px',
                   fontWeight: 600,
-                  color: '#e2e8f0',
-                  marginBottom: '10px'
+                  color: '#2b2b2b',
+                  marginBottom: '10px',
+                  letterSpacing: '6px',
+                  textTransform: 'uppercase'
                 }}>
                   Distributed Systems & Cloud
                 </h4>
                 <p style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: isMobile ? '0.95rem' : '1rem',
+                  fontFamily: "'Lora', serif",
+                  fontSize: isMobile ? '14px' : '16px',
                   lineHeight: '1.6',
-                  color: '#cbd5e1',
+                  color: 'rgba(0,0,0,.7)',
                   margin: 0
                 }}>
                   Kubernetes, Docker, AWS, GCP, Azure, Kafka, Linux
@@ -413,19 +412,21 @@ export default function Research() {
               
               <div>
                 <h4 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: isMobile ? '0.95rem' : '1.05rem',
+                  fontFamily: "'Roboto Mono', sans-serif",
+                  fontSize: isMobile ? '14px' : '16px',
                   fontWeight: 600,
-                  color: '#e2e8f0',
-                  marginBottom: '10px'
+                  color: '#2b2b2b',
+                  marginBottom: '10px',
+                  letterSpacing: '6px',
+                  textTransform: 'uppercase'
                 }}>
                   Programming Languages
                 </h4>
                 <p style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: isMobile ? '0.95rem' : '1rem',
+                  fontFamily: "'Lora', serif",
+                  fontSize: isMobile ? '14px' : '16px',
                   lineHeight: '1.6',
-                  color: '#cbd5e1',
+                  color: 'rgba(0,0,0,.7)',
                   margin: 0
                 }}>
                   Python, Java, C, TypeScript, JavaScript, Swift, SQL, LaTeX
@@ -434,19 +435,21 @@ export default function Research() {
               
               <div>
                 <h4 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: isMobile ? '0.95rem' : '1.05rem',
+                  fontFamily: "'Roboto Mono', sans-serif",
+                  fontSize: isMobile ? '14px' : '16px',
                   fontWeight: 600,
-                  color: '#e2e8f0',
-                  marginBottom: '10px'
+                  color: '#2b2b2b',
+                  marginBottom: '10px',
+                  letterSpacing: '6px',
+                  textTransform: 'uppercase'
                 }}>
                   Research Concepts
                 </h4>
                 <p style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: isMobile ? '0.95rem' : '1rem',
+                  fontFamily: "'Lora', serif",
+                  fontSize: isMobile ? '14px' : '16px',
                   lineHeight: '1.6',
-                  color: '#cbd5e1',
+                  color: 'rgba(0,0,0,.7)',
                   margin: 0
                 }}>
                   Multi-Agent Systems, Scalable AI Infrastructure, Distributed Systems, Reinforcement Learning, RAG Pipelines
@@ -458,12 +461,12 @@ export default function Research() {
           {/* Education Background */}
           <motion.div 
             style={{
-              background: '#1a1a1a',
+              background: '#ffffff',
               borderRadius: '8px',
               padding: isMobile ? '30px 20px' : '50px 40px',
-              border: '1px solid #2a2a2a',
+              border: '1px solid #e5e5e5',
               marginBottom: '30px',
-              color: '#e5e5e5'
+              boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
             }}
             variants={fadeInUp}
             initial="hidden"
@@ -471,15 +474,14 @@ export default function Research() {
             custom={0.7}
           >
             <h2 style={{
-              fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+              fontFamily: "'Roboto Mono', sans-serif",
               fontSize: isMobile ? '1.3rem' : '1.6rem',
               fontWeight: 600,
-              color: '#9ca3af',
+              color: '#2b2b2b',
               marginBottom: '20px',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              opacity: 0.9,
-              borderBottom: '2px solid #312e81',
+              borderBottom: '2px solid #e5e5e5',
               paddingBottom: '10px'
             }}>
               Education
@@ -489,54 +491,53 @@ export default function Research() {
               marginTop: '20px'
             }}>
               <h3 style={{
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "'Roboto Mono', sans-serif",
                 fontSize: isMobile ? '1.2rem' : '1.4rem',
-                fontWeight: 700,
-                color: '#ffffff',
+                fontWeight: 600,
+                color: '#2b2b2b',
                 marginBottom: '10px',
-                lineHeight: '1.3',
-                letterSpacing: '-0.02em'
+                lineHeight: '1.3'
               }}>
                 The University of Texas at San Antonio
               </h3>
               <p style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: isMobile ? '0.95rem' : '1rem',
-                color: '#cbd5e1',
+                fontFamily: "'Lora', serif",
+                fontSize: isMobile ? '14px' : '16px',
+                color: 'rgba(0,0,0,.7)',
                 margin: '5px 0',
                 lineHeight: '1.6'
               }}>
-                <strong style={{ color: '#ffffff' }}>Triple Major, Honors College Scholar</strong>
+                <strong style={{ color: 'rgba(0,0,0,.9)' }}>Triple Major, Honors College Scholar</strong>
               </p>
               <p style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: isMobile ? '0.95rem' : '1rem',
-                color: '#a1a1aa',
+                fontFamily: "'Lora', serif",
+                fontSize: isMobile ? '14px' : '16px',
+                color: 'rgba(0,0,0,.7)',
                 margin: '5px 0',
                 lineHeight: '1.6'
               }}>
                 August 2022 – May 2026
               </p>
               <ul style={{
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: "'Lora', serif",
                 paddingLeft: '20px',
                 margin: '15px 0',
                 lineHeight: '1.6',
-                color: '#cbd5e1',
-                fontSize: isMobile ? '0.95rem' : '1rem'
+                color: 'rgba(0,0,0,.7)',
+                fontSize: isMobile ? '14px' : '16px'
               }}>
-                <li style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Bachelor of Science in Computer Science</li>
-                <li style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Bachelor of Science in Mathematics of Data & Computing</li>
-                <li style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Bachelor of Science in Software Engineering</li>
+                <li style={{ fontFamily: "'Lora', serif" }}>Bachelor of Science in Computer Science</li>
+                <li style={{ fontFamily: "'Lora', serif" }}>Bachelor of Science in Mathematics of Data & Computing</li>
+                <li style={{ fontFamily: "'Lora', serif" }}>Bachelor of Science in Software Engineering</li>
               </ul>
               <p style={{
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: isMobile ? '0.95rem' : '1rem',
-                color: '#cbd5e1',
+                fontFamily: "'Lora', serif",
+                fontSize: isMobile ? '14px' : '16px',
+                color: 'rgba(0,0,0,.7)',
                 margin: '10px 0 0 0',
                 lineHeight: '1.6'
               }}>
-                <strong style={{ color: '#ffffff' }}>Overall GPA:</strong> 3.70
+                <strong style={{ color: 'rgba(0,0,0,.9)' }}>Overall GPA:</strong> 3.70
               </p>
             </div>
           </motion.div>
@@ -544,12 +545,12 @@ export default function Research() {
           {/* Contact for Collaboration */}
           <motion.div 
             style={{
-              background: 'linear-gradient(135deg, #312e81 0%, #1e1b4b 100%)',
+              background: '#f0f6ff',
               borderRadius: '8px',
               padding: isMobile ? '30px 20px' : '50px 40px',
-              border: '1px solid #4c1d95',
-              color: '#e5e5e5',
-              textAlign: 'center'
+              border: '1px solid #e5e5e5',
+              textAlign: 'center',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.05)'
             }}
             variants={fadeInUp}
             initial="hidden"
@@ -557,20 +558,22 @@ export default function Research() {
             custom={0.8}
           >
             <h2 style={{
-              fontFamily: "'Space Grotesk', sans-serif",
+              fontFamily: "'Roboto Mono', sans-serif",
               fontSize: isMobile ? '1.3rem' : '1.5rem',
-              fontWeight: 700,
-              color: '#ffffff',
-              marginBottom: '15px'
+              fontWeight: 600,
+              color: '#2b2b2b',
+              marginBottom: '15px',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase'
             }}>
               Interested in Collaboration?
             </h2>
             <p style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontSize: isMobile ? '1rem' : '1.1rem',
+              fontFamily: "'Lora', serif",
+              fontSize: isMobile ? '14px' : '16px',
               lineHeight: '1.6',
               margin: '0 0 20px 0',
-              color: '#e2e8f0'
+              color: 'rgba(0,0,0,.7)'
             }}>
               I&apos;m always open to discussing research opportunities, collaborations, and graduate program applications.
             </p>
@@ -585,21 +588,24 @@ export default function Research() {
               <a 
                 href="mailto:yash.verma@my.utsa.edu"
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  color: '#ffffff',
+                  fontFamily: "'Lora', serif",
+                  color: 'rgba(0,0,0,.9)',
                   textDecoration: 'none',
-                  fontSize: isMobile ? '0.9rem' : '1rem',
+                  fontSize: isMobile ? '14px' : '16px',
                   padding: '12px 24px',
-                  background: 'rgba(255, 255, 255, 0.1)',
+                  background: '#ffffff',
                   borderRadius: '6px',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  transition: 'all 0.3s ease'
+                  border: '1px solid #e5e5e5',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.2)';
+                  e.target.style.background = '#f0f6ff';
+                  e.target.style.transform = 'translateY(-2px)';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                  e.target.style.background = '#ffffff';
+                  e.target.style.transform = 'translateY(0)';
                 }}
               >
                 Email: yash.verma@my.utsa.edu
@@ -609,21 +615,24 @@ export default function Research() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  color: '#ffffff',
+                  fontFamily: "'Lora', serif",
+                  color: 'rgba(0,0,0,.9)',
                   textDecoration: 'none',
-                  fontSize: isMobile ? '0.9rem' : '1rem',
+                  fontSize: isMobile ? '14px' : '16px',
                   padding: '12px 24px',
-                  background: 'rgba(255, 255, 255, 0.1)',
+                  background: '#ffffff',
                   borderRadius: '6px',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  transition: 'all 0.3s ease'
+                  border: '1px solid #e5e5e5',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.2)';
+                  e.target.style.background = '#f0f6ff';
+                  e.target.style.transform = 'translateY(-2px)';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                  e.target.style.background = '#ffffff';
+                  e.target.style.transform = 'translateY(0)';
                 }}
               >
                 Google Scholar
@@ -633,21 +642,24 @@ export default function Research() {
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  color: '#ffffff',
+                  fontFamily: "'Lora', serif",
+                  color: 'rgba(0,0,0,.9)',
                   textDecoration: 'none',
-                  fontSize: isMobile ? '0.9rem' : '1rem',
+                  fontSize: isMobile ? '14px' : '16px',
                   padding: '12px 24px',
-                  background: 'rgba(255, 255, 255, 0.1)',
+                  background: '#ffffff',
                   borderRadius: '6px',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  transition: 'all 0.3s ease'
+                  border: '1px solid #e5e5e5',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.2)';
+                  e.target.style.background = '#f0f6ff';
+                  e.target.style.transform = 'translateY(-2px)';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                  e.target.style.background = '#ffffff';
+                  e.target.style.transform = 'translateY(0)';
                 }}
               >
                 ORCID Profile
