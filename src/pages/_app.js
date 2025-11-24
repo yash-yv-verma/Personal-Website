@@ -17,14 +17,15 @@ export default function App({ Component, pageProps }) {
     // Force scroll to top on every route change
     const handleRouteChange = () => {
       if (typeof window !== 'undefined') {
-        // Aggressive scroll reset
-        window.scrollTo(0, 0);
+        // Only scroll the main window, not any nested scrollable containers
+        // This prevents affecting the nav bar's horizontal scroll
+        window.scrollTo({ top: 0, left: window.scrollX, behavior: 'auto' });
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
         
         // Force scroll after DOM updates
         requestAnimationFrame(() => {
-          window.scrollTo(0, 0);
+          window.scrollTo({ top: 0, left: window.scrollX, behavior: 'auto' });
           document.documentElement.scrollTop = 0;
           document.body.scrollTop = 0;
         });

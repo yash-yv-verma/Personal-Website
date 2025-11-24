@@ -10,6 +10,9 @@ export default function Navigation() {
   const [isTablet, setIsTablet] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const isNavigatingRef = useRef(false);
+  const navContainerRef = useRef(null);
+  const horizontalScrollPositionRef = useRef(0);
+  const isRouteChangingRef = useRef(false);
 
   useEffect(() => {
     // Set mounted state immediately to prevent initial animation
@@ -25,30 +28,88 @@ export default function Navigation() {
     window.addEventListener('resize', checkDevice);
 
     let timeoutId;
-    let isRouteChanging = false;
+    let scrollRestoreTimeouts = [];
     
     // Track route changes to prevent nav visibility changes during navigation
     const handleRouteChangeStart = () => {
-      isRouteChanging = true;
+      isRouteChangingRef.current = true;
       isNavigatingRef.current = true;
       // Keep nav visible during route changes
       setIsVisible(true);
+      
+      // ALWAYS save horizontal scroll position before ANY route change
+      if (navContainerRef.current) {
+        horizontalScrollPositionRef.current = navContainerRef.current.scrollLeft;
+      }
     };
     
     const handleRouteChangeComplete = () => {
-      // Small delay to let scroll-to-top complete
-      setTimeout(() => {
-        isRouteChanging = false;
+      // ALWAYS restore horizontal scroll position after route change - multiple attempts to ensure it sticks
+      if (navContainerRef.current) {
+        const savedPosition = horizontalScrollPositionRef.current;
+        
+        // Clear any previous restore timeouts
+        scrollRestoreTimeouts.forEach(clearTimeout);
+        scrollRestoreTimeouts = [];
+        
+        // Immediate restore
+        navContainerRef.current.scrollLeft = savedPosition;
+        
+        // Restore after paint
+        const rafId = requestAnimationFrame(() => {
+          if (navContainerRef.current) {
+            navContainerRef.current.scrollLeft = savedPosition;
+          }
+        });
+        
+        // Restore after short delay
+        const timeout1 = setTimeout(() => {
+          if (navContainerRef.current) {
+            navContainerRef.current.scrollLeft = savedPosition;
+          }
+        }, 10);
+        scrollRestoreTimeouts.push(timeout1);
+        
+        // Restore after longer delay to catch any late scroll resets
+        const timeout2 = setTimeout(() => {
+          if (navContainerRef.current) {
+            navContainerRef.current.scrollLeft = savedPosition;
+          }
+        }, 100);
+        scrollRestoreTimeouts.push(timeout2);
+        
+        // Final restore after all animations complete
+        const timeout3 = setTimeout(() => {
+          if (navContainerRef.current) {
+            navContainerRef.current.scrollLeft = savedPosition;
+          }
+        }, 300);
+        scrollRestoreTimeouts.push(timeout3);
+      }
+      
+      // Longer delay to ensure all animations/transitions are complete
+      const finalTimeout = setTimeout(() => {
+        isRouteChangingRef.current = false;
         isNavigatingRef.current = false;
-      }, 200);
+      }, 300);
+      scrollRestoreTimeouts.push(finalTimeout);
+    };
+    
+    const handleRouteChangeError = () => {
+      // Reset navigation state if route change fails
+      isRouteChangingRef.current = false;
+      isNavigatingRef.current = false;
+      scrollRestoreTimeouts.forEach(clearTimeout);
+      scrollRestoreTimeouts = [];
     };
     
     router.events.on('routeChangeStart', handleRouteChangeStart);
     router.events.on('routeChangeComplete', handleRouteChangeComplete);
+    router.events.on('routeChangeError', handleRouteChangeError);
     
     const handleScroll = () => {
       // Don't react to scroll during route changes
-      if (isRouteChanging) return;
+      if (isRouteChangingRef.current || isNavigatingRef.current) return;
       
       const currentScrollY = window.scrollY;
       
@@ -78,7 +139,10 @@ export default function Navigation() {
       window.removeEventListener('scroll', handleScroll);
       router.events.off('routeChangeStart', handleRouteChangeStart);
       router.events.off('routeChangeComplete', handleRouteChangeComplete);
+      router.events.off('routeChangeError', handleRouteChangeError);
       if (timeoutId) clearTimeout(timeoutId);
+      scrollRestoreTimeouts.forEach(clearTimeout);
+      scrollRestoreTimeouts = [];
     };
   }, [lastScrollY, router.events]);
 
@@ -104,11 +168,12 @@ export default function Navigation() {
     WebkitBackdropFilter: 'blur(20px) saturate(180%)', // Same blur as before
     border: '2px solid rgba(255, 255, 255, 0.1)',
     boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2)',
-    transition: isMounted && !isNavigatingRef.current
+    transition: (isMounted && !isNavigatingRef.current && !isRouteChangingRef.current)
       ? (isMobile || isTablet)
-        ? 'opacity 0.3s ease' // Only opacity transition on mobile/tablet
+        ? 'none' // NO transitions on mobile/tablet to prevent pulsing
         : 'opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
       : 'none',
+    // Note: scrollLeft is set on the container, not the nav element
     opacity: isVisible ? 1 : 0,
     transform: transformValue,
     maxWidth: isMobile ? 'calc(100vw - 40px)' : 'fit-content',
@@ -161,8 +226,17 @@ export default function Navigation() {
   });
 
   return (
-    <nav style={navStyle}>
+    <nav 
+      style={{
+        ...navStyle,
+        ...(isNavigatingRef.current || isRouteChangingRef.current ? {
+          '--saved-scroll-position': `${horizontalScrollPositionRef.current}px`
+        } : {})
+      }} 
+      data-navigating={isNavigatingRef.current || isRouteChangingRef.current}
+    >
       <div 
+        ref={navContainerRef}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -170,9 +244,19 @@ export default function Navigation() {
           position: 'relative',
           zIndex: 1,
           width: 'fit-content',
-          padding: isMobile ? '0 8px' : '0'
+          padding: isMobile ? '0 8px' : '0',
+          ...((isNavigatingRef.current || isRouteChangingRef.current) && {
+            scrollLeft: horizontalScrollPositionRef.current
+          })
         }}
         className="nav-links-container"
+        onScroll={(e) => {
+          // ALWAYS track horizontal scroll position - but don't update during navigation
+          // This allows the user to scroll manually, but prevents overwriting during route changes
+          if (!isNavigatingRef.current && !isRouteChangingRef.current && navContainerRef.current) {
+            horizontalScrollPositionRef.current = e.target.scrollLeft;
+          }
+        }}
       >
         <Link href="/" style={linkStyle(router.pathname === '/')}>
           Home
@@ -210,11 +294,24 @@ export default function Navigation() {
             -webkit-touch-callout: none;
             user-select: none;
             touch-action: manipulation;
+            transition: none !important;
+            -webkit-transition: none !important;
+            transform: none !important;
+            will-change: auto !important;
           }
           
-          nav a:active {
+          nav a:active,
+          nav a:focus,
+          nav a:hover {
             transform: none !important;
             scale: none !important;
+            transition: none !important;
+            -webkit-transition: none !important;
+          }
+          
+          /* Prevent nav container from resetting scroll during route changes */
+          .nav-links-container {
+            scroll-behavior: auto !important;
           }
         }
         
@@ -321,6 +418,27 @@ export default function Navigation() {
           nav {
             transform: none !important;
             will-change: auto !important;
+            transition: none !important;
+            -webkit-transition: none !important;
+          }
+          
+          /* Prevent horizontal scroll reset during route changes */
+          .nav-links-container {
+            scroll-snap-type: none !important;
+            overscroll-behavior-x: contain !important;
+            scroll-behavior: auto !important;
+          }
+          
+          /* Completely disable all transitions and transforms on nav during route changes */
+          nav[data-navigating="true"] {
+            transition: none !important;
+            -webkit-transition: none !important;
+            transform: none !important;
+          }
+          
+          /* Lock scroll position during navigation - prevent any scroll changes */
+          nav[data-navigating="true"] .nav-links-container {
+            overflow-x: auto !important;
           }
         }
         

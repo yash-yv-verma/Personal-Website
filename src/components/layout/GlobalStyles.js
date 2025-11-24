@@ -66,15 +66,24 @@ export default function GlobalStyles() {
 
       /* Remove previous translateZ/backface hacks from layout containers to prevent new stacking contexts */
 
-      a, button, .btn-custom, .service-thumb {
+      button, .btn-custom, .service-thumb {
         transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
       }
       
-      a {
+      /* Exclude nav links from global transitions to prevent pulsing */
+      a:not(nav a) {
         color: #ffffff;
         -webkit-transition: 0.5s;
         transition: 0.5s;
         text-decoration: none !important;
+      }
+      
+      /* Nav links should have no transitions on mobile/tablet */
+      @media (max-width: 1024px) {
+        nav a {
+          transition: none !important;
+          -webkit-transition: none !important;
+        }
       }
       
       a:hover, a:active, a:focus {
