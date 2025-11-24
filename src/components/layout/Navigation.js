@@ -110,6 +110,14 @@ export default function Navigation() {
           BTS
         </Link>
 
+        <Link href="/research" style={linkStyle(router.pathname === '/research')}>
+          Research
+        </Link>
+
+        <Link href="/openlabs" style={linkStyle(router.pathname === '/openlabs')}>
+          Open Labs
+        </Link>
+
         <Link href="/resume" style={linkStyle(router.pathname === '/resume')}>
           Resume
         </Link>

@@ -15,6 +15,22 @@
     </image:image>
   </url>
 
+  <!-- Research Page -->
+  <url>
+    <loc>https://yash-verma.com/research</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Open Labs Page -->
+  <url>
+    <loc>https://yash-verma.com/openlabs</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Resume Page -->
   <url>
     <loc>https://yash-verma.com/resume</loc>

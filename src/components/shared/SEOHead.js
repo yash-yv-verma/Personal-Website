@@ -398,6 +398,18 @@ export default function SEOHead({
             {
               "@type": "ListItem",
               "position": 4,
+              "name": "Research",
+              "item": "https://yash-verma.com/research"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "Open Labs",
+              "item": "https://yash-verma.com/openlabs"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
               "name": "Resume",
               "item": "https://yash-verma.com/resume"
             }
