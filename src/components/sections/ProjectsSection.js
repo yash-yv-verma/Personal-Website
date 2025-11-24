@@ -58,7 +58,7 @@ const ProjectsSection = () => {
             
             <motion.a 
               target="_blank" 
-              href="https://github.com/yash-yv-verma/Math.AI/"
+              href="#"
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
@@ -66,19 +66,19 @@ const ProjectsSection = () => {
               custom={1}
             >
               <div className="service-thumb">
-                <i className="fa fa-superscript"></i>
-                <h3>Math.AI</h3>
-                <p>Orchestrated the system design of a seamless and scalable AI chatbot web app exploiting AWS EC2 Auto Scaling, API Gateway, and DynamoDB, ensuring uptime and responsiveness by 100%.</p>
+                <i className="fa fa-robot"></i>
+                <h3>Aegon</h3>
+                <p>Developed an intelligent automation system leveraging advanced algorithms and system design principles to streamline complex workflows and enhance operational efficiency.</p>
                 <div className="skill-container">
-                  <button className="skill"><h6>NextJS</h6></button>
-                  <button className="skill"><h6>AWS</h6></button>
+                  <button className="skill"><h6>Python</h6></button>
+                  <button className="skill"><h6>System Design</h6></button>
                 </div>
               </div>
             </motion.a>
 
             <motion.a 
               target="_blank" 
-              href="https://github.com/yash-yv-verma/W2V4K"
+              href="#"
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
@@ -86,20 +86,19 @@ const ProjectsSection = () => {
               custom={2}
             >
               <div className="service-thumb">
-                <i className="fa fa-cogs"></i>
-                <h3>Word2Vec4Kids</h3>
-                <p>Created the &ldquo;Word2Vec4Kids&rdquo; macOS application to demystify Artificial Intelligence and Machine Learning concepts to students at Basis School-San Antonio (Local Middle School).</p>
+                <i className="fa fa-file-alt"></i>
+                <h3>Automated Document Collection & Processing System</h3>
+                <p>Built an automated system for collecting, processing, and managing documents with intelligent parsing, data extraction, and workflow automation capabilities.</p>
                 <div className="skill-container">
-                  <button className="skill"><h6>Swift</h6></button>
                   <button className="skill"><h6>Python</h6></button>
-                  <button className="skill"><h6>SQLite</h6></button>
+                  <button className="skill"><h6>Automation</h6></button>
                 </div>
               </div>
             </motion.a>
 
             <motion.a 
               target="_blank" 
-              href="https://github.com/markusm02/SWE.github.io"
+              href="https://github.com/yash-yv-verma/Math.AI/"
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
@@ -107,11 +106,11 @@ const ProjectsSection = () => {
               custom={3}
             >
               <div className="service-thumb">
-                <i className="fa fa-shopping-cart"></i>
-                <h3>Clothing E-commerce</h3>
-                <p>Managed a scalable React front-end hosted on an AWS EC2 instance, providing a dynamic user experience for a clothing e-commerce platform, utilizing strong problem-solving and adaptability to ensure scalability.</p>
+                <i className="fa fa-superscript"></i>
+                <h3>Math.AI</h3>
+                <p>Orchestrated the system design of a seamless and scalable AI chatbot web app exploiting AWS EC2 Auto Scaling, API Gateway, and DynamoDB, ensuring uptime and responsiveness by 100%.</p>
                 <div className="skill-container">
-                  <button className="skill"><h6>React</h6></button>
+                  <button className="skill"><h6>NextJS</h6></button>
                   <button className="skill"><h6>AWS</h6></button>
                 </div>
               </div>
@@ -139,12 +138,32 @@ const ProjectsSection = () => {
 
             <motion.a 
               target="_blank" 
-              href="https://github.com/UTSA-CS-3443/RowdyGuide.git"
+              href="https://github.com/markusm02/SWE.github.io"
               variants={fadeInUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               custom={5}
+            >
+              <div className="service-thumb">
+                <i className="fa fa-shopping-cart"></i>
+                <h3>Clothing E-commerce</h3>
+                <p>Managed a scalable React front-end hosted on an AWS EC2 instance, providing a dynamic user experience for a clothing e-commerce platform, utilizing strong problem-solving and adaptability to ensure scalability.</p>
+                <div className="skill-container">
+                  <button className="skill"><h6>React</h6></button>
+                  <button className="skill"><h6>AWS</h6></button>
+                </div>
+              </div>
+            </motion.a>
+
+            <motion.a 
+              target="_blank" 
+              href="https://github.com/UTSA-CS-3443/RowdyGuide.git"
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              custom={6}
             >
               <div className="service-thumb">
                 <i className="fa fa-university"></i>
@@ -154,27 +173,6 @@ const ProjectsSection = () => {
                   <button className="skill"><h6>Java</h6></button>
                   <button className="skill"><h6>XML</h6></button>
                   <button className="skill"><h6>Gradle</h6></button>
-                </div>
-              </div>
-            </motion.a>
-
-            <motion.a 
-              target="_blank" 
-              href="https://github.com/yash-yv-verma/Personal-Website"
-              variants={fadeInUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              custom={6}
-            >
-              <div className="service-thumb">
-                <i className="fa fa-user"></i>
-                <h3>Personal Website</h3>
-                <p>I built this website by combining two existing HTML, CSS & Javascript templates and modifying the result to fit my needs.</p>
-                <div className="skill-container">
-                  <button className="skill"><h6>JavaScript</h6></button>
-                  <button className="skill"><h6>CSS</h6></button>
-                  <button className="skill"><h6>HTML</h6></button>
                 </div>
               </div>
             </motion.a>

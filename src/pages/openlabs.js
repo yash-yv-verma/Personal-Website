@@ -7,8 +7,8 @@ import { useState, useEffect } from 'react';
 const openlabsStructuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Open Labs | Yash Verma",
-  "description": "Open Labs - Research and development projects by Yash Verma",
+  "name": "OpenLabs | Yash Verma",
+  "description": "OpenLabs - Student community and technical projects at UTSA led by Yash Verma",
   "url": "https://yash-verma.com/openlabs",
   "author": {
     "@type": "Person",
@@ -34,15 +34,15 @@ export default function OpenLabs() {
   return (
     <>
       <SEOHead 
-        title="Open Labs | Yash Verma"
-        description="Open Labs - Research and development projects by Yash Verma"
+        title="OpenLabs | Yash Verma"
+        description="OpenLabs - Student community and technical projects at UTSA led by Yash Verma"
         canonical="https://yash-verma.com/openlabs"
-        keywords="Yash Verma, Open Labs, Research, Development, Projects, UTSA"
+        keywords="Yash Verma, OpenLabs, Rowdy Creators, UTSA, Student Community, Technical Projects, Software Engineering"
         structuredData={openlabsStructuredData}
       />
       <Navigation />
       
-      <div style={{ minHeight: '100vh', background: '#0a0a0a', paddingBottom: isMobile ? '120px' : '150px' }}>
+      <div id="openlabs-page" style={{ minHeight: '100vh', background: '#0a0a0a', paddingBottom: isMobile ? '120px' : '150px' }}>
         <div style={{ 
           background: 'linear-gradient(180deg, #312e81 0%, #1e1b4b 0%, #0a0a0a 100%)',
           padding: '40px 0 35px 0',
@@ -71,7 +71,7 @@ export default function OpenLabs() {
               textShadow: "0 0 20px rgba(255, 255, 255, 0.3)",
               margin: 0,
               textAlign: "center"
-            }}>Open Labs</h1>
+            }}>OpenLabs</h1>
           </motion.div>
         </div>
         
@@ -79,32 +79,67 @@ export default function OpenLabs() {
           style={{ 
             padding: isMobile ? '20px 15px' : '40px 20px', 
             maxWidth: '1200px', 
-            margin: '0 auto' 
+            margin: '0 auto'
           }}
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
           custom={0.2}
         >
-          <div style={{
-            background: '#1a1a1a',
-            borderRadius: '8px',
-            padding: isMobile ? '30px 20px' : '50px 40px',
-            border: '1px solid #2a2a2a',
-            color: '#e5e5e5'
-          }}>
-            <p style={{
-              fontSize: isMobile ? '16px' : '18px',
-              lineHeight: '1.8',
-              margin: 0,
-              textAlign: 'center'
+          {/* About Open Labs */}
+          <motion.div 
+            style={{
+              background: 'rgba(17, 17, 17, 0.6)',
+              backdropFilter: 'blur(10px)',
+              borderRadius: '12px',
+              padding: isMobile ? '30px 20px' : '50px 40px',
+              marginBottom: '30px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
+            }}
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.3}
+          >
+            <h2 style={{
+              fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+              fontSize: isMobile ? '1.4rem' : '1.8rem',
+              fontWeight: 600,
+              color: '#ffffff',
+              marginBottom: '20px',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
+              paddingBottom: '10px'
             }}>
-              Content coming soon...
+              About OpenLabs
+            </h2>
+            <p style={{
+              fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+              fontSize: isMobile ? '1rem' : '1.1rem',
+              lineHeight: '1.7',
+              margin: 0,
+              color: '#ffffff',
+              fontWeight: 400
+            }}>
+              Founded a departmental short-form video and tutorial program delivering quick, accessible Linux and programming lessons to UTSA CS students. Creating an open, student-led learning lab making computing concepts approachable and enduring, with plans to expand beyond Linux to broader programming and systems topics.
             </p>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
+      
+      <style jsx global>{`
+        #openlabs-page ul li::marker {
+          color: #ffffff !important;
+        }
+        #openlabs-page ul li {
+          color: #ffffff !important;
+        }
+        #openlabs-page ul {
+          list-style-color: #ffffff !important;
+        }
+      `}</style>
     </>
   );
 }
-
