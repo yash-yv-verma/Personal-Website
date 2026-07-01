@@ -26,14 +26,14 @@ export default function ContactSection({ backgroundColor = '#fff' }) {
         viewport={{ once: true }} 
         custom={0.2}
       >
-        <div className="row">
+        <div className="row contact-row">
           <div className="col-md-12 col-sm-12">
-            <div className="section-title">
+            <div className="section-title contact-section-title">
               <h2>Get in touch</h2>
               <p>If you want to contact me, fill out the following form and your email client will open to send me an email directly!</p>
             </div>
           </div>
-          <div className="col-md-7 col-sm-10">
+          <div className="col-md-7 col-sm-10 contact-form-wrapper">
             <motion.div 
               variants={fadeInUp} 
               initial="hidden" 
@@ -73,6 +73,25 @@ export default function ContactSection({ backgroundColor = '#fff' }) {
       </motion.div>
       
       <style jsx>{`
+        .contact-row {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+        }
+        .contact-section-title {
+          text-align: center;
+          width: 100%;
+        }
+        .contact-section-title p {
+          max-width: 640px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .contact-form-wrapper {
+          margin-left: auto;
+          margin-right: auto;
+        }
         .form-group {
           margin-bottom: 20px;
         }

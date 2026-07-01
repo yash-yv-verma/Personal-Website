@@ -45,12 +45,9 @@
     }
 
     /* Fix home section layout on mobile */
-    #home .col-md-offset-5 {
-        margin-left: 0 !important;
-    }
     #home .home-thumb {
-        text-align: right;
-        padding: 20px;
+        text-align: left;
+        padding: 20px 20px 20px 0;
     }
     /* Adjust font sizes for mobile */
     h1 {

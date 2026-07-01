@@ -4,6 +4,16 @@ import { useAnimations } from '../../hooks/useAnimations';
 
 const researchExperience = [
   {
+    title: "KubeLLM – CloudSys Lab",
+    position: "Undergraduate Research Assistant, UTSA Department of Computer Science",
+    location: "San Antonio, TX",
+    period: "Jul 2025 - Present",
+    responsibilities: [
+      "Advancing KubeLLM (IEEE Cloud Summit 2025 Best Paper) with agentic AI and a Verification Agent validating Kubernetes repairs via kubectl; achieved 100% ground-truth agreement across 40 runs on 13 benchmarks through systematic problem solving.",
+      "Optimizing RAG pipelines (PgVector knowledge base) and multi-agent LLM orchestration for automated diagnosis and repair, reaching 95% verified task success with 10-15 second validation per task vs several minutes manually; communicated results to research teammates."
+    ]
+  },
+  {
     title: "Word2Vec4Kids – EAAI 2025 Publication",
     position: "Undergraduate Researcher, UTSA Department of Computer Science",
     location: "San Antonio, TX",
