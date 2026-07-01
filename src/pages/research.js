@@ -473,6 +473,51 @@ export default function Research() {
                 lineHeight: '1.3',
                 letterSpacing: '-0.02em'
               }}>
+                University of Michigan
+              </h3>
+              <p style={{
+                fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                fontSize: isMobile ? '1rem' : '1.1rem',
+                color: '#ffffff',
+                margin: '5px 0',
+                lineHeight: '1.7',
+                fontWeight: 400
+              }}>
+                <strong style={{ color: '#ffffff', fontWeight: 600 }}>Degree:</strong> <span style={{ color: '#ffffff' }}>Master of Science in Computer Science and Engineering</span>
+              </p>
+              <p style={{
+                fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                fontSize: isMobile ? '1rem' : '1.1rem',
+                color: '#ffffff',
+                margin: '5px 0',
+                lineHeight: '1.7',
+                fontWeight: 400
+              }}>
+                <strong style={{ color: '#ffffff', fontWeight: 600 }}>Period:</strong> <span style={{ color: '#ffffff' }}>Aug 2026 - Present</span>
+              </p>
+              <p style={{
+                fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                fontSize: isMobile ? '0.95rem' : '1rem',
+                color: '#ffffff',
+                margin: '10px 0 0 0',
+                lineHeight: '1.7'
+              }}>
+                <strong style={{ color: '#ffffff', fontWeight: 600 }}>Relevant coursework:</strong> <span style={{ color: '#ffffff' }}>Foundations of Artificial Intelligence, Advanced Scalable Systems, Distributed Systems, Learning Enabled Systems</span>
+              </p>
+            </div>
+
+            <div style={{
+              marginTop: '30px'
+            }}>
+              <h3 style={{
+                fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                fontSize: isMobile ? '1.2rem' : '1.4rem',
+                fontWeight: 700,
+                color: '#ffffff',
+                marginBottom: '10px',
+                lineHeight: '1.3',
+                letterSpacing: '-0.02em'
+              }}>
                 The University of Texas at San Antonio
               </h3>
               <p style={{
@@ -503,7 +548,7 @@ export default function Research() {
                 lineHeight: '1.7',
                 fontWeight: 400
               }}>
-                <strong style={{ color: '#ffffff', fontWeight: 600 }}>Period:</strong> <span style={{ color: '#ffffff' }}>2022-Present</span>
+                <strong style={{ color: '#ffffff', fontWeight: 600 }}>Period:</strong> <span style={{ color: '#ffffff' }}>Aug 2022 - May 2026</span>
               </p>
               <p style={{
                 fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",

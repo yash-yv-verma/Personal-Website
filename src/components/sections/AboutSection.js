@@ -5,10 +5,17 @@ import { useState, useEffect } from 'react';
 
 const educationData = [
   {
+    institution: "University of Michigan",
+    degree: "Master of Science ",
+    period: "Aug 2026 - Present",
+    major: "Computer Science and Engineering",
+    coursework: "Foundations of Artificial Intelligence, Advanced Scalable Systems, Learning Enabled Systems"
+  },
+  {
     institution: "The University of Texas at San Antonio",
-    degree: "Bachelors of Science",
-    period: "2022-Present",
-    major: "Computer Science and Mathematics of Data & Computing",
+    degree: "Bachelor of Science",
+    period: "Aug 2022 - May 2026",
+    major: "Computer Science, Mathematics of Data & Computing, and Software Engineering",
     coursework: "Enterprise Software Engineering, Web Technologies Software Engineering, User Interface, Data Science, Algebra and Number Systems, Analysis of Algorithms, Application Programming, Systems Programming, Database Systems, Computer Organization, Web Technologies, Discrete Mathematical Structures, Data Structures, Mathematical Foundations of Computer Science, Linear Algebra",
     awards: "Dean's List (Spring 2024); Honor Roll (Fall 2022, Spring 2023, Fall 2023)"
   },
@@ -81,9 +88,11 @@ export default function AboutSection({ backgroundColor = '#f0f6ff' }) {
                     <b>Extra Curricular:</b> {item.extracurricular}
                   </p>
                 )}
-                <p className="timeline-edu-desc">
-                  <b>Awards:</b> {item.awards}
-                </p>
+                {item.awards && (
+                  <p className="timeline-edu-desc">
+                    <b>Awards:</b> {item.awards}
+                  </p>
+                )}
               </motion.div>
             </li>
           ))}

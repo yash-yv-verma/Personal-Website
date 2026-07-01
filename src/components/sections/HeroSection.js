@@ -23,7 +23,7 @@ export default function HeroSection() {
     <>
       <div className="container">
         <div className="row">
-          <div className="col-md-offset-5 col-md-7 col-sm-12 col-xs-12">
+          <div className="col-md-7 col-sm-12 col-xs-12">
             <div className="home-thumb">
               <motion.h1
                 variants={fadeInUp}
@@ -33,15 +33,6 @@ export default function HeroSection() {
               >
                 Hello, I am Yash!
               </motion.h1>
-              <motion.p
-                className="white-color"
-                variants={fadeInUp}
-                initial="hidden"
-                animate="visible"
-                custom={0.3}
-              >
-                Student and Developer
-              </motion.p>
 
             </div>
           </div>
@@ -59,6 +50,7 @@ export default function HeroSection() {
         <style jsx>{`
           .container {
             padding: 80px 0;
+            padding-left: 0 !important;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -70,13 +62,15 @@ export default function HeroSection() {
           .home-thumb { 
             margin-top: 0; 
             position: relative;
-            left: 100px;
+            padding-left: 0;
+            margin-left: -40px;
           }
           
           /* Mobile responsive styles */
           @media (max-width: 768px) {
             .home-thumb {
-              left: 0;
+              margin-left: 0;
+              padding-left: 0;
               text-align: center;
               padding: 0 20px;
             }
@@ -84,15 +78,10 @@ export default function HeroSection() {
             .container {
               padding: 40px 0;
             }
-            
-            .col-md-offset-5 {
-              margin-left: 0;
-            }
           }
           
           @media (max-width: 480px) {
             .home-thumb {
-              left: 0;
               text-align: center;
               padding: 0 10px;
             }
@@ -120,6 +109,7 @@ export default function HeroSection() {
       <style jsx>{`
         .container {
           padding: 80px 0;
+          padding-left: 0 !important;
           min-height: 100vh;
           display: flex;
           align-items: center;
@@ -131,13 +121,15 @@ export default function HeroSection() {
         .home-thumb { 
           margin-top: 0; 
           position: relative;
-          left: 100px;
+          padding-left: 0;
+          margin-left: -40px;
         }
           
           /* Mobile responsive styles */
           @media (max-width: 768px) {
             .home-thumb {
-              left: 0;
+              margin-left: 0;
+              padding-left: 0;
               text-align: center;
               padding: 0 20px;
             }
@@ -145,15 +137,10 @@ export default function HeroSection() {
             .container {
               padding: 40px 0;
             }
-            
-            .col-md-offset-5 {
-              margin-left: 0;
-            }
           }
           
           @media (max-width: 480px) {
             .home-thumb {
-              left: 0;
               text-align: center;
               padding: 0 10px;
             }
