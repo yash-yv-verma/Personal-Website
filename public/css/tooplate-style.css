@@ -238,13 +238,17 @@ a:hover, a:active, a:focus {
   -webkit-align-items: center;
   -ms-flex-align: center;
    align-items: center;
-  min-height: 100svh;
+  /* Stable large viewport — do not use JS/visualViewport height (causes iOS zoom) */
+  min-height: 100vh;
+  min-height: 100dvh;
   min-height: 100lvh;
-  min-height: var(--app-height, 100lvh);
-  height: var(--app-height, 100lvh);
+  height: 100vh;
+  height: 100dvh;
+  height: 100lvh;
   position: relative;
   text-align: left;
   overflow: visible;
+  transform: none;
 }
 
 
@@ -678,8 +682,8 @@ footer p {
 
 @media (max-width: 980px) {
   #home {
-    min-height: var(--app-height, 100lvh);
-    height: var(--app-height, 100lvh);
+    min-height: 100lvh;
+    height: 100lvh;
     background-attachment: scroll;
   }
 
@@ -696,8 +700,8 @@ footer p {
 
 @media (max-width: 768px) {
   #home {
-    min-height: var(--app-height, 100lvh);
-    height: var(--app-height, 100lvh);
+    min-height: 100lvh;
+    height: 100lvh;
     background-attachment: scroll;
   }
 }
@@ -714,8 +718,8 @@ footer p {
   }
 
   #home {
-    min-height: var(--app-height, 100lvh);
-    height: var(--app-height, 100lvh);
+    min-height: 100lvh;
+    height: 100lvh;
   }
 
   .contact-info {
@@ -726,8 +730,8 @@ footer p {
 
 @media (max-width: 320px) {
   #home {
-    min-height: var(--app-height, 100lvh);
-    height: var(--app-height, 100lvh);
+    min-height: 100lvh;
+    height: 100lvh;
   }
 }
 

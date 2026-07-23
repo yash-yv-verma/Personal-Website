@@ -28,7 +28,7 @@
         overflow-x: hidden !important;
     }
 
-    /* Full-bleed home hero — photo on #home, height from --app-height */
+    /* Full-bleed home hero — stable 100lvh (no JS height = no iOS zoom) */
     #home {
         background-color: #000000 !important;
         background-image: url('../images/homebg.jpeg') !important;
@@ -36,16 +36,32 @@
         background-position: center center !important;
         background-repeat: no-repeat !important;
         background-attachment: scroll !important;
-        min-height: 100svh !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
         min-height: 100lvh !important;
-        min-height: var(--app-height, 100lvh) !important;
-        height: var(--app-height, 100lvh) !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        height: 100lvh !important;
         margin-top: 0 !important;
         padding-top: 0 !important;
         overflow: visible !important;
+        transform: none !important;
     }
     .parallax-section {
         background-attachment: scroll !important;
+    }
+
+    html.home-hero-active {
+        background-color: #000000 !important;
+        background-image: url('../images/homebg.jpeg') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+    }
+
+    body.home-hero-active {
+        background-color: transparent !important;
+        background-image: none !important;
     }
 
     /* Fix home section layout on mobile */
@@ -185,9 +201,10 @@
             background-position: center center !important;
             background-repeat: no-repeat !important;
             background-attachment: scroll !important;
-            min-height: var(--app-height, 100lvh) !important;
-            height: var(--app-height, 100lvh) !important;
+            min-height: 100lvh !important;
+            height: 100lvh !important;
             overflow: visible !important;
+            transform: none !important;
         }
         .parallax-section {
             background-attachment: scroll !important;

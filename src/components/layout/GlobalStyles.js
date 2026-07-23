@@ -237,7 +237,8 @@ export default function GlobalStyles() {
         padding-bottom: 80px;
       }
       
-      #home {
+      #home,
+      #home.home-hero {
         position: relative;
         display: flex;
         align-items: center;
@@ -245,25 +246,40 @@ export default function GlobalStyles() {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        /* Prefer large viewport so next section never peeks on first paint;
-           JS overrides --app-height with the measured max height. */
-        min-height: 100svh;
+        /*
+          Stable large-viewport height only.
+          Never bind height to visualViewport — iOS URL bar show/hide would
+          resize the box and make background-size:cover look like a zoom.
+        */
+        min-height: 100vh;
         min-height: 100dvh;
         min-height: 100lvh;
-        min-height: var(--app-height, 100lvh);
-        height: var(--app-height, 100lvh);
+        height: 100vh;
+        height: 100dvh;
+        height: 100lvh;
         background-color: #000000;
         background-image: url('/images/homebg.jpeg');
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
         background-attachment: scroll !important;
-        /* Do NOT clip — clipping hid the photo under the notch */
+        transform: none !important;
         overflow: visible;
       }
 
-      :root {
-        --app-height: 100lvh;
+      /* While home is mounted, html also shows the photo under the notch */
+      html.home-hero-active {
+        background-color: #000000 !important;
+        background-image: url('/images/homebg.jpeg') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: scroll !important;
+      }
+
+      body.home-hero-active {
+        background-color: transparent !important;
+        background-image: none !important;
       }
       
       .fullwidth-section {
@@ -931,8 +947,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 980px) {
         #home {
-          min-height: var(--app-height, 100lvh);
-          height: var(--app-height, 100lvh);
+          min-height: 100lvh;
+          height: 100lvh;
         }
         
         .service-thumb {
@@ -947,8 +963,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 768px) {
         #home {
-          min-height: var(--app-height, 100lvh);
-          height: var(--app-height, 100lvh);
+          min-height: 100lvh;
+          height: 100lvh;
         }
       }
       
@@ -962,8 +978,8 @@ export default function GlobalStyles() {
         }
         
         #home {
-          min-height: var(--app-height, 100lvh);
-          height: var(--app-height, 100lvh);
+          min-height: 100lvh;
+          height: 100lvh;
         }
         
         .contact-info {
@@ -973,8 +989,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 320px) {
         #home {
-          min-height: var(--app-height, 100lvh);
-          height: var(--app-height, 100lvh);
+          min-height: 100lvh;
+          height: 100lvh;
         }
       }
       

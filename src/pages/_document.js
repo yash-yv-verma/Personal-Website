@@ -53,27 +53,11 @@ class MyDocument extends Document {
             dangerouslySetInnerHTML={{
               __html: `
                 if (typeof window !== 'undefined') {
+                  // Keep scroll at top on load; do NOT bind hero height to visualViewport
+                  // (that causes iOS Safari zoom-in/out when the URL bar shows/hides).
                   if ('scrollRestoration' in history) {
                     history.scrollRestoration = 'manual';
                   }
-                  // Dynamic viewport height for full-bleed hero (iOS Safari URL bar / notch)
-                  (function () {
-                    function setAppHeight() {
-                      var vv = (window.visualViewport && window.visualViewport.height) || 0;
-                      var inner = window.innerHeight || 0;
-                      var client = (document.documentElement && document.documentElement.clientHeight) || 0;
-                      var h = Math.max(vv, inner, client);
-                      if (h > 0) {
-                        document.documentElement.style.setProperty('--app-height', Math.round(h) + 'px');
-                      }
-                    }
-                    setAppHeight();
-                    window.addEventListener('resize', setAppHeight);
-                    window.addEventListener('orientationchange', setAppHeight);
-                    if (window.visualViewport) {
-                      window.visualViewport.addEventListener('resize', setAppHeight);
-                    }
-                  })();
                 }
               `,
             }}

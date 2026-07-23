@@ -1,97 +1,36 @@
 import { motion } from 'framer-motion';
-import { Parallax } from 'react-scroll-parallax';
 import { useAnimations } from '../../hooks/useAnimations';
-import { useState, useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 
 /**
- * Largest reliable viewport height so the hero never leaves a gap above the next section.
- * Uses max(visualViewport, innerHeight, clientHeight) — critical on iOS Safari where
- * these disagree before/after the URL bar settles.
+ * Home hero — stable full-viewport photo.
+ *
+ * IMPORTANT (iOS Safari):
+ * Do NOT resize #home when the URL bar shows/hides. That changes the box size,
+ * which makes background-size:cover recalculate and looks like a zoom in/out.
+ * Use 100lvh (large viewport) so height is stable and the next section never peeks.
+ *
+ * Notch: paint the same photo on <html> while this section is mounted so the
+ * unsafe area around the notch shows the image from first paint (not only after scroll).
  */
-function getViewportHeight() {
-  if (typeof window === 'undefined') return null;
-  const vv = window.visualViewport?.height || 0;
-  const inner = window.innerHeight || 0;
-  const client = document.documentElement?.clientHeight || 0;
-  return Math.round(Math.max(vv, inner, client));
-}
-
-function applyAppHeight(height) {
-  document.documentElement.style.setProperty('--app-height', `${height}px`);
-}
-
 export default function HeroSection() {
   const { fadeInUp } = useAnimations();
-  const [isMobile, setIsMobile] = useState(false);
-  const [viewportHeight, setViewportHeight] = useState(null);
-
-  const syncViewportHeight = useCallback(() => {
-    const height = getViewportHeight();
-    if (height == null || height <= 0) return;
-    setViewportHeight(height);
-    applyAppHeight(height);
-  }, []);
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
+    const html = document.documentElement;
+    const body = document.body;
 
-    checkMobile();
-    syncViewportHeight();
-
-    window.addEventListener('resize', checkMobile);
-    window.addEventListener('resize', syncViewportHeight);
-    window.addEventListener('orientationchange', syncViewportHeight);
-    // iOS often reports the correct height only after the first scroll/touch
-    window.addEventListener('scroll', syncViewportHeight, { passive: true });
-
-    const vv = window.visualViewport;
-    if (vv) {
-      vv.addEventListener('resize', syncViewportHeight);
-      vv.addEventListener('scroll', syncViewportHeight);
-    }
-
-    // Settle passes: iOS URL bar / safe-area change after first layout
-    const timers = [0, 50, 100, 250, 500, 1000].map((ms) =>
-      setTimeout(syncViewportHeight, ms)
-    );
+    html.classList.add('home-hero-active');
+    body.classList.add('home-hero-active');
 
     return () => {
-      window.removeEventListener('resize', checkMobile);
-      window.removeEventListener('resize', syncViewportHeight);
-      window.removeEventListener('orientationchange', syncViewportHeight);
-      window.removeEventListener('scroll', syncViewportHeight);
-      if (vv) {
-        vv.removeEventListener('resize', syncViewportHeight);
-        vv.removeEventListener('scroll', syncViewportHeight);
-      }
-      timers.forEach(clearTimeout);
+      html.classList.remove('home-hero-active');
+      body.classList.remove('home-hero-active');
     };
-  }, [syncViewportHeight]);
+  }, []);
 
-  const homeStyle = viewportHeight
-    ? {
-        height: viewportHeight,
-        minHeight: viewportHeight,
-        // Paint the photo on the section itself so it shows on first paint
-        // (not only after scroll), including under the notch with viewport-fit=cover.
-        backgroundImage: "url('/images/homebg.jpeg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor: '#000000',
-      }
-    : {
-        backgroundImage: "url('/images/homebg.jpeg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor: '#000000',
-      };
-
-  const sectionContent = (
-    <>
+  return (
+    <section id="home" className="parallax-section home-hero">
       <div className="container home-content">
         <div className="row">
           <div className="col-md-7 col-sm-12 col-xs-12">
@@ -164,26 +103,6 @@ export default function HeroSection() {
           }
         }
       `}</style>
-    </>
-  );
-
-  if (isMobile) {
-    return (
-      <section id="home" className="parallax-section" style={homeStyle}>
-        {sectionContent}
-      </section>
-    );
-  }
-
-  return (
-    <Parallax
-      y={[-5, 5]}
-      tagouter="section"
-      id="home"
-      className="parallax-section"
-      style={homeStyle}
-    >
-      {sectionContent}
-    </Parallax>
+    </section>
   );
 }
