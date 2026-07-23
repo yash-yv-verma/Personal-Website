@@ -243,35 +243,65 @@ export default function GlobalStyles() {
         display: flex;
         align-items: center;
         width: 100%;
-        margin: 0;
-        padding: 0;
+        margin: 0 !important;
+        padding: 0 !important;
         box-sizing: border-box;
-        /* Transparent so #home-viewport-bleed (fixed photo) shows through, including notch */
+        /* Transparent — photo comes from html background + #home-viewport-bleed */
         background: transparent !important;
         background-image: none !important;
-        /*
-          Stable large-viewport spacer — image fill is the fixed bleed layer.
-          Never bind height to visualViewport (that caused iOS zoom).
-        */
+        /* Stable spacer; never bind to visualViewport (zoom bug) */
         min-height: 100vh;
-        min-height: 100dvh;
         min-height: 100svh;
+        min-height: 100dvh;
         min-height: 100lvh;
         height: 100vh;
-        height: 100dvh;
         height: 100svh;
+        height: 100dvh;
         height: 100lvh;
         transform: none !important;
         overflow: visible;
       }
 
-      html.home-hero-active,
-      body.home-hero-active {
+      /* Photo on html fills notch + any gap before white section (no black strip) */
+      html.home-hero-active {
         background-color: #000000 !important;
+        background-image: url('/images/homebg.jpeg') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: scroll !important;
+      }
+
+      body.home-hero-active {
+        background-color: transparent !important;
         background-image: none !important;
       }
 
-      /* Smaller hero title on phones */
+      #home-viewport-bleed {
+        position: fixed !important;
+        top: calc(-1 * env(safe-area-inset-top, 0px) - 2px) !important;
+        right: calc(-1 * env(safe-area-inset-right, 0px) - 2px) !important;
+        bottom: calc(-1 * env(safe-area-inset-bottom, 0px) - 2px) !important;
+        left: calc(-1 * env(safe-area-inset-left, 0px) - 2px) !important;
+        width: auto !important;
+        height: auto !important;
+        min-width: 100vw !important;
+        min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px) + 4px) !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
+        background-color: #000000 !important;
+        background-image: url('/images/homebg.jpeg') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        transform: none !important;
+      }
+
+      /* No gap between hero and next section */
+      #service {
+        margin-top: 0 !important;
+      }
+
       @media (max-width: 768px) {
         #home .home-thumb h1 {
           font-size: 20px !important;

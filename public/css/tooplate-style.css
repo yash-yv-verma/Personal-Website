@@ -234,14 +234,13 @@ a:hover, a:active, a:focus {
   -webkit-align-items: center;
   -ms-flex-align: center;
    align-items: center;
-  /* Spacer only — full-screen photo is #home-viewport-bleed */
   min-height: 100vh;
-  min-height: 100dvh;
   min-height: 100svh;
+  min-height: 100dvh;
   min-height: 100lvh;
   height: 100vh;
-  height: 100dvh;
   height: 100svh;
+  height: 100dvh;
   height: 100lvh;
   position: relative;
   text-align: left;

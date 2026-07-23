@@ -5,13 +5,13 @@ import { useEffect } from 'react';
 /**
  * Home hero.
  *
- * The full-screen photo (including under the iOS notch) is painted by
- * #home-viewport-bleed — a position:fixed layer injected in _document.js
- * BEFORE React hydrates. That is what makes the notch correct on first paint.
- *
- * #home itself is a transparent spacer sized to 100lvh so the next section
- * does not peek through. Height is CSS-only (never tied to visualViewport),
- * so iOS URL-bar show/hide cannot zoom the background.
+ * Notch + full-bleed photo strategy (iOS Safari):
+ * 1. html.home-hero-active gets the photo in <head> BEFORE first paint
+ *    (html canvas background is what fills the notch on load).
+ * 2. #home-viewport-bleed is a fixed layer extended into safe-area insets.
+ * 3. #home is a transparent 100lvh spacer — no visualViewport height binding
+ *    (that caused the zoom bug). Body stays transparent so no black strip
+ *    appears between the photo and the white #service section.
  */
 export default function HeroSection() {
   const { fadeInUp } = useAnimations();
