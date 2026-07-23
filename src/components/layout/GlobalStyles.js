@@ -32,11 +32,9 @@ export default function GlobalStyles() {
         font-weight: normal;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-        padding-top: env(safe-area-inset-top);
-        padding-right: env(safe-area-inset-right);
-        padding-bottom: env(safe-area-inset-bottom);
-        padding-left: env(safe-area-inset-left);
-        /* Smooth scrolling optimizations */
+        /* No safe-area padding on body — that creates a black notch gap.
+           Backgrounds (esp. #home) extend edge-to-edge; nav uses inset separately. */
+        padding: 0;
         scroll-behavior: smooth;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -211,13 +209,10 @@ export default function GlobalStyles() {
           min-width: 44px !important;
         }
         
-        /* Fix iOS Safari viewport issues */
+        /* iOS: let content paint under the notch / status bar (no body inset) */
         @supports (-webkit-touch-callout: none) {
-          body {
-            padding-top: env(safe-area-inset-top) !important;
-            padding-bottom: env(safe-area-inset-bottom) !important;
-            padding-left: env(safe-area-inset-left) !important;
-            padding-right: env(safe-area-inset-right) !important;
+          html {
+            height: -webkit-fill-available;
           }
         }
       }
@@ -242,6 +237,14 @@ export default function GlobalStyles() {
       
       #home {
         position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
+        min-height: -webkit-fill-available;
+        height: 100vh;
+        height: 100dvh;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        background-position: center center !important;
       }
       
       .fullwidth-section {
@@ -909,7 +912,11 @@ export default function GlobalStyles() {
       
       @media (max-width: 980px) {
         #home {
-          height: 55vh;
+          min-height: 100vh;
+          min-height: 100dvh;
+          min-height: -webkit-fill-available;
+          height: 100vh;
+          height: 100dvh;
         }
         
         .service-thumb {
@@ -924,7 +931,11 @@ export default function GlobalStyles() {
       
       @media (max-width: 768px) {
         #home {
-          height: 85vh;
+          min-height: 100vh;
+          min-height: 100dvh;
+          min-height: -webkit-fill-available;
+          height: 100vh;
+          height: 100dvh;
         }
       }
       
@@ -938,7 +949,11 @@ export default function GlobalStyles() {
         }
         
         #home {
-          height: 95vh;
+          min-height: 100vh;
+          min-height: 100dvh;
+          min-height: -webkit-fill-available;
+          height: 100vh;
+          height: 100dvh;
         }
         
         .contact-info {
@@ -948,7 +963,11 @@ export default function GlobalStyles() {
       
       @media (max-width: 320px) {
         #home {
-          height: 125vh;
+          min-height: 100vh;
+          min-height: 100dvh;
+          min-height: -webkit-fill-available;
+          height: 100vh;
+          height: 100dvh;
         }
       }
       

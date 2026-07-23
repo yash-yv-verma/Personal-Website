@@ -9,13 +9,13 @@
         background-color: #000000 !important;
         color: #fff !important;
         min-height: 100vh !important;
+        min-height: 100dvh !important;
+        min-height: -webkit-fill-available !important;
         margin: 0 !important;
         border: 0 !important;
-        /* iPhone Safe Area Support */
-        padding-top: env(safe-area-inset-top) !important;
-        padding-right: env(safe-area-inset-right) !important;
-        padding-bottom: env(safe-area-inset-bottom) !important;
-        padding-left: env(safe-area-inset-left) !important;
+        /* Do NOT pad safe-area on body — that leaves a black bar in the notch.
+           Hero background fills edge-to-edge under the status bar. */
+        padding: 0 !important;
     }
 
 
@@ -28,14 +28,18 @@
         overflow-x: hidden !important;
     }
 
-    /* Force disable parallax on all mobile devices */
+    /* Full-bleed home hero: cover notch to bottom of screen */
     #home {
+        background: url('../images/homebg.jpeg') center center / cover no-repeat !important;
         background-attachment: scroll !important;
-        background-position: center center !important;
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
-        background: url('../images/homebg.jpeg') center center !important;
-        background-size: cover !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        min-height: -webkit-fill-available !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        /* Extend under status bar / notch */
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
     .parallax-section {
         background-attachment: scroll !important;
@@ -171,17 +175,19 @@
     }
     /* Additional fixes for iOS Safari */
     @supports (-webkit-touch-callout: none) {
+        html {
+            height: -webkit-fill-available !important;
+        }
         #home {
+            background: url('../images/homebg.jpeg') center center / cover no-repeat !important;
             background-attachment: scroll !important;
-            background-position: center center !important;
-            background-size: cover !important;
-            background-repeat: no-repeat !important;
+            min-height: 100vh !important;
+            min-height: -webkit-fill-available !important;
+            height: 100vh !important;
+            height: -webkit-fill-available !important;
         }
         .parallax-section {
             background-attachment: scroll !important;
-            background-position: center center !important;
-            background-size: cover !important;
-            background-repeat: no-repeat !important;
         }
     }
     /* Force disable all parallax effects on mobile */

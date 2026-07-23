@@ -144,7 +144,11 @@ export default function Navigation() {
 
   const navStyle = {
     position: 'fixed',
-    bottom: isMobile ? '20px' : isTablet ? '24px' : '32px',
+    bottom: isMobile
+      ? 'calc(20px + env(safe-area-inset-bottom, 0px))'
+      : isTablet
+      ? 'calc(24px + env(safe-area-inset-bottom, 0px))'
+      : '32px',
     left: isMobile ? '20px' : '50%', // Tablet and desktop centered, CSS will override for 581px-768px
     right: isMobile ? '20px' : 'auto', // Only mobile uses right, CSS will override for 581px-768px
     zIndex: 1000,
