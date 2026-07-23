@@ -43,22 +43,56 @@ class MyDocument extends Document {
           {/* Meta tags */}
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-          <meta name="theme-color" content="#000000" />
+          {/* No theme-color: on iOS Safari it paints an opaque bar in the notch on first paint.
+              Content only shows through after scroll. Let the page background fill that area. */}
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
           <link rel="icon" href="/favicon.svg" />
+
+          {/* First-paint homepage: photo on <html> BEFORE React hydrates (fixes black notch) */}
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+                html {
+                  background-color: #000000;
+                }
+              `,
+            }}
+          />
           
           {/* Disable scroll restoration to ensure pages always start at top */}
           <script
             dangerouslySetInnerHTML={{
               __html: `
-                if (typeof window !== 'undefined') {
-                  // Keep scroll at top on load; do NOT bind hero height to visualViewport
-                  // (that causes iOS Safari zoom-in/out when the URL bar shows/hides).
+                (function () {
+                  if (typeof window === 'undefined') return;
                   if ('scrollRestoration' in history) {
                     history.scrollRestoration = 'manual';
                   }
-                }
+                  // Homepage only: paint homebg on <html> immediately so the notch
+                  // shows the photo from the first frame (not after scroll / hydration).
+                  var path = window.location.pathname || '/';
+                  if (path === '/' || path === '') {
+                    var html = document.documentElement;
+                    html.classList.add('home-hero-active');
+                    html.style.backgroundColor = '#000000';
+                    html.style.backgroundImage = "url('/images/homebg.jpeg')";
+                    html.style.backgroundSize = 'cover';
+                    html.style.backgroundPosition = 'center center';
+                    html.style.backgroundRepeat = 'no-repeat';
+                    if (document.body) {
+                      document.body.classList.add('home-hero-active');
+                      document.body.style.backgroundColor = 'transparent';
+                      document.body.style.backgroundImage = 'none';
+                    } else {
+                      document.addEventListener('DOMContentLoaded', function () {
+                        document.body.classList.add('home-hero-active');
+                        document.body.style.backgroundColor = 'transparent';
+                        document.body.style.backgroundImage = 'none';
+                      });
+                    }
+                  }
+                })();
               `,
             }}
           />

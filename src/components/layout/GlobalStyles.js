@@ -244,19 +244,22 @@ export default function GlobalStyles() {
         align-items: center;
         width: 100%;
         margin: 0;
+        /* Pull into the notch / home-indicator so the photo paints there from first paint */
+        margin-top: calc(0px - env(safe-area-inset-top, 0px));
+        margin-bottom: calc(0px - env(safe-area-inset-bottom, 0px));
         padding: 0;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
         box-sizing: border-box;
         /*
-          Stable large-viewport height only.
-          Never bind height to visualViewport — iOS URL bar show/hide would
-          resize the box and make background-size:cover look like a zoom.
+          Stable height — never bind to visualViewport (that caused iOS zoom).
+          Add safe-area insets so the box covers notch + home indicator fully.
         */
         min-height: 100vh;
         min-height: 100dvh;
         min-height: 100lvh;
-        height: 100vh;
-        height: 100dvh;
-        height: 100lvh;
+        min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+        height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
         background-color: #000000;
         background-image: url('/images/homebg.jpeg');
         background-size: cover;
@@ -280,6 +283,21 @@ export default function GlobalStyles() {
       body.home-hero-active {
         background-color: transparent !important;
         background-image: none !important;
+      }
+
+      /* Smaller hero title on phones (overrides global h1 rules) */
+      @media (max-width: 768px) {
+        #home .home-thumb h1 {
+          font-size: 24px !important;
+          line-height: 1.25 !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #home .home-thumb h1 {
+          font-size: 22px !important;
+          line-height: 1.25 !important;
+        }
       }
       
       .fullwidth-section {
@@ -947,8 +965,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 980px) {
         #home {
-          min-height: 100lvh;
-          height: 100lvh;
+          min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+          height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
         }
         
         .service-thumb {
@@ -963,8 +981,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 768px) {
         #home {
-          min-height: 100lvh;
-          height: 100lvh;
+          min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+          height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
         }
       }
       
@@ -978,8 +996,8 @@ export default function GlobalStyles() {
         }
         
         #home {
-          min-height: 100lvh;
-          height: 100lvh;
+          min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+          height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
         }
         
         .contact-info {
@@ -989,8 +1007,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 320px) {
         #home {
-          min-height: 100lvh;
-          height: 100lvh;
+          min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+          height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
         }
       }
       

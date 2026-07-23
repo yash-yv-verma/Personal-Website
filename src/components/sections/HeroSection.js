@@ -5,13 +5,10 @@ import { useEffect } from 'react';
 /**
  * Home hero — stable full-viewport photo.
  *
- * IMPORTANT (iOS Safari):
- * Do NOT resize #home when the URL bar shows/hides. That changes the box size,
- * which makes background-size:cover recalculate and looks like a zoom in/out.
- * Use 100lvh (large viewport) so height is stable and the next section never peeks.
- *
- * Notch: paint the same photo on <html> while this section is mounted so the
- * unsafe area around the notch shows the image from first paint (not only after scroll).
+ * iOS notes:
+ * - Never resize #home on scroll (that caused the zoom bug).
+ * - Notch fill must be painted before React hydrates (see _document.js critical CSS/script).
+ * - #home is pulled into safe-area so the photo covers the notch from first paint.
  */
 export default function HeroSection() {
   const { fadeInUp } = useAnimations();
@@ -54,8 +51,6 @@ export default function HeroSection() {
           z-index: 1;
           width: 100%;
           padding: 80px 0;
-          padding-top: calc(80px + env(safe-area-inset-top, 0px));
-          padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
           padding-left: 0 !important;
           min-height: 100%;
           display: flex;
@@ -83,10 +78,14 @@ export default function HeroSection() {
             padding: 0 20px;
           }
 
+          .home-thumb h1 {
+            font-size: 24px !important;
+            line-height: 1.25 !important;
+            word-wrap: break-word;
+          }
+
           .home-content {
-            padding: 40px 0;
-            padding-top: calc(40px + env(safe-area-inset-top, 0px));
-            padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+            padding: 24px 0;
           }
         }
 
@@ -97,9 +96,8 @@ export default function HeroSection() {
           }
 
           .home-thumb h1 {
-            font-size: 32px;
-            line-height: 1.2;
-            word-wrap: break-word;
+            font-size: 22px !important;
+            line-height: 1.25 !important;
           }
         }
       `}</style>

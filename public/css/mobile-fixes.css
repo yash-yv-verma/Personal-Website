@@ -28,7 +28,7 @@
         overflow-x: hidden !important;
     }
 
-    /* Full-bleed home hero — stable 100lvh (no JS height = no iOS zoom) */
+    /* Full-bleed home hero — extend into safe areas, stable height (no zoom) */
     #home {
         background-color: #000000 !important;
         background-image: url('../images/homebg.jpeg') !important;
@@ -36,16 +36,15 @@
         background-position: center center !important;
         background-repeat: no-repeat !important;
         background-attachment: scroll !important;
-        min-height: 100vh !important;
-        min-height: 100dvh !important;
-        min-height: 100lvh !important;
-        height: 100vh !important;
-        height: 100dvh !important;
-        height: 100lvh !important;
-        margin-top: 0 !important;
-        padding-top: 0 !important;
+        margin-top: calc(0px - env(safe-area-inset-top, 0px)) !important;
+        margin-bottom: calc(0px - env(safe-area-inset-bottom, 0px)) !important;
+        padding-top: env(safe-area-inset-top, 0px) !important;
+        padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+        min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
+        height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
         overflow: visible !important;
         transform: none !important;
+        box-sizing: border-box !important;
     }
     .parallax-section {
         background-attachment: scroll !important;
@@ -62,6 +61,11 @@
     body.home-hero-active {
         background-color: transparent !important;
         background-image: none !important;
+    }
+
+    #home .home-thumb h1 {
+        font-size: 24px !important;
+        line-height: 1.25 !important;
     }
 
     /* Fix home section layout on mobile */
@@ -201,10 +205,15 @@
             background-position: center center !important;
             background-repeat: no-repeat !important;
             background-attachment: scroll !important;
-            min-height: 100lvh !important;
-            height: 100lvh !important;
+            margin-top: calc(0px - env(safe-area-inset-top, 0px)) !important;
+            margin-bottom: calc(0px - env(safe-area-inset-bottom, 0px)) !important;
+            padding-top: env(safe-area-inset-top, 0px) !important;
+            padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+            min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
+            height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
             overflow: visible !important;
             transform: none !important;
+            box-sizing: border-box !important;
         }
         .parallax-section {
             background-attachment: scroll !important;
