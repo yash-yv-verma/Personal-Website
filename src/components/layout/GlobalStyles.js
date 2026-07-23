@@ -245,16 +245,25 @@ export default function GlobalStyles() {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        /* Dynamic height from JS (visualViewport); CSS fallbacks for first paint */
-        min-height: var(--app-height, 100dvh);
-        height: var(--app-height, 100dvh);
-        background: transparent !important;
-        overflow: hidden;
+        /* Prefer large viewport so next section never peeks on first paint;
+           JS overrides --app-height with the measured max height. */
+        min-height: 100svh;
+        min-height: 100dvh;
+        min-height: 100lvh;
+        min-height: var(--app-height, 100lvh);
+        height: var(--app-height, 100lvh);
+        background-color: #000000;
+        background-image: url('/images/homebg.jpeg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: scroll !important;
+        /* Do NOT clip — clipping hid the photo under the notch */
+        overflow: visible;
       }
 
-      /* Fallback before JS sets --app-height */
       :root {
-        --app-height: 100dvh;
+        --app-height: 100lvh;
       }
       
       .fullwidth-section {
@@ -922,8 +931,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 980px) {
         #home {
-          min-height: var(--app-height, 100dvh);
-          height: var(--app-height, 100dvh);
+          min-height: var(--app-height, 100lvh);
+          height: var(--app-height, 100lvh);
         }
         
         .service-thumb {
@@ -938,8 +947,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 768px) {
         #home {
-          min-height: var(--app-height, 100dvh);
-          height: var(--app-height, 100dvh);
+          min-height: var(--app-height, 100lvh);
+          height: var(--app-height, 100lvh);
         }
       }
       
@@ -953,8 +962,8 @@ export default function GlobalStyles() {
         }
         
         #home {
-          min-height: var(--app-height, 100dvh);
-          height: var(--app-height, 100dvh);
+          min-height: var(--app-height, 100lvh);
+          height: var(--app-height, 100lvh);
         }
         
         .contact-info {
@@ -964,8 +973,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 320px) {
         #home {
-          min-height: var(--app-height, 100dvh);
-          height: var(--app-height, 100dvh);
+          min-height: var(--app-height, 100lvh);
+          height: var(--app-height, 100lvh);
         }
       }
       

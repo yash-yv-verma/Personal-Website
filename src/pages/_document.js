@@ -59,13 +59,17 @@ class MyDocument extends Document {
                   // Dynamic viewport height for full-bleed hero (iOS Safari URL bar / notch)
                   (function () {
                     function setAppHeight() {
-                      var h = (window.visualViewport && window.visualViewport.height)
-                        ? window.visualViewport.height
-                        : window.innerHeight;
-                      document.documentElement.style.setProperty('--app-height', Math.round(h) + 'px');
+                      var vv = (window.visualViewport && window.visualViewport.height) || 0;
+                      var inner = window.innerHeight || 0;
+                      var client = (document.documentElement && document.documentElement.clientHeight) || 0;
+                      var h = Math.max(vv, inner, client);
+                      if (h > 0) {
+                        document.documentElement.style.setProperty('--app-height', Math.round(h) + 'px');
+                      }
                     }
                     setAppHeight();
                     window.addEventListener('resize', setAppHeight);
+                    window.addEventListener('orientationchange', setAppHeight);
                     if (window.visualViewport) {
                       window.visualViewport.addEventListener('resize', setAppHeight);
                     }

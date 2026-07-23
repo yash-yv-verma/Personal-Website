@@ -4,16 +4,20 @@ import { useAnimations } from '../../hooks/useAnimations';
 import { useState, useEffect, useCallback } from 'react';
 
 /**
- * Measure the real visible viewport height (handles iOS Safari chrome + notch).
- * Prefer visualViewport when available; fall back to innerHeight.
+ * Largest reliable viewport height so the hero never leaves a gap above the next section.
+ * Uses max(visualViewport, innerHeight, clientHeight) — critical on iOS Safari where
+ * these disagree before/after the URL bar settles.
  */
 function getViewportHeight() {
   if (typeof window === 'undefined') return null;
-  const vv = window.visualViewport;
-  if (vv && vv.height) {
-    return Math.round(vv.height);
-  }
-  return Math.round(window.innerHeight);
+  const vv = window.visualViewport?.height || 0;
+  const inner = window.innerHeight || 0;
+  const client = document.documentElement?.clientHeight || 0;
+  return Math.round(Math.max(vv, inner, client));
+}
+
+function applyAppHeight(height) {
+  document.documentElement.style.setProperty('--app-height', `${height}px`);
 }
 
 export default function HeroSection() {
@@ -23,11 +27,9 @@ export default function HeroSection() {
 
   const syncViewportHeight = useCallback(() => {
     const height = getViewportHeight();
-    if (height == null) return;
-
+    if (height == null || height <= 0) return;
     setViewportHeight(height);
-    // Drive CSS everywhere (including !important rules) via a shared custom property
-    document.documentElement.style.setProperty('--app-height', `${height}px`);
+    applyAppHeight(height);
   }, []);
 
   useEffect(() => {
@@ -41,6 +43,8 @@ export default function HeroSection() {
     window.addEventListener('resize', checkMobile);
     window.addEventListener('resize', syncViewportHeight);
     window.addEventListener('orientationchange', syncViewportHeight);
+    // iOS often reports the correct height only after the first scroll/touch
+    window.addEventListener('scroll', syncViewportHeight, { passive: true });
 
     const vv = window.visualViewport;
     if (vv) {
@@ -48,32 +52,46 @@ export default function HeroSection() {
       vv.addEventListener('scroll', syncViewportHeight);
     }
 
-    // Re-measure after paint / URL bar settle on iOS
-    const t1 = setTimeout(syncViewportHeight, 50);
-    const t2 = setTimeout(syncViewportHeight, 300);
+    // Settle passes: iOS URL bar / safe-area change after first layout
+    const timers = [0, 50, 100, 250, 500, 1000].map((ms) =>
+      setTimeout(syncViewportHeight, ms)
+    );
 
     return () => {
       window.removeEventListener('resize', checkMobile);
       window.removeEventListener('resize', syncViewportHeight);
       window.removeEventListener('orientationchange', syncViewportHeight);
+      window.removeEventListener('scroll', syncViewportHeight);
       if (vv) {
         vv.removeEventListener('resize', syncViewportHeight);
         vv.removeEventListener('scroll', syncViewportHeight);
       }
-      clearTimeout(t1);
-      clearTimeout(t2);
+      timers.forEach(clearTimeout);
     };
   }, [syncViewportHeight]);
 
   const homeStyle = viewportHeight
-    ? { height: viewportHeight, minHeight: viewportHeight }
-    : undefined;
+    ? {
+        height: viewportHeight,
+        minHeight: viewportHeight,
+        // Paint the photo on the section itself so it shows on first paint
+        // (not only after scroll), including under the notch with viewport-fit=cover.
+        backgroundImage: "url('/images/homebg.jpeg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: '#000000',
+      }
+    : {
+        backgroundImage: "url('/images/homebg.jpeg')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: '#000000',
+      };
 
   const sectionContent = (
     <>
-      {/* Full-bleed background — extends into notch / home-indicator */}
-      <div className="home-bg" aria-hidden="true" />
-
       <div className="container home-content">
         <div className="row">
           <div className="col-md-7 col-sm-12 col-xs-12">
@@ -92,24 +110,13 @@ export default function HeroSection() {
       </div>
 
       <style jsx>{`
-        .home-bg {
-          position: absolute;
-          top: calc(-1 * env(safe-area-inset-top, 0px));
-          right: calc(-1 * env(safe-area-inset-right, 0px));
-          bottom: calc(-1 * env(safe-area-inset-bottom, 0px));
-          left: calc(-1 * env(safe-area-inset-left, 0px));
-          background: url('/images/homebg.jpeg') center center / cover no-repeat;
-          z-index: 0;
-          pointer-events: none;
-        }
-
         .home-content {
           position: relative;
           z-index: 1;
           width: 100%;
           padding: 80px 0;
           padding-top: calc(80px + env(safe-area-inset-top, 0px));
-          padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+          padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
           padding-left: 0 !important;
           min-height: 100%;
           display: flex;

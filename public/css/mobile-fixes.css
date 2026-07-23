@@ -28,15 +28,21 @@
         overflow-x: hidden !important;
     }
 
-    /* Full-bleed home hero — height driven by --app-height (set dynamically in JS) */
+    /* Full-bleed home hero — photo on #home, height from --app-height */
     #home {
-        background: transparent !important;
+        background-color: #000000 !important;
+        background-image: url('../images/homebg.jpeg') !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
         background-attachment: scroll !important;
-        min-height: var(--app-height, 100dvh) !important;
-        height: var(--app-height, 100dvh) !important;
+        min-height: 100svh !important;
+        min-height: 100lvh !important;
+        min-height: var(--app-height, 100lvh) !important;
+        height: var(--app-height, 100lvh) !important;
         margin-top: 0 !important;
         padding-top: 0 !important;
-        overflow: hidden !important;
+        overflow: visible !important;
     }
     .parallax-section {
         background-attachment: scroll !important;
@@ -173,10 +179,15 @@
             height: -webkit-fill-available !important;
         }
         #home {
-            background: transparent !important;
+            background-color: #000000 !important;
+            background-image: url('../images/homebg.jpeg') !important;
+            background-size: cover !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
             background-attachment: scroll !important;
-            min-height: var(--app-height, 100dvh) !important;
-            height: var(--app-height, 100dvh) !important;
+            min-height: var(--app-height, 100lvh) !important;
+            height: var(--app-height, 100lvh) !important;
+            overflow: visible !important;
         }
         .parallax-section {
             background-attachment: scroll !important;
