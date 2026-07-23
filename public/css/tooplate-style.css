@@ -224,7 +224,8 @@ a:hover, a:active, a:focus {
 -----------------------------------------*/
 
 #home {
-  background: url('../images/homebg.jpeg') center center / cover no-repeat fixed;
+  /* Background image is painted by .home-bg layer in HeroSection for edge-to-edge fill */
+  background: transparent;
   display: -webkit-box;
   display: -webkit-flex;
    display: -ms-flexbox;
@@ -233,12 +234,11 @@ a:hover, a:active, a:focus {
   -webkit-align-items: center;
   -ms-flex-align: center;
    align-items: center;
-  min-height: 100vh;
-  min-height: 100dvh;
-  height: 100vh;
-  height: 100dvh;
+  min-height: var(--app-height, 100dvh);
+  height: var(--app-height, 100dvh);
   position: relative;
   text-align: left;
+  overflow: hidden;
 }
 
 
@@ -672,10 +672,8 @@ footer p {
 
 @media (max-width: 980px) {
   #home {
-    min-height: 100vh;
-    min-height: 100dvh;
-    height: 100vh;
-    height: 100dvh;
+    min-height: var(--app-height, 100dvh);
+    height: var(--app-height, 100dvh);
     background-attachment: scroll;
   }
 
@@ -692,11 +690,8 @@ footer p {
 
 @media (max-width: 768px) {
   #home {
-    min-height: 100vh;
-    min-height: 100dvh;
-    min-height: -webkit-fill-available;
-    height: 100vh;
-    height: 100dvh;
+    min-height: var(--app-height, 100dvh);
+    height: var(--app-height, 100dvh);
     background-attachment: scroll;
   }
 }
@@ -713,11 +708,8 @@ footer p {
   }
 
   #home {
-    min-height: 100vh;
-    min-height: 100dvh;
-    min-height: -webkit-fill-available;
-    height: 100vh;
-    height: 100dvh;
+    min-height: var(--app-height, 100dvh);
+    height: var(--app-height, 100dvh);
   }
 
   .contact-info {
@@ -728,11 +720,8 @@ footer p {
 
 @media (max-width: 320px) {
   #home {
-    min-height: 100vh;
-    min-height: 100dvh;
-    min-height: -webkit-fill-available;
-    height: 100vh;
-    height: 100dvh;
+    min-height: var(--app-height, 100dvh);
+    height: var(--app-height, 100dvh);
   }
 }
 

@@ -7,6 +7,8 @@ export default function GlobalStyles() {
       html {
         -webkit-font-smoothing: antialiased;
         scroll-behavior: smooth;
+        /* Match system chrome / notch fill to site ink */
+        background-color: #000000;
       }
       
       /* Override scroll behavior for immediate scroll to top */
@@ -237,14 +239,22 @@ export default function GlobalStyles() {
       
       #home {
         position: relative;
-        min-height: 100vh;
-        min-height: 100dvh;
-        min-height: -webkit-fill-available;
-        height: 100vh;
-        height: 100dvh;
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
-        background-position: center center !important;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* Dynamic height from JS (visualViewport); CSS fallbacks for first paint */
+        min-height: var(--app-height, 100dvh);
+        height: var(--app-height, 100dvh);
+        background: transparent !important;
+        overflow: hidden;
+      }
+
+      /* Fallback before JS sets --app-height */
+      :root {
+        --app-height: 100dvh;
       }
       
       .fullwidth-section {
@@ -912,11 +922,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 980px) {
         #home {
-          min-height: 100vh;
-          min-height: 100dvh;
-          min-height: -webkit-fill-available;
-          height: 100vh;
-          height: 100dvh;
+          min-height: var(--app-height, 100dvh);
+          height: var(--app-height, 100dvh);
         }
         
         .service-thumb {
@@ -931,11 +938,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 768px) {
         #home {
-          min-height: 100vh;
-          min-height: 100dvh;
-          min-height: -webkit-fill-available;
-          height: 100vh;
-          height: 100dvh;
+          min-height: var(--app-height, 100dvh);
+          height: var(--app-height, 100dvh);
         }
       }
       
@@ -949,11 +953,8 @@ export default function GlobalStyles() {
         }
         
         #home {
-          min-height: 100vh;
-          min-height: 100dvh;
-          min-height: -webkit-fill-available;
-          height: 100vh;
-          height: 100dvh;
+          min-height: var(--app-height, 100dvh);
+          height: var(--app-height, 100dvh);
         }
         
         .contact-info {
@@ -963,11 +964,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 320px) {
         #home {
-          min-height: 100vh;
-          min-height: 100dvh;
-          min-height: -webkit-fill-available;
-          height: 100vh;
-          height: 100dvh;
+          min-height: var(--app-height, 100dvh);
+          height: var(--app-height, 100dvh);
         }
       }
       

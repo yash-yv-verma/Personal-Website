@@ -28,24 +28,18 @@
         overflow-x: hidden !important;
     }
 
-    /* Full-bleed home hero: cover notch to bottom of screen */
+    /* Full-bleed home hero — height driven by --app-height (set dynamically in JS) */
     #home {
-        background: url('../images/homebg.jpeg') center center / cover no-repeat !important;
+        background: transparent !important;
         background-attachment: scroll !important;
-        min-height: 100vh !important;
-        min-height: 100dvh !important;
-        min-height: -webkit-fill-available !important;
-        height: 100vh !important;
-        height: 100dvh !important;
-        /* Extend under status bar / notch */
+        min-height: var(--app-height, 100dvh) !important;
+        height: var(--app-height, 100dvh) !important;
         margin-top: 0 !important;
         padding-top: 0 !important;
+        overflow: hidden !important;
     }
     .parallax-section {
         background-attachment: scroll !important;
-        background-position: center center !important;
-        background-size: cover !important;
-        background-repeat: no-repeat !important;
     }
 
     /* Fix home section layout on mobile */
@@ -179,12 +173,10 @@
             height: -webkit-fill-available !important;
         }
         #home {
-            background: url('../images/homebg.jpeg') center center / cover no-repeat !important;
+            background: transparent !important;
             background-attachment: scroll !important;
-            min-height: 100vh !important;
-            min-height: -webkit-fill-available !important;
-            height: 100vh !important;
-            height: -webkit-fill-available !important;
+            min-height: var(--app-height, 100dvh) !important;
+            height: var(--app-height, 100dvh) !important;
         }
         .parallax-section {
             background-attachment: scroll !important;

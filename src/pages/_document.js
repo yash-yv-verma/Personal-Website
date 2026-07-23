@@ -56,6 +56,20 @@ class MyDocument extends Document {
                   if ('scrollRestoration' in history) {
                     history.scrollRestoration = 'manual';
                   }
+                  // Dynamic viewport height for full-bleed hero (iOS Safari URL bar / notch)
+                  (function () {
+                    function setAppHeight() {
+                      var h = (window.visualViewport && window.visualViewport.height)
+                        ? window.visualViewport.height
+                        : window.innerHeight;
+                      document.documentElement.style.setProperty('--app-height', Math.round(h) + 'px');
+                    }
+                    setAppHeight();
+                    window.addEventListener('resize', setAppHeight);
+                    if (window.visualViewport) {
+                      window.visualViewport.addEventListener('resize', setAppHeight);
+                    }
+                  })();
                 }
               `,
             }}
