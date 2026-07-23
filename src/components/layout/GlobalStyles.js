@@ -244,59 +244,38 @@ export default function GlobalStyles() {
         align-items: center;
         width: 100%;
         margin: 0;
-        /* Pull into the notch / home-indicator so the photo paints there from first paint */
-        margin-top: calc(0px - env(safe-area-inset-top, 0px));
-        margin-bottom: calc(0px - env(safe-area-inset-bottom, 0px));
         padding: 0;
-        padding-top: env(safe-area-inset-top, 0px);
-        padding-bottom: env(safe-area-inset-bottom, 0px);
         box-sizing: border-box;
+        /* Transparent so #home-viewport-bleed (fixed photo) shows through, including notch */
+        background: transparent !important;
+        background-image: none !important;
         /*
-          Stable height — never bind to visualViewport (that caused iOS zoom).
-          Add safe-area insets so the box covers notch + home indicator fully.
+          Stable large-viewport spacer — image fill is the fixed bleed layer.
+          Never bind height to visualViewport (that caused iOS zoom).
         */
         min-height: 100vh;
         min-height: 100dvh;
+        min-height: 100svh;
         min-height: 100lvh;
-        min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-        height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-        background-color: #000000;
-        background-image: url('/images/homebg.jpeg');
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: scroll !important;
+        height: 100vh;
+        height: 100dvh;
+        height: 100svh;
+        height: 100lvh;
         transform: none !important;
         overflow: visible;
       }
 
-      /* While home is mounted, html also shows the photo under the notch */
-      html.home-hero-active {
-        background-color: #000000 !important;
-        background-image: url('/images/homebg.jpeg') !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
-        background-attachment: scroll !important;
-      }
-
+      html.home-hero-active,
       body.home-hero-active {
-        background-color: transparent !important;
+        background-color: #000000 !important;
         background-image: none !important;
       }
 
-      /* Smaller hero title on phones (overrides global h1 rules) */
+      /* Smaller hero title on phones */
       @media (max-width: 768px) {
         #home .home-thumb h1 {
-          font-size: 24px !important;
-          line-height: 1.25 !important;
-        }
-      }
-
-      @media (max-width: 480px) {
-        #home .home-thumb h1 {
-          font-size: 22px !important;
-          line-height: 1.25 !important;
+          font-size: 20px !important;
+          line-height: 1.3 !important;
         }
       }
       
@@ -965,8 +944,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 980px) {
         #home {
-          min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-          height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+          min-height: 100lvh;
+          height: 100lvh;
         }
         
         .service-thumb {
@@ -981,8 +960,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 768px) {
         #home {
-          min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-          height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+          min-height: 100lvh;
+          height: 100lvh;
         }
       }
       
@@ -996,8 +975,8 @@ export default function GlobalStyles() {
         }
         
         #home {
-          min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-          height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+          min-height: 100lvh;
+          height: 100lvh;
         }
         
         .contact-info {
@@ -1007,8 +986,8 @@ export default function GlobalStyles() {
       
       @media (max-width: 320px) {
         #home {
-          min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-          height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+          min-height: 100lvh;
+          height: 100lvh;
         }
       }
       

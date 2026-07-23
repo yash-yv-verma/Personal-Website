@@ -43,24 +43,54 @@ class MyDocument extends Document {
           {/* Meta tags */}
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-          {/* No theme-color: on iOS Safari it paints an opaque bar in the notch on first paint.
-              Content only shows through after scroll. Let the page background fill that area. */}
+          {/* Do not set theme-color — iOS Safari paints it as an opaque notch bar on first load */}
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
           <link rel="icon" href="/favicon.svg" />
+          <link rel="preload" as="image" href="/images/homebg.jpeg" />
 
-          {/* First-paint homepage: photo on <html> BEFORE React hydrates (fixes black notch) */}
           <style
             dangerouslySetInnerHTML={{
               __html: `
-                html {
+                html, body {
+                  margin: 0;
+                  padding: 0;
                   background-color: #000000;
+                }
+                /* Full-viewport photo layer — covers notch from first paint */
+                #home-viewport-bleed {
+                  position: fixed !important;
+                  top: 0 !important;
+                  left: 0 !important;
+                  right: 0 !important;
+                  bottom: 0 !important;
+                  width: 100% !important;
+                  width: 100vw !important;
+                  height: 100% !important;
+                  height: 100vh !important;
+                  height: 100dvh !important;
+                  height: 100lvh !important;
+                  height: -webkit-fill-available !important;
+                  z-index: 0 !important;
+                  pointer-events: none !important;
+                  background-color: #000000 !important;
+                  background-image: url('/images/homebg.jpeg') !important;
+                  background-size: cover !important;
+                  background-position: center center !important;
+                  background-repeat: no-repeat !important;
+                  transform: none !important;
+                }
+                #__next {
+                  position: relative;
+                  z-index: 1;
+                  background: transparent;
                 }
               `,
             }}
           />
-          
-          {/* Disable scroll restoration to ensure pages always start at top */}
+        </Head>
+        <body>
+          {/* Inject bleed BEFORE React so notch/photo are correct on first paint */}
           <script
             dangerouslySetInnerHTML={{
               __html: `
@@ -69,35 +99,22 @@ class MyDocument extends Document {
                   if ('scrollRestoration' in history) {
                     history.scrollRestoration = 'manual';
                   }
-                  // Homepage only: paint homebg on <html> immediately so the notch
-                  // shows the photo from the first frame (not after scroll / hydration).
                   var path = window.location.pathname || '/';
-                  if (path === '/' || path === '') {
-                    var html = document.documentElement;
-                    html.classList.add('home-hero-active');
-                    html.style.backgroundColor = '#000000';
-                    html.style.backgroundImage = "url('/images/homebg.jpeg')";
-                    html.style.backgroundSize = 'cover';
-                    html.style.backgroundPosition = 'center center';
-                    html.style.backgroundRepeat = 'no-repeat';
-                    if (document.body) {
-                      document.body.classList.add('home-hero-active');
-                      document.body.style.backgroundColor = 'transparent';
-                      document.body.style.backgroundImage = 'none';
-                    } else {
-                      document.addEventListener('DOMContentLoaded', function () {
-                        document.body.classList.add('home-hero-active');
-                        document.body.style.backgroundColor = 'transparent';
-                        document.body.style.backgroundImage = 'none';
-                      });
-                    }
+                  if (path !== '/' && path !== '') return;
+
+                  document.documentElement.classList.add('home-hero-active');
+                  document.body.classList.add('home-hero-active');
+
+                  if (!document.getElementById('home-viewport-bleed')) {
+                    var el = document.createElement('div');
+                    el.id = 'home-viewport-bleed';
+                    el.setAttribute('aria-hidden', 'true');
+                    document.body.insertBefore(el, document.body.firstChild);
                   }
                 })();
               `,
             }}
           />
-        </Head>
-        <body>
           <Main />
           <NextScript />
         </body>
@@ -106,4 +123,4 @@ class MyDocument extends Document {
   }
 }
 
-export default MyDocument; 
+export default MyDocument;

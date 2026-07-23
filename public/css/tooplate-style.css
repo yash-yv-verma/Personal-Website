@@ -224,12 +224,8 @@ a:hover, a:active, a:focus {
 -----------------------------------------*/
 
 #home {
-  background-color: #000000;
-  background-image: url('../images/homebg.jpeg');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
+  background: transparent;
+  background-image: none;
   display: -webkit-box;
   display: -webkit-flex;
    display: -ms-flexbox;
@@ -238,18 +234,21 @@ a:hover, a:active, a:focus {
   -webkit-align-items: center;
   -ms-flex-align: center;
    align-items: center;
-  /* Extend into notch + home indicator; stable lvh (no JS resize / no zoom) */
-  margin-top: calc(0px - env(safe-area-inset-top, 0px));
-  margin-bottom: calc(0px - env(safe-area-inset-bottom, 0px));
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-  min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-  height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+  /* Spacer only — full-screen photo is #home-viewport-bleed */
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: 100svh;
+  min-height: 100lvh;
+  height: 100vh;
+  height: 100dvh;
+  height: 100svh;
+  height: 100lvh;
   position: relative;
   text-align: left;
   overflow: visible;
   transform: none;
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -683,9 +682,9 @@ footer p {
 
 @media (max-width: 980px) {
   #home {
-    min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-    height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-    background-attachment: scroll;
+    min-height: 100lvh;
+    height: 100lvh;
+    background: transparent;
   }
 
   .service-thumb {
@@ -701,9 +700,9 @@ footer p {
 
 @media (max-width: 768px) {
   #home {
-    min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-    height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-    background-attachment: scroll;
+    min-height: 100lvh;
+    height: 100lvh;
+    background: transparent;
   }
 }
 
@@ -719,8 +718,8 @@ footer p {
   }
 
   #home {
-    min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-    height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+    min-height: 100lvh;
+    height: 100lvh;
   }
 
   .contact-info {
@@ -731,8 +730,8 @@ footer p {
 
 @media (max-width: 320px) {
   #home {
-    min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
-    height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px));
+    min-height: 100lvh;
+    height: 100lvh;
   }
 }
 

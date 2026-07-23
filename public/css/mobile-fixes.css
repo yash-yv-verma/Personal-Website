@@ -28,44 +28,52 @@
         overflow-x: hidden !important;
     }
 
-    /* Full-bleed home hero — extend into safe areas, stable height (no zoom) */
+    /* Home hero: photo is #home-viewport-bleed (fixed). Section is transparent spacer. */
     #home {
-        background-color: #000000 !important;
-        background-image: url('../images/homebg.jpeg') !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
-        background-attachment: scroll !important;
-        margin-top: calc(0px - env(safe-area-inset-top, 0px)) !important;
-        margin-bottom: calc(0px - env(safe-area-inset-bottom, 0px)) !important;
-        padding-top: env(safe-area-inset-top, 0px) !important;
-        padding-bottom: env(safe-area-inset-bottom, 0px) !important;
-        min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
-        height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
+        background: transparent !important;
+        background-image: none !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        min-height: 100svh !important;
+        min-height: 100lvh !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        height: 100svh !important;
+        height: 100lvh !important;
+        margin: 0 !important;
+        padding: 0 !important;
         overflow: visible !important;
         transform: none !important;
-        box-sizing: border-box !important;
     }
     .parallax-section {
         background-attachment: scroll !important;
     }
 
-    html.home-hero-active {
+    html.home-hero-active,
+    body.home-hero-active {
+        background-color: #000000 !important;
+        background-image: none !important;
+    }
+
+    #home .home-thumb h1 {
+        font-size: 20px !important;
+        line-height: 1.3 !important;
+    }
+
+    #home-viewport-bleed {
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        height: 100lvh !important;
+        height: -webkit-fill-available !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
         background-color: #000000 !important;
         background-image: url('../images/homebg.jpeg') !important;
         background-size: cover !important;
         background-position: center center !important;
         background-repeat: no-repeat !important;
-    }
-
-    body.home-hero-active {
-        background-color: transparent !important;
-        background-image: none !important;
-    }
-
-    #home .home-thumb h1 {
-        font-size: 24px !important;
-        line-height: 1.25 !important;
     }
 
     /* Fix home section layout on mobile */
@@ -199,21 +207,22 @@
             height: -webkit-fill-available !important;
         }
         #home {
-            background-color: #000000 !important;
+            background: transparent !important;
+            background-image: none !important;
+            min-height: 100lvh !important;
+            height: 100lvh !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: visible !important;
+            transform: none !important;
+        }
+        #home-viewport-bleed {
+            position: fixed !important;
+            inset: 0 !important;
+            height: -webkit-fill-available !important;
             background-image: url('../images/homebg.jpeg') !important;
             background-size: cover !important;
             background-position: center center !important;
-            background-repeat: no-repeat !important;
-            background-attachment: scroll !important;
-            margin-top: calc(0px - env(safe-area-inset-top, 0px)) !important;
-            margin-bottom: calc(0px - env(safe-area-inset-bottom, 0px)) !important;
-            padding-top: env(safe-area-inset-top, 0px) !important;
-            padding-bottom: env(safe-area-inset-bottom, 0px) !important;
-            min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
-            height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
-            overflow: visible !important;
-            transform: none !important;
-            box-sizing: border-box !important;
         }
         .parallax-section {
             background-attachment: scroll !important;

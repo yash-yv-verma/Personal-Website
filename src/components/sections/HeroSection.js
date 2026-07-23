@@ -3,12 +3,15 @@ import { useAnimations } from '../../hooks/useAnimations';
 import { useEffect } from 'react';
 
 /**
- * Home hero — stable full-viewport photo.
+ * Home hero.
  *
- * iOS notes:
- * - Never resize #home on scroll (that caused the zoom bug).
- * - Notch fill must be painted before React hydrates (see _document.js critical CSS/script).
- * - #home is pulled into safe-area so the photo covers the notch from first paint.
+ * The full-screen photo (including under the iOS notch) is painted by
+ * #home-viewport-bleed — a position:fixed layer injected in _document.js
+ * BEFORE React hydrates. That is what makes the notch correct on first paint.
+ *
+ * #home itself is a transparent spacer sized to 100lvh so the next section
+ * does not peek through. Height is CSS-only (never tied to visualViewport),
+ * so iOS URL-bar show/hide cannot zoom the background.
  */
 export default function HeroSection() {
   const { fadeInUp } = useAnimations();
@@ -16,13 +19,23 @@ export default function HeroSection() {
   useEffect(() => {
     const html = document.documentElement;
     const body = document.body;
-
     html.classList.add('home-hero-active');
     body.classList.add('home-hero-active');
+
+    // Ensure bleed exists (client navigations back to home)
+    let bleed = document.getElementById('home-viewport-bleed');
+    if (!bleed) {
+      bleed = document.createElement('div');
+      bleed.id = 'home-viewport-bleed';
+      bleed.setAttribute('aria-hidden', 'true');
+      body.insertBefore(bleed, body.firstChild);
+    }
 
     return () => {
       html.classList.remove('home-hero-active');
       body.classList.remove('home-hero-active');
+      const existing = document.getElementById('home-viewport-bleed');
+      if (existing) existing.remove();
     };
   }, []);
 
@@ -79,8 +92,8 @@ export default function HeroSection() {
           }
 
           .home-thumb h1 {
-            font-size: 24px !important;
-            line-height: 1.25 !important;
+            font-size: 20px !important;
+            line-height: 1.3 !important;
             word-wrap: break-word;
           }
 
@@ -96,8 +109,8 @@ export default function HeroSection() {
           }
 
           .home-thumb h1 {
-            font-size: 22px !important;
-            line-height: 1.25 !important;
+            font-size: 20px !important;
+            line-height: 1.3 !important;
           }
         }
       `}</style>
