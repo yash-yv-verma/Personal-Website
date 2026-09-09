@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import SEOHead from '../../../components/shared/SEOHead';
+import CourseTile, { CourseTileGrid } from '../../../components/courses/CourseTile';
 import Navigation from '../../../components/layout/Navigation';
 import { useAnimations } from '../../../hooks/useAnimations';
 import { useState, useEffect } from 'react';
@@ -140,11 +141,7 @@ export default function CoursePage({ semester, course }) {
             </Link>
           </motion.div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(2, minmax(0, 1fr))',
-            gap: '20px'
-          }}>
+          <CourseTileGrid>
             {course.links.map((link, index) => (
               <motion.div
                 key={link.href}
@@ -152,13 +149,9 @@ export default function CoursePage({ semester, course }) {
                 initial="hidden"
                 animate="visible"
                 custom={0.4 + index * 0.08}
+                style={{ height: '100%' }}
               >
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ ...cardStyle(isMobile), marginBottom: 0, height: '100%' }}
-                >
+                <CourseTile href={link.href} external>
                   <h2 style={{
                     ...sectionTitleStyle(isMobile),
                     fontSize: isMobile ? '1.2rem' : '1.4rem'
@@ -175,10 +168,10 @@ export default function CoursePage({ semester, course }) {
                   }}>
                     {link.hint}
                   </p>
-                </a>
+                </CourseTile>
               </motion.div>
             ))}
-          </div>
+          </CourseTileGrid>
         </motion.div>
       </div>
     </>

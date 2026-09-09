@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import SEOHead from '../../components/shared/SEOHead';
+import CourseTile, { CourseTileGrid } from '../../components/courses/CourseTile';
 import Navigation from '../../components/layout/Navigation';
 import { useAnimations } from '../../hooks/useAnimations';
 import { useState, useEffect } from 'react';
@@ -43,19 +43,6 @@ const sectionTitleStyle = (isMobile) => ({
   textTransform: 'uppercase',
   borderBottom: '1px solid rgba(255, 255, 255, 0.2)',
   paddingBottom: '10px'
-});
-
-const cardStyle = (isMobile) => ({
-  background: 'rgba(17, 17, 17, 0.6)',
-  backdropFilter: 'blur(10px)',
-  borderRadius: '12px',
-  padding: isMobile ? '30px 20px' : '50px 40px',
-  marginBottom: '30px',
-  border: '1px solid rgba(255, 255, 255, 0.1)',
-  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)',
-  textDecoration: 'none',
-  color: '#ffffff',
-  display: 'block'
 });
 
 export default function CoursesDashboard() {
@@ -115,11 +102,7 @@ export default function CoursesDashboard() {
           animate="visible"
           custom={0.2}
         >
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, minmax(0, 1fr))',
-            gap: '20px'
-          }}>
+          <CourseTileGrid>
             {semesters.map((semester, index) => (
               <motion.div
                 key={semester.slug}
@@ -127,8 +110,9 @@ export default function CoursesDashboard() {
                 initial="hidden"
                 animate="visible"
                 custom={0.3 + index * 0.1}
+                style={{ height: '100%' }}
               >
-                <Link href={`/courses/${semester.slug}`} style={{ ...cardStyle(isMobile), marginBottom: 0, height: '100%' }}>
+                <CourseTile href={`/courses/${semester.slug}`}>
                   <h2 style={sectionTitleStyle(isMobile)}>{semester.label}</h2>
                   <p style={{
                     fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
@@ -148,10 +132,10 @@ export default function CoursesDashboard() {
                   }}>
                     {semester.school} · {semester.courses.length} courses
                   </p>
-                </Link>
+                </CourseTile>
               </motion.div>
             ))}
-          </div>
+          </CourseTileGrid>
         </motion.div>
       </div>
     </>

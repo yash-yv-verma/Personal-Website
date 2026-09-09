@@ -216,7 +216,6 @@ export default function Navigation() {
 
   const navLinks = [
     { href: '/', label: 'Home', isActive: router.pathname === '/' },
-    { href: '/courses', label: 'Courses', isActive: router.pathname.startsWith('/courses') },
     { href: '/blog', label: 'Blog', isActive: router.pathname.startsWith('/blog') },
     { href: '/bts', label: 'BTS', isActive: router.pathname.startsWith('/bts') },
     { href: '/research', label: 'Research', isActive: router.pathname === '/research' },

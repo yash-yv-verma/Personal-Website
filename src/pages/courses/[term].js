@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import SEOHead from '../../components/shared/SEOHead';
+import CourseTile, { CourseTileGrid } from '../../components/courses/CourseTile';
 import Navigation from '../../components/layout/Navigation';
 import { useAnimations } from '../../hooks/useAnimations';
 import { useState, useEffect } from 'react';
@@ -140,11 +141,7 @@ export default function SemesterPage({ semester }) {
             </Link>
           </motion.div>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, minmax(0, 1fr))',
-            gap: '20px'
-          }}>
+          <CourseTileGrid>
             {semester.courses.map((course, index) => (
               <motion.div
                 key={course.slug}
@@ -152,8 +149,9 @@ export default function SemesterPage({ semester }) {
                 initial="hidden"
                 animate="visible"
                 custom={0.4 + index * 0.1}
+                style={{ height: '100%' }}
               >
-                <Link href={`/courses/${semester.slug}/${course.slug}`} style={{ ...cardStyle(isMobile), marginBottom: 0, height: '100%' }}>
+                <CourseTile href={`/courses/${semester.slug}/${course.slug}`}>
                   <h2 style={{
                     ...sectionTitleStyle(isMobile),
                     fontSize: isMobile ? '1.2rem' : '1.4rem'
@@ -178,10 +176,10 @@ export default function SemesterPage({ semester }) {
                   }}>
                     {course.links.length} links
                   </p>
-                </Link>
+                </CourseTile>
               </motion.div>
             ))}
-          </div>
+          </CourseTileGrid>
         </motion.div>
       </div>
     </>
