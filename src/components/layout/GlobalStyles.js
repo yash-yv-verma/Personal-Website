@@ -58,7 +58,7 @@ export default function GlobalStyles() {
          Applying transform on ancestors breaks iOS fixed elements and top-tap behavior. */
 
       /* Optimize only animated elements, without forcing transform */
-      .parallax-section,
+      .parallax-section:not(#home):not(.home-hero),
       .motion-div,
       [data-framer-motion] {
         will-change: transform;
@@ -244,60 +244,39 @@ export default function GlobalStyles() {
         align-items: center;
         width: 100%;
         margin: 0 !important;
+        margin-top: calc(0px - env(safe-area-inset-top, 0px)) !important;
+        margin-bottom: calc(0px - env(safe-area-inset-bottom, 0px)) !important;
         padding: 0 !important;
-        box-sizing: border-box;
-        /* Transparent — photo comes from html background + #home-viewport-bleed */
-        background: transparent !important;
-        background-image: none !important;
-        /* Stable spacer; never bind to visualViewport (zoom bug) */
-        min-height: 100vh;
-        min-height: 100svh;
-        min-height: 100dvh;
-        min-height: 100lvh;
-        height: 100vh;
-        height: 100svh;
-        height: 100dvh;
-        height: 100lvh;
-        transform: none !important;
-        overflow: visible;
-      }
-
-      /* Photo on html fills notch + any gap before white section (no black strip) */
-      html.home-hero-active {
+        padding-top: env(safe-area-inset-top, 0px) !important;
+        padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+        box-sizing: border-box !important;
+        /* Photo is a single <img.home-hero-photo> — never CSS background-image here */
         background-color: #000000 !important;
-        background-image: url('/images/homebg.jpeg') !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
-        background-attachment: scroll !important;
+        background-image: none !important;
+        min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
+        height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
+        transform: none !important;
+        will-change: auto !important;
+        overflow: hidden;
       }
 
-      body.home-hero-active {
-        background-color: transparent !important;
-        background-image: none !important;
+      #home .home-hero-photo {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
+        transform: none !important;
+        will-change: auto !important;
       }
 
       #home-viewport-bleed {
-        position: fixed !important;
-        top: calc(-1 * env(safe-area-inset-top, 0px) - 2px) !important;
-        right: calc(-1 * env(safe-area-inset-right, 0px) - 2px) !important;
-        bottom: calc(-1 * env(safe-area-inset-bottom, 0px) - 2px) !important;
-        left: calc(-1 * env(safe-area-inset-left, 0px) - 2px) !important;
-        width: auto !important;
-        height: auto !important;
-        min-width: 100vw !important;
-        min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px) + 4px) !important;
-        z-index: 0 !important;
-        pointer-events: none !important;
-        background-color: #000000 !important;
-        background-image: url('/images/homebg.jpeg') !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
-        transform: none !important;
+        display: none !important;
       }
 
-      /* No gap between hero and next section */
       #service {
         margin-top: 0 !important;
       }

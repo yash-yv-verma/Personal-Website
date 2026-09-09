@@ -28,63 +28,45 @@
         overflow-x: hidden !important;
     }
 
-    /* Home hero: photo on html + #home-viewport-bleed; section is transparent spacer */
+    /* Home hero — photo is <img.home-hero-photo>, not CSS background */
     #home {
-        background: transparent !important;
+        background-color: #000000 !important;
         background-image: none !important;
-        min-height: 100vh !important;
-        min-height: 100svh !important;
-        min-height: 100dvh !important;
-        min-height: 100lvh !important;
-        height: 100vh !important;
-        height: 100svh !important;
-        height: 100dvh !important;
-        height: 100lvh !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow: visible !important;
+        margin-top: calc(0px - env(safe-area-inset-top, 0px)) !important;
+        margin-bottom: calc(0px - env(safe-area-inset-bottom, 0px)) !important;
+        padding-top: env(safe-area-inset-top, 0px) !important;
+        padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+        min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
+        height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
         transform: none !important;
+        will-change: auto !important;
+    }
+    #home .home-hero-photo {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center center !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
+        transform: none !important;
+        will-change: auto !important;
     }
     .parallax-section {
         background-attachment: scroll !important;
     }
 
-    html.home-hero-active {
-        background-color: #000000 !important;
-        background-image: url('../images/homebg.jpeg') !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
-    }
-
-    body.home-hero-active {
-        background-color: transparent !important;
-        background-image: none !important;
+    /* Remove any leftover bleed node from older deploys */
+    #home-viewport-bleed {
+        display: none !important;
     }
 
     #home .home-thumb h1 {
         font-size: 20px !important;
         line-height: 1.3 !important;
-    }
-
-    #home-viewport-bleed {
-        position: fixed !important;
-        top: calc(-1 * env(safe-area-inset-top, 0px) - 2px) !important;
-        right: calc(-1 * env(safe-area-inset-right, 0px) - 2px) !important;
-        bottom: calc(-1 * env(safe-area-inset-bottom, 0px) - 2px) !important;
-        left: calc(-1 * env(safe-area-inset-left, 0px) - 2px) !important;
-        width: auto !important;
-        height: auto !important;
-        min-width: 100vw !important;
-        min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px) + 4px) !important;
-        z-index: 0 !important;
-        pointer-events: none !important;
-        background-color: #000000 !important;
-        background-image: url('../images/homebg.jpeg') !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
-        transform: none !important;
     }
 
     #service {
@@ -217,38 +199,38 @@
             padding-bottom: 60px !important;
         }
     }
-    /* Additional fixes for iOS Safari */
+    /* Additional fixes for iOS Safari — single <img> hero, no CSS/html dupes */
     @supports (-webkit-touch-callout: none) {
         html {
             height: -webkit-fill-available !important;
+            background-image: none !important;
         }
         #home {
-            background: transparent !important;
+            background-color: #000000 !important;
             background-image: none !important;
-            min-height: 100lvh !important;
-            height: 100lvh !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            overflow: visible !important;
+            margin-top: calc(0px - env(safe-area-inset-top, 0px)) !important;
+            margin-bottom: calc(0px - env(safe-area-inset-bottom, 0px)) !important;
+            padding-top: env(safe-area-inset-top, 0px) !important;
+            padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+            min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
+            height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px)) !important;
+            box-sizing: border-box !important;
+            overflow: hidden !important;
             transform: none !important;
+            will-change: auto !important;
         }
-        html.home-hero-active {
-            background-image: url('../images/homebg.jpeg') !important;
-            background-size: cover !important;
-            background-position: center center !important;
+        #home .home-hero-photo {
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center center !important;
+            transform: none !important;
+            will-change: auto !important;
         }
         #home-viewport-bleed {
-            position: fixed !important;
-            top: calc(-1 * env(safe-area-inset-top, 0px) - 2px) !important;
-            right: calc(-1 * env(safe-area-inset-right, 0px) - 2px) !important;
-            bottom: calc(-1 * env(safe-area-inset-bottom, 0px) - 2px) !important;
-            left: calc(-1 * env(safe-area-inset-left, 0px) - 2px) !important;
-            width: auto !important;
-            height: auto !important;
-            min-height: calc(100lvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px) + 4px) !important;
-            background-image: url('../images/homebg.jpeg') !important;
-            background-size: cover !important;
-            background-position: center center !important;
+            display: none !important;
         }
         .parallax-section {
             background-attachment: scroll !important;
