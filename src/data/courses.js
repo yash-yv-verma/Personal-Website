@@ -65,6 +65,16 @@ export const semesters = [
             hint: 'web.eecs.umich.edu',
           },
           {
+            label: 'Review Format',
+            href: 'https://web.eecs.umich.edu/~ryanph/cse598/fall26/cse598_review_summary.md',
+            hint: 'web.eecs.umich.edu',
+          },
+          {
+            label: 'Research Paper Readings',
+            href: 'https://docs.google.com/spreadsheets/d/1RjVLUr8oi1RFXoJ1-8xeCqTGMRiC4IIUGnWMLIocyLs/edit?gid=1337779361#gid=1337779361',
+            hint: 'docs.google.com',
+          },
+          {
             label: 'Gradescope',
             href: 'https://www.gradescope.com/courses/1361707',
             hint: 'gradescope.com',
