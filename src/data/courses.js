@@ -6,23 +6,6 @@ export const semesters = [
     school: 'University of Michigan',
     courses: [
       {
-        slug: 'cse-585',
-        code: 'CSE 585',
-        title: 'Advanced Scalable Systems for Agentic AI',
-        links: [
-          {
-            label: 'Course Git / Website',
-            href: 'https://github.com/mosharaf/cse585',
-            hint: 'github.com/mosharaf/cse585',
-          },
-          {
-            label: 'Ed Discussion',
-            href: 'https://edstem.org/us/courses/100799/',
-            hint: 'edstem.org',
-          },
-        ],
-      },
-      {
         slug: 'cse-592',
         code: 'CSE 592',
         title: 'Foundations of Artificial Intelligence',
@@ -88,6 +71,26 @@ export const semesters = [
       },
     ],
   },
+  {
+    slug: 'w27',
+    label: 'W27',
+    name: 'Winter 2027',
+    school: 'University of Michigan',
+    courses: [
+      {
+        slug: 'cse-585',
+        code: 'CSE 585',
+        title: 'Advanced Scalable Systems for Agentic AI',
+        links: [
+          {
+            label: 'Course Git / Website',
+            href: 'https://github.com/mosharaf/cse585',
+            hint: 'github.com/mosharaf/cse585',
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export function getSemester(slug) {
@@ -98,4 +101,15 @@ export function getCourse(term, slug) {
   const semester = getSemester(term);
   if (!semester) return null;
   return semester.courses.find((course) => course.slug === slug) || null;
+}
+
+export function getAdjacentCourses(term, slug) {
+  const semester = getSemester(term);
+  if (!semester) return { previous: null, next: null };
+  const index = semester.courses.findIndex((course) => course.slug === slug);
+  if (index === -1) return { previous: null, next: null };
+  return {
+    previous: semester.courses[index - 1] || null,
+    next: semester.courses[index + 1] || null,
+  };
 }

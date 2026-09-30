@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import SEOHead from '../../../components/shared/SEOHead';
 import CourseTile, { CourseTileGrid } from '../../../components/courses/CourseTile';
 import Navigation from '../../../components/layout/Navigation';
 import { useAnimations } from '../../../hooks/useAnimations';
 import { useState, useEffect } from 'react';
-import { semesters, getSemester, getCourse } from '../../../data/courses';
+import { semesters, getSemester, getCourse, getAdjacentCourses } from '../../../data/courses';
+import CourseNav from '../../../components/courses/CourseNav';
 
 const titleStyle = (isMobile) => ({
   fontFamily: "'Orbitron', 'Space Grotesk', monospace",
@@ -47,7 +47,7 @@ const cardStyle = (isMobile) => ({
   display: 'block'
 });
 
-export default function CoursePage({ semester, course }) {
+export default function CoursePage({ semester, course, previous, next }) {
   const { fadeInUp } = useAnimations();
   const [isMobile, setIsMobile] = useState(false);
 
@@ -125,21 +125,20 @@ export default function CoursePage({ semester, course }) {
               fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
               fontSize: isMobile ? '1rem' : '1.1rem',
               lineHeight: '1.7',
-              margin: '0 0 16px 0',
+              margin: 0,
               color: '#ffffff',
               fontWeight: 400
             }}>
               {semester.name} · {semester.school}
             </p>
-            <Link href={`/courses/${semester.slug}`} style={{
-              fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-              fontSize: '1rem',
-              color: '#ffffff',
-              textDecoration: 'underline'
-            }}>
-              {semester.label} courses
-            </Link>
           </motion.div>
+
+          <CourseNav
+            backHref={`/courses/${semester.slug}`}
+            backLabel={`${semester.label} courses`}
+            previous={previous ? { href: `/courses/${semester.slug}/${previous.slug}`, label: previous.code } : null}
+            next={next ? { href: `/courses/${semester.slug}/${next.slug}`, label: next.code } : null}
+          />
 
           <CourseTileGrid>
             {course.links.map((link, index) => (
@@ -192,5 +191,6 @@ export async function getStaticProps({ params }) {
   const semester = getSemester(params.term);
   const course = getCourse(params.term, params.slug);
   if (!semester || !course) return { notFound: true };
-  return { props: { semester, course } };
+  const { previous, next } = getAdjacentCourses(params.term, params.slug);
+  return { props: { semester, course, previous, next } };
 }

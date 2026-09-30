@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import SEOHead from '../../components/shared/SEOHead';
 import CourseTile, { CourseTileGrid } from '../../components/courses/CourseTile';
+import CourseNav from '../../components/courses/CourseNav';
 import Navigation from '../../components/layout/Navigation';
 import { useAnimations } from '../../hooks/useAnimations';
 import { useState, useEffect } from 'react';
@@ -125,21 +125,15 @@ export default function SemesterPage({ semester }) {
               fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
               fontSize: isMobile ? '1rem' : '1.1rem',
               lineHeight: '1.7',
-              margin: '0 0 16px 0',
+              margin: 0,
               color: '#ffffff',
               fontWeight: 400
             }}>
               {semester.school}. Open a course for its quick links.
             </p>
-            <Link href="/courses" style={{
-              fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-              fontSize: '1rem',
-              color: '#ffffff',
-              textDecoration: 'underline'
-            }}>
-              All semesters
-            </Link>
           </motion.div>
+
+          <CourseNav backHref="/courses" backLabel="Semesters" />
 
           <CourseTileGrid>
             {semester.courses.map((course, index) => (
@@ -174,7 +168,7 @@ export default function SemesterPage({ semester }) {
                     margin: 0,
                     color: '#cbd5e1'
                   }}>
-                    {course.links.length} links
+                    {course.links.length} {course.links.length === 1 ? 'link' : 'links'}
                   </p>
                 </CourseTile>
               </motion.div>

@@ -130,7 +130,7 @@ export default function CoursesDashboard() {
                     margin: 0,
                     color: '#cbd5e1'
                   }}>
-                    {semester.school} · {semester.courses.length} courses
+                    {semester.school} · {semester.courses.length} {semester.courses.length === 1 ? 'course' : 'courses'}
                   </p>
                 </CourseTile>
               </motion.div>
